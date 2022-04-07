@@ -1,0 +1,14 @@
+[
+  {
+    "username": "thing1",
+    "password": "CatInHat",
+    "trips": "[ ]",
+    "favorite": "[ ]"
+  },
+  {
+    "username": "thing2",
+    "password": "catinhat",
+    "trips": "[ ]",
+    "favorite": "[ ]"
+  }
+]

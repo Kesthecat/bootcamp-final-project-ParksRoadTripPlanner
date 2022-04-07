@@ -17,17 +17,19 @@ const options = {
 // const pei = require("./data/PEI.json");
 // const saskatchewan = require("./data/Saskatchewan.json");
 // const sepaq = require("./data/Sepaq.json");
+// const users = require("./data/users.json");
 
 const batchImport = async () => {
   const client = new MongoClient(MONGO_URI, options);
   try {
     await client.connect();
     const db = client.db("planner");
-    const result = await db.collection("parks").insertOne(sepaq);
+    const result = await db.collection("users").insertMany(users);
+    console.log("done");
   } catch (err) {
     console.log("There was an error: ", err.message);
   }
   client.close();
 };
 
-// batchImport();
+batchImport();

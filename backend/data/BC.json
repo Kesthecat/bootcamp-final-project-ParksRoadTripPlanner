@@ -1,137 +1,134 @@
-{
-  "_id": "BC",
-  "parks": [
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Yahk Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/yahk/",
-      "hiking": null,
-      "swimming": "no",
-      "dog": "yes",
-      "introduction": "Located along Highway 3/95, 70km south of Cranbrook and 14.5km north of the US and Canadian borders at Kingsgate, Yahk Park is a traveller’s rest place. Near the Moyie River in a quiet well spaced forest this 26 site campground and day-use area is a great introduction to BC Park visitor facilities.\n\nYahk Park was established in 1956 to provide camping and picnicking opportunities for the travelling public. As well it conserves a short scenic section of the Moyie River. The adjacent town of Yahk has services and tourist supplies. The area was once a major supplier of railroad ties for the Canadian Pacific Railway.",
-      "coordinates": "{lat: 49.66373285430433,  lng: -116.15381145900858}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Wasa Lake Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/wasa_lk/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "A family vacation destination since the 1950s, Wasa Lake village advertises the warmest swimming lake in the Kootenays. Wasa Lake Park offers camping, swimming, hiking, cycling, boating and nature viewing opportunities. There is an 8 km wheelchair and bike accessible trail around the lakeshore and a 2.7 km self-guided interpretation trail.\n\nWorld class attractions such as Fort Steele Heritage town, guest ranches, ski hills and golf courses are nearby. In addition to being a popular recreation spot, the park protects a representative grassland ecosystem. It includes a portion of North America’s most northern ponderosa pine forest set amid blue bunch wheatgrass meadows that provide habitat for a wide diversity of animals and plants.",
-      "coordinates": "{lat: 50.313565405945795,  lng: -115.80386001405995}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Sikanni Chief Canyon Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/sikan_cy/",
-      "hiking": "no",
-      "swimming": "no",
-      "dog": "yes",
-      "introduction": "High above, on the canyons rim, wilderness enthusiasts are able to view the majestic canyon walls surrounding the swirling waters of the Sikanni Chief and Buckinghorse Rivers.\n\nBirds of the boreal forests sing as mountain goats carefully navigate age-old trails along the steep slopes of the canyon.",
-      "coordinates": "{lat: 57.78378485377059,  lng: -123.02360832114798}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Red Bluff Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/red_bluff/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "On Babine Lake near the community of Granisle, this popular park is named for the ironstained cliffs that plunge almost perpendicularly into the lake.\n\nPark visitors can swim, sunbathe, angle for a rainbow trout or take in the salmon enhancement projects at nearby Fulton River and Pinkut Creek. Boaters like to explore the extensive shoreline of Babine Lake, the longest natural fresh water lake in British Columbia.",
-      "coordinates": "{lat: 55.39839134402311,  lng: -126.13896066076522}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Quatsino Provincial Park",
-      "camping": "no",
-      "website": "https://bcparks.ca/explore/parkpgs/quatsino/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "Quatsino Provincial Park offers some of the most scenic protected coastline in the Quatsino Sound area. This undeveloped park protects some of the largest old-growth trees that texture Quatsino’s rich coastline. Situated along the popular Quatsino Sound kayak touring route, this park can be used by visitors as an overnight stopover or as a scenic place to enjoy a picnic.\n\nInterior areas of Quatsino Provincial Park encompass a wilderness lake where visitors can enjoy a variety of outdoor activities. People visiting Koprino Lake are advised to use caution when approaching the lake as there is no maintained trail system to gain access.\n\nQuatsino Provincial Park is primarily a marine-access recreational park. There are no established campsites or maintained trails within the park. Overnight camping is recommended only at the adjacent estuary campsites. This is a wilderness park that is not regularly patrolled. Please practice no trace camping while visiting the park.",
-      "coordinates": "{lat: 51.605044643247844,  lng: -127.64869255171911}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Pink Mountain Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/pink_mt/",
-      "hiking": "yes",
-      "swimming": "no",
-      "dog": "yes",
-      "introduction": "Pink Mountain Park is situated on the steep, southwestern slope of Pink Mountain, which offers scenic mountainous habitats and a variety of wildlife. Recreation activities in the area include hiking, photography, scenic viewing and wildlife viewing.",
-      "coordinates": "{lat: 57.541596431182214,  lng: -122.92357576050533}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Otter Lake Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/otter_lk/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "If you’re looking for privacy in a natural setting, Otter Lake is ideal for old-fashioned camping. The park has two locations, a main picnic/day-use area in Tulameen and a lovely lakeside campground about 5 km further north along the road.\n\nThe Cascade Mountain Range surrounds the park and includes awesome canyons and clear flowing streams. Large numbers of otter, beaver and red squirrel inhabit the area, as well as, mountain goats, cougars and grizzly bears. Fishermen will find time spent on Otter Lake rewarding, with large lake trout being the catch of the day.\n\nThe scenic lakeside campground is an ideal base for those who want to explore the mining history of the Tulameen area.",
-      "coordinates": "{lat: 50.14827062056593,  lng: -120.78266029051397}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Little Andrews Bay Marine Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/little_andrews_bay/",
-      "hiking": "no",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "Located on the north shore of Oosta Lake, the park provides camping and boat access to North Tweedsmuir Park.",
-      "coordinates": "{lat: 50.774227463857834,  lng: -125.062251070394}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "King George VI Provincial Park",
-      "camping": "no",
-      "website": "https://bcparks.ca/explore/parkpgs/king_george_vi/#Swimming",
-      "hiking": "no",
-      "swimming": "no",
-      "dog": "no",
-      "introduction": "King George VI Provincial Park protects several species of endangered plants and is home to a variety of wildlife. Old-growth cottonwoods buffer the park from adjacent land use and offer additional habitat for a variety of cavity nesting birds, such as barred owls, pileated woodpeckers and red-naped sapsuckers.\n\nThe park was originally established to provide a day-use rest stop and campground for people entering Canada from the United States along Hwy 22. The facilities were vandalized and ultimately removed, and BC Parks has returned it to its natural state.",
-      "coordinates": "{lat: 49.63527995132055,  lng: -117.89855386127755}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Juan de Fuca Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/juan_de_fuca/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "Juan de Fuca Provincial Park on the west coast of southern Vancouver Island offers scenic beauty, spectacular hiking, marine and wildlife viewing and roaring surf in its course along the Pacific coastline of the Strait of Juan de Fuca.\n\nThere are four main areas to the park: the China Beach Campground, the Juan de Fuca Marine Trail, the China Beach day-use area and Botanical Beach.\n\nA major feature of this park, the Juan de Fuca Marine Trail, follows 47 kilometres of wilderness stretching along the western shoreline of the southern Island. There are four trailheads to the Juan de Fuca Trail at Juan de Fuca East (China Beach), Sombrio Beach, Parkinson Creek and Botanical Beach. Although most of the Juan de Fuca Marine Trail is designed for strenuous day or multi-day hiking/camping in this rugged and isolated area, some easy to moderate day hiking opportunities to the beach or along the trail are available starting from the trailheads.\n\nAt the east end of the park you’ll find the vehicle accessible China Beach campground and the China Beach day-use area. The campground is located in a forested area with open understory, about 1 km east of the China Beach day-use area and the Juan de Fuca East (China Beach) Trailhead. Trails connect the campground to China Beach and the adjacent smaller Second Beach, located east of the larger China Beach day-use.\n\nAt the west end of Juan de Fuca Park is Botanical Beach, one of the richest tidal areas along the west coast. Botanical Beach also has a unique shoreline framed by ridges of shale and quartz, which jut up through the black basalt to form huge tableaus. Botanical Beach is the western terminus for the Juan de Fuca Marine Trail and a popular day trip destination for visitors wishing to observe this sensitive and unique ecosystem. Wildlife viewing is best done at low tide, when visitors can walk out across the flat sandstone and granite outcroppings to view tide pools filled with brightly coloured marine life.\n\nWhen visiting Botanical Beach, please look in the tide pools only – do not touch the marine life. Do not remove, collect or disturb any tide pool life, shells, plants, flowers, kelp, etc. Even touching the water in a tide pool with sunscreen on your hands can create an “oil slick” that could kill the vulnerable creatures in this sensitive ecosystem. Remember to bring your camera, as photographs make great souvenirs.\n\nJuan de Fuca Provincial Park offers ample opportunity to view larger marine mammals as well, including Grey and killer whales, which can often be spotted feeding just off the points. The best time to see Grey whales is during their migration from the Mexican coast to Alaska in March and April. Seals and sea lions can also often be seen playing offshore.",
-      "coordinates": "{lat: 49.09692550534597,  lng: -124.18887124531172}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Inland Lake Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/inland_lk/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "Prior to 1997, this park was a Forest Service Recreation area. The area was established as a provincial park in 1997. Many years ago, the Model Community Society constructed a 13 km wheelchair-accessible trail around Inland Lake.\n\nThere are drive-in and walk-in campsites available at this park, as well as opportunities for swimming, cycling, fishing, canoeing and boating (<10hp).\n\nThe Model Community Project for People with Disabilities have led a two year effort to drastically improve the trail and facilities at Inland Lake Provincial Park. The “Model Community” work in partnership with BC Parks under a Shared Stewardship Agreement. They have successfully raised over 250K of funds to support the park improvement. BC Parks wishes to publically thank the Model Community for their great effort and dedication.",
-      "coordinates": "{lat: 50.49550093777554, lng:  -124.75535144286833}"
-    },
-    {
-      "parkOrigin": "British Columbia",
-      "name": "Horsefly Lake Provincial Park",
-      "camping": "yes",
-      "website": "https://bcparks.ca/explore/parkpgs/horsefly_lk/",
-      "hiking": "yes",
-      "swimming": "yes",
-      "dog": "yes",
-      "introduction": "This park offers a popular 23 site campground and day-use area which has a developed beach, a horseshoe pit and a nature trail. Some activities offered include hiking, exploring and fishing. This is a large, deep lake and is usually fished on a troll – included are a number of smaller lakes excellent for fly-fishing. Fishing for rainbow trout is a favourite pastime of many visitors.\n\nFir, spruce, birch and cedar clothe the slopes along the lower reaches of Dillabough Creek at the west end of Horsefly Lake – a semi-wilderness water body penetrating the Quesnel Highlands. There are old growth cedars and Douglas firs throughout the park. There are two unnamed lakes in the park, once the site of a hatchery operated to restore the run of sockeye to the Horsefly River.",
-      "coordinates": "{lat: 52.89453959738326,  lng: -121.40577434751667}"
-    }
-  ]
-}
+[
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Yahk Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/yahk/",
+    "hiking": null,
+    "swimming": "no",
+    "dog": "yes",
+    "introduction": "Located along Highway 3/95, 70km south of Cranbrook and 14.5km north of the US and Canadian borders at Kingsgate, Yahk Park is a traveller’s rest place. Near the Moyie River in a quiet well spaced forest this 26 site campground and day-use area is a great introduction to BC Park visitor facilities.\n\nYahk Park was established in 1956 to provide camping and picnicking opportunities for the travelling public. As well it conserves a short scenic section of the Moyie River. The adjacent town of Yahk has services and tourist supplies. The area was once a major supplier of railroad ties for the Canadian Pacific Railway.",
+    "coordinates": "{lat: 49.66373285430433,  lng: -116.15381145900858}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Wasa Lake Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/wasa_lk/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "A family vacation destination since the 1950s, Wasa Lake village advertises the warmest swimming lake in the Kootenays. Wasa Lake Park offers camping, swimming, hiking, cycling, boating and nature viewing opportunities. There is an 8 km wheelchair and bike accessible trail around the lakeshore and a 2.7 km self-guided interpretation trail.\n\nWorld class attractions such as Fort Steele Heritage town, guest ranches, ski hills and golf courses are nearby. In addition to being a popular recreation spot, the park protects a representative grassland ecosystem. It includes a portion of North America’s most northern ponderosa pine forest set amid blue bunch wheatgrass meadows that provide habitat for a wide diversity of animals and plants.",
+    "coordinates": "{lat: 50.313565405945795,  lng: -115.80386001405995}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Sikanni Chief Canyon Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/sikan_cy/",
+    "hiking": "no",
+    "swimming": "no",
+    "dog": "yes",
+    "introduction": "High above, on the canyons rim, wilderness enthusiasts are able to view the majestic canyon walls surrounding the swirling waters of the Sikanni Chief and Buckinghorse Rivers.\n\nBirds of the boreal forests sing as mountain goats carefully navigate age-old trails along the steep slopes of the canyon.",
+    "coordinates": "{lat: 57.78378485377059,  lng: -123.02360832114798}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Red Bluff Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/red_bluff/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "On Babine Lake near the community of Granisle, this popular park is named for the ironstained cliffs that plunge almost perpendicularly into the lake.\n\nPark visitors can swim, sunbathe, angle for a rainbow trout or take in the salmon enhancement projects at nearby Fulton River and Pinkut Creek. Boaters like to explore the extensive shoreline of Babine Lake, the longest natural fresh water lake in British Columbia.",
+    "coordinates": "{lat: 55.39839134402311,  lng: -126.13896066076522}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Quatsino Provincial Park",
+    "camping": "no",
+    "website": "https://bcparks.ca/explore/parkpgs/quatsino/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Quatsino Provincial Park offers some of the most scenic protected coastline in the Quatsino Sound area. This undeveloped park protects some of the largest old-growth trees that texture Quatsino’s rich coastline. Situated along the popular Quatsino Sound kayak touring route, this park can be used by visitors as an overnight stopover or as a scenic place to enjoy a picnic.\n\nInterior areas of Quatsino Provincial Park encompass a wilderness lake where visitors can enjoy a variety of outdoor activities. People visiting Koprino Lake are advised to use caution when approaching the lake as there is no maintained trail system to gain access.\n\nQuatsino Provincial Park is primarily a marine-access recreational park. There are no established campsites or maintained trails within the park. Overnight camping is recommended only at the adjacent estuary campsites. This is a wilderness park that is not regularly patrolled. Please practice no trace camping while visiting the park.",
+    "coordinates": "{lat: 51.605044643247844,  lng: -127.64869255171911}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Pink Mountain Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/pink_mt/",
+    "hiking": "yes",
+    "swimming": "no",
+    "dog": "yes",
+    "introduction": "Pink Mountain Park is situated on the steep, southwestern slope of Pink Mountain, which offers scenic mountainous habitats and a variety of wildlife. Recreation activities in the area include hiking, photography, scenic viewing and wildlife viewing.",
+    "coordinates": "{lat: 57.541596431182214,  lng: -122.92357576050533}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Otter Lake Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/otter_lk/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "If you’re looking for privacy in a natural setting, Otter Lake is ideal for old-fashioned camping. The park has two locations, a main picnic/day-use area in Tulameen and a lovely lakeside campground about 5 km further north along the road.\n\nThe Cascade Mountain Range surrounds the park and includes awesome canyons and clear flowing streams. Large numbers of otter, beaver and red squirrel inhabit the area, as well as, mountain goats, cougars and grizzly bears. Fishermen will find time spent on Otter Lake rewarding, with large lake trout being the catch of the day.\n\nThe scenic lakeside campground is an ideal base for those who want to explore the mining history of the Tulameen area.",
+    "coordinates": "{lat: 50.14827062056593,  lng: -120.78266029051397}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Little Andrews Bay Marine Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/little_andrews_bay/",
+    "hiking": "no",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Located on the north shore of Oosta Lake, the park provides camping and boat access to North Tweedsmuir Park.",
+    "coordinates": "{lat: 50.774227463857834,  lng: -125.062251070394}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "King George VI Provincial Park",
+    "camping": "no",
+    "website": "https://bcparks.ca/explore/parkpgs/king_george_vi/#Swimming",
+    "hiking": "no",
+    "swimming": "no",
+    "dog": "no",
+    "introduction": "King George VI Provincial Park protects several species of endangered plants and is home to a variety of wildlife. Old-growth cottonwoods buffer the park from adjacent land use and offer additional habitat for a variety of cavity nesting birds, such as barred owls, pileated woodpeckers and red-naped sapsuckers.\n\nThe park was originally established to provide a day-use rest stop and campground for people entering Canada from the United States along Hwy 22. The facilities were vandalized and ultimately removed, and BC Parks has returned it to its natural state.",
+    "coordinates": "{lat: 49.63527995132055,  lng: -117.89855386127755}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Juan de Fuca Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/juan_de_fuca/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Juan de Fuca Provincial Park on the west coast of southern Vancouver Island offers scenic beauty, spectacular hiking, marine and wildlife viewing and roaring surf in its course along the Pacific coastline of the Strait of Juan de Fuca.\n\nThere are four main areas to the park: the China Beach Campground, the Juan de Fuca Marine Trail, the China Beach day-use area and Botanical Beach.\n\nA major feature of this park, the Juan de Fuca Marine Trail, follows 47 kilometres of wilderness stretching along the western shoreline of the southern Island. There are four trailheads to the Juan de Fuca Trail at Juan de Fuca East (China Beach), Sombrio Beach, Parkinson Creek and Botanical Beach. Although most of the Juan de Fuca Marine Trail is designed for strenuous day or multi-day hiking/camping in this rugged and isolated area, some easy to moderate day hiking opportunities to the beach or along the trail are available starting from the trailheads.\n\nAt the east end of the park you’ll find the vehicle accessible China Beach campground and the China Beach day-use area. The campground is located in a forested area with open understory, about 1 km east of the China Beach day-use area and the Juan de Fuca East (China Beach) Trailhead. Trails connect the campground to China Beach and the adjacent smaller Second Beach, located east of the larger China Beach day-use.\n\nAt the west end of Juan de Fuca Park is Botanical Beach, one of the richest tidal areas along the west coast. Botanical Beach also has a unique shoreline framed by ridges of shale and quartz, which jut up through the black basalt to form huge tableaus. Botanical Beach is the western terminus for the Juan de Fuca Marine Trail and a popular day trip destination for visitors wishing to observe this sensitive and unique ecosystem. Wildlife viewing is best done at low tide, when visitors can walk out across the flat sandstone and granite outcroppings to view tide pools filled with brightly coloured marine life.\n\nWhen visiting Botanical Beach, please look in the tide pools only – do not touch the marine life. Do not remove, collect or disturb any tide pool life, shells, plants, flowers, kelp, etc. Even touching the water in a tide pool with sunscreen on your hands can create an “oil slick” that could kill the vulnerable creatures in this sensitive ecosystem. Remember to bring your camera, as photographs make great souvenirs.\n\nJuan de Fuca Provincial Park offers ample opportunity to view larger marine mammals as well, including Grey and killer whales, which can often be spotted feeding just off the points. The best time to see Grey whales is during their migration from the Mexican coast to Alaska in March and April. Seals and sea lions can also often be seen playing offshore.",
+    "coordinates": "{lat: 49.09692550534597,  lng: -124.18887124531172}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Inland Lake Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/inland_lk/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Prior to 1997, this park was a Forest Service Recreation area. The area was established as a provincial park in 1997. Many years ago, the Model Community Society constructed a 13 km wheelchair-accessible trail around Inland Lake.\n\nThere are drive-in and walk-in campsites available at this park, as well as opportunities for swimming, cycling, fishing, canoeing and boating (<10hp).\n\nThe Model Community Project for People with Disabilities have led a two year effort to drastically improve the trail and facilities at Inland Lake Provincial Park. The “Model Community” work in partnership with BC Parks under a Shared Stewardship Agreement. They have successfully raised over 250K of funds to support the park improvement. BC Parks wishes to publically thank the Model Community for their great effort and dedication.",
+    "coordinates": "{lat: 50.49550093777554, lng:  -124.75535144286833}"
+  },
+  {
+    "parkOrigin": "British Columbia",
+    "name": "Horsefly Lake Provincial Park",
+    "camping": "yes",
+    "website": "https://bcparks.ca/explore/parkpgs/horsefly_lk/",
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "This park offers a popular 23 site campground and day-use area which has a developed beach, a horseshoe pit and a nature trail. Some activities offered include hiking, exploring and fishing. This is a large, deep lake and is usually fished on a troll – included are a number of smaller lakes excellent for fly-fishing. Fishing for rainbow trout is a favourite pastime of many visitors.\n\nFir, spruce, birch and cedar clothe the slopes along the lower reaches of Dillabough Creek at the west end of Horsefly Lake – a semi-wilderness water body penetrating the Quesnel Highlands. There are old growth cedars and Douglas firs throughout the park. There are two unnamed lakes in the park, once the site of a hatchery operated to restore the run of sockeye to the Horsefly River.",
+    "coordinates": "{lat: 52.89453959738326,  lng: -121.40577434751667}"
+  }
+]

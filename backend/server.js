@@ -1,5 +1,6 @@
 const express = require("express");
 const morgan = require("morgan");
+const { getUserByUsername } = require("./handlers");
 
 const PORT = 4000;
 
@@ -22,6 +23,7 @@ express()
   .use("/", express.static(__dirname + "/"))
 
   // REST endpoints ----------------------------------------------------------
+  .get("/planner/getUser:username", getUserByUsername)
 
   // -------------------------------------------------------------------------
 
