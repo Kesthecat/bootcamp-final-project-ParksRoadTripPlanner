@@ -1,0 +1,148 @@
+{
+  "_id": "NL",
+  "parks": [
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Barachois Pond Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-bp/",
+      "coordinates": "{lat:48.48123513923449, lng: -58.26420500721532}",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Barachois Pond is the largest Provincial Park in Western Newfoundland. Located off the Trans Canada Highway the park is 20 kilometres from Stephenville. All 3500 hectares of the park are in the Western Newfoundland Forest ecoregion which is characterized by a balsam fir forest with an understory of ferns and moss. The Park has a variety of activities which make it one of the most popular parks in the province to visit. There are freshwater swimming beaches, bird watching, mountain streams, and invigorating hikes with panoramic views."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Blow Me Down Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-bmd/",
+      "coordinates": "{lat: 49.091085752124535, lng: -58.366463786479756}",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Blow Me Down Provincial Park is situated on a peninsula between Lark and York Harbours. Magnificent views of the Blow Me Down mountains and the Bay of Islands make this park one of the most scenic locations in the area to visit. Located off Highway 450, the park is 60 km west from Corner Brook and the Trans Canada Highway."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Butter Pot Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-bup/",
+      "coordinates": "{lat: 47.3906430594364, lng: -53.058114329892234}",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "The Park is located on the Avalon Peninsula approximately 36 km southwest of St. John’s along the Trans Canada Highway. The park covers an area of 2833 hectares of varied terrain and vegetation – forests, bogs, heaths and ponds. Hiking trails take you through forests and over barrens to a remarkable scenic view-point."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "J.T. Cheeseman Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-jtc/",
+      "coordinates": "{lat: 47.6323093099026, lng: -59.25679590371613}",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "J.T. Cheeseman is a Natural Environment Park located approximately 10km east of Channel-Port aux Basques and 200km west of Corner Brook on the Trans Canada Highway. This is a popular park with visitors from all over Canada and the United States."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Dildo Run Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-dr/",
+      "coordinates": "{lat: 49.52924920728617, lng: -54.75557344413806}",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Dildo Run Provincial Park was opened to the public in 1967. The parks 328 hectares provide visitors with an ideal central and convenient location for viewing all of New World Island. It is within a very short driving distance of Twillingate, Moretons Harbour and all other small communities located in this beautiful and historic area. The park is also within a short driving distance of the ferry to Fogo Island and Change Islands."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Frenchman’s Cove Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-fc/",
+      "coordinates": "{lat: 47.21265463996439, lng: -55.400713459549685}",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "no",
+      "introduction": "Frenchman’s Cove Provincial Park is located on the west side of the Burin Peninsula on route 213. The park is comprised of 51 hectares of varied habitat that will fascinate the visitor. Frenchman’s Cove park opened to the public for the first time in June 1967."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "La Manche Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-lm/",
+      "coordinates": "{lat: 47.18276709315981, lng: -52.88841242223771}",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "La Manche Provincial Park is located approximately 53 kilometres south of St. John’s, along Highway 10. The park was first opened to the public in August 1966. This park was established because of the scenic la Manche Valley, interesting and varied habitat and vegetation, as well as the diverse bird life. The park area includes Rowsells Hill Pond, La Manche Ponds, a section of the La. Manche River, as well as the abandoned fishing village of La Manche."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Lockston Path Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-lp/",
+      "coordinates": "{lat: 48.43986150699479, lng: -53.376857586304034}",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Lockston Path Provincial Park is located approximately 6 kilometres from Port Rexton on highway route 236. Comprising 773 hectares, this park was first opened to the public in 1966. Since then, the park has been upgraded to include a comfort station with modern washrooms, hot showers and laundry facilities. The park also has a sewage disposal station. This park with its sheltered campsites and freshwater beach provides a good base camp for visits to the nearby historic communities."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Notre Dame Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-nd/",
+      "coordinates": "{lat: 49.11816837904419, lng: -55.08033424619058}",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "no",
+      "introduction": "Notre Dame Provincial Park is located approximately 1 kilometre east of the Notre Dame Junction and approximately 41 kilometres west of Gander on the Trans Canada Highway. Nestled in the lush forests of central Newfoundland, the park borders on the serene waters of Junction Pond. An ideal choice for the family, Notre Dame Provincial Park has something to offer visitors of all ages. Notre Dame encompasses 113 hectares of land."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Pinware River Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-pr/",
+      "coordinates": "{lat: 51.63261568385427, lng: -56.698936701744806}",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Pinware River Provincial Park is a 68 hectare park located on route 510, approximately 32 km southwest from Red Bay. A ferry crosses from St. Barbe on the Great Northern Peninsula of Newfoundland to southern Labrador approximately 53 km south of the park. Opened in 1974, the park covers diverse terrain and vegetation."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Pistolet Bay Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-pb/",
+      "coordinates": "{lat: 51.54023936094303, lng: -55.67700261348147}",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "no",
+      "introduction": "Pistolet Bay Provincial Park is located on route 437, 12 kilometres off route 430 on the tip of the Great Northern Peninsula. The park encompasses 897 hectares of delightfully varied vegetation."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Sandbanks Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-sp/",
+      "coordinates": "{lat: 47.627758849202785, lng: -57.64350052983004}",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Is located near the town of Burgeo, which is approximately 150 km from the Trans Canada Highway on Route 480. The park is named for its undulating sand dunes and long expanses of flat, sandy beaches which are some of the most magnificent on the island portion of this province. Inland, the park is characterized by spruce-fir forest and barrens typical of the South Coast of Newfoundland."
+    },
+    {
+      "parkOrigin": "Newfoundland and Labrador",
+      "name": "Sir Richard Squires Memorial Provincial Park",
+      "camping": "yes",
+      "Website": "https://www.gov.nl.ca/tcar/parks/p-sm/",
+      "coordinates": "{lat: 49.35947802612738, lng: -57.20512054414326}",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "no",
+      "introduction": "Locally known as Big Falls Park, Sir Richard Squires Memorial Park is located approximately 36 kilometres northeast of Deer Lake along Highway No. 422. The park is situated on the scenic Humber River and is a popular place for salmon angling. Sir Richard Squires Memorial Park was established in 1954 as the first Provincial Park in Newfoundland. It was opened to the public in July 1959. The park is named in honour of Sir Richard Squires the Prime Minister of Newfoundland from 1919 to 1923 and 1928 to 1932. During his first term in office, Squires successfully arranged the construction of a paper mill in Corner Brook. A tiny settlement at that time, Corner Brook has grown to be the second largest city in Newfoundland. Knighthood was bestowed upon Squires in 1921 for his achievements."
+    }
+  ]
+}

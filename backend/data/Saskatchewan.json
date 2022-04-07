@@ -1,0 +1,93 @@
+{
+  "_id": "Saskatchewan",
+  "park": [
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Saskatchewan Landing Provincial Park",
+      "camping": "yes",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/312/saskatchewan-landing-provincial-park#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Straddling the South Saskatchewan River Valley at the west end of Lake Diefenbaker, the Saskatchewan Landing Provincial Park celebrates the site of the first historic crossing on the South Saskatchewan River. A great area to be enjoyed by all ages, the park is popular for its fishing, sun-bathing and hiking opportunities. This park features a number of interpretive trails and historic sites including the handsome Goodwin House. The boat launch is located on the north side of the lake while the main beach area, located on the west side of the park, is a perfect place to enjoy a warm summer's day.",
+      "coordinates": "{lat: 51.24034374555802,  lng: -107.91633830197662}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Fort Carlton Provincial Park",
+      "camping": "yes",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/1809/fort-carlton-provincial-park#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": null,
+      "introduction": "Fort Carlton was an important hub for the Hudson's Bay Company (HBC) from 1810 - 1885. Located on the North Saskatchewan River and with easy access by land, this site was an ideal place to warehouse goods and gather provisions for other posts. An important negotiation site for Treaty Six in 1876, Fort Carlton was accidently burned down during a hasty evacuation that took place during the Northwest Resistance of 1885.\n \nToday, Fort Carlton Provincial Park features a reconstructed palisade, fur and provisions store, trade store, clerks quarters and tepee encampment. Visitors can see, touch and smell artifacts such as bison hides, beaver pelts and more. Interpretive staff are on hand to answer questions and lead activities. The park also features hiking trails, a picnic area and small, rustic campground.",
+      "coordinates": "{lat: 53.318120626327236,  lng: -106.60902075598396}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Meadow Lake Provincial Park",
+      "camping": "yes",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/2965/meadow-lake-provincial-park#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": null,
+      "introduction": "Spanning more than 1,600 sq. km ​and featuring more than 20 lakes, rivers and streams, Meadow Lake Provincial Park is one of the largest provincial parks in Canada. A favorite destination for many vacationers, this park offers excellent fishing and water-based opportunities, some of the best beaches in Saskatchewan and the Boreal Trail, one of the premier hiking destinations in Canada. Seek out the area's wildlife and vegetation by venturing out on one of the park's well-groomed hiking trails, or, enjoy some relaxation by frequenting one of the park's many picnic areas. Featuring twelve campgrounds with over 800 campsites, Meadow Lake offers a new experience one visit to the next. For that perfect getaway with minimal effort and preparation, two Camp-Easy sites are available for booking.",
+      "coordinates": "{lat: 55.051318096834734,  lng: -109.43099913527317}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Lac La Ronge Provincial Park",
+      "camping": "yes",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/1430/lac-la-ronge-provincial-park#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": null,
+      "introduction": "One of the largest parks in the province, Lac La Ronge Provincial Park is a nature-lover's dream. Nestled in the heart of the Churchill River system, this park has close to 100 lakes and more than 30 documented canoe routes, many of which follow old fur trade routes. Visitors flock to the park for the exceptional fishing opportunities and the beautiful, private campgrounds as well as other amenities including boat launches, hiking and cross-country skiing trails, service centres and the Holy Trinity Anglican Church, the oldest standing building in the province.",
+      "coordinates": "{lat: 55.656881685244,  lng: -105.19976636472828}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Cannington Manor Provincial Historic Park",
+      "camping": "no",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/1005/cannington-manor-provincial-historic-park#sort=relevancy",
+      "hiking": "no",
+      "swimming": "no",
+      "dog": "no",
+      "introduction": "By the late 1800s, the Government of Canada saw that the West was moving away from a fur trade economy and towards an agrarian one. Established in 1882, the village of Cannington Manor was an attempt by eastern settlers to recreate the aristocratic English lifestyle, all supported by agriculture.\n \nDuring its heyday, the villagers of Cannington Manor took part in fox hunts, dramatics societies, poetry clubs, tennis, cricket and croquet. After struggling for several years due to isolation and low grain prices, the village was abandoned in 1900.\n \nInterpretive signs tell the story of this unique village, and visitors are welcome to tour the grounds during summer. The Visitor Centre and reconstructed buildings are open to visitors when park staff are on site. A picnic area and washrooms are available, and most buildings are wheelchair accessible.",
+      "coordinates": "{lat: 50.17753816222062, lng: -102.15583137682363}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Moose Mountain Provincial Park",
+      "camping": "yes",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/1011/moose-mountain-provincial-park#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Established as one of Saskatchewan's first provincial parks, Moose Mountain offers year-round adventure the whole family can enjoy. With beautiful stands of popular and birch trees along with hilly topography, this park provides an ideal location for visitors to enjoy camping, swimming, boating, golf, tennis and daily programs. An extensive trail system for hiking, mountain biking, cross-country skiing, snowshoeing and snowmobiling also runs throughout the park. While visiting the park, stop by the visitor centre located in a stately stone chalet surrounded by flower gardens and affording a scenic lake view. Check out the Artist’s Colony or step back in time and learn about a settler's life by exploring historic Cannington Manor. With adventures waiting in every season, Moose Mountain offers new experiences with every visit.",
+      "coordinates": "{lat: 50.30959835096298,  lng: -102.097052355609}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Buffalo Pound Provincial Park",
+      "camping": "yes",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/303/buffalo-pound-provincial-park#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Located 20 minutes northeast of Moose Jaw, Buffalo Pound Provincial Park offers a balanced blend of nature and recreational opportunities. Once used by First Nations to corral bison, the park maintains a captive herd in a paddock that's situated among the area's scenic rolling hills.  \n\nThis park offers excellent hiking, mountain biking and fat biking trails, fishing, canoeing and kayaking opportunities. Two disc golf courses - a beginner 9-hole disc golf course and a professional 18-hole disc golf course. Newly built heated outdoor pool opened in 2020. Enjoy migrant waterfowl viewing at Nicolle Flats Interpretive Area and Marsh Boardwalk. The park is a great destination for day-trips, offering awesome views of the Qu'Appelle Valley which are especially spectacular in the fall. Along with multiple-night camping options, Buffalo Pound is the perfect choice for your next visit. For that perfect getaway with minimal effort and preparation, Buffalo Pound has two Camp-Easy yurts available for booking. ​",
+      "coordinates": "{lat: 51.11319022840031,  lng: -105.53634318351301}"
+    },
+    {
+      "parkOrigin": "Saskatchewan",
+      "name": "Regina Beach Recreation Site",
+      "camping": "no",
+      "website": "https://www.tourismsaskatchewan.com/provincialpark/1012/regina-beach-recreation-site#sort=relevancy",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "no",
+      "introduction": "One of southern Saskatchewan's most popular beaches, Regina Beach Recreation Site is situated on the shores of Last Mountain Lake. This site offers a beautiful beach area, playground, service centre, picnic area (briquettes only), beach volleyball court, walking trail, boat launch and a fish filleting building. Working to make the shoreline more accessible for those with disabilities, Sask Parks celebrated the recent addition of a beach mat and floating beach wheelchair, thanks to generous donations from an Accessibility Committee formed by residents of the Town of Regina Beach.\n\nThe adjoining resort town of Regina Beach offers restaurants, boutique shops, yacht club and more. It's close proximity to Regina makes it a perfect place for a summer day escape.​",
+      "coordinates": "{lat: 51.24082561638635,  lng: -105.45623742429486}"
+    }
+  ]
+}

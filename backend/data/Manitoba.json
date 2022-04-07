@@ -1,0 +1,203 @@
+{
+  "_id": "Manitoba",
+  "parks": [
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Burge Lake Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/northeast/burge.html",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Burge Lake is a small, scenic campground with eight walk-up, non-electrical sites.  All sites are suitable for tents and some can accommodate large motor homes.  There are pit privy bathrooms, complimentary firewood, and hand water pump and a group-use picnic shelter.\n\nThe campground is just minutes away from the clear, clean waters of Burge Lake.  Relax on the beautiful, sandy beach while the children enjoy the playground.  Anglers will appreciate the convenience of a fish cleaning shed, dock and boat launch.  The lake offers swimming, boating and excellent pickerel and pike fishing.  Peaceful and uncrowded, it is a great getaway for the whole family.",
+      "coordinates": "{lat: 56.899387022809684,  lng: -101.04474324575163}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Pisew Falls Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/northeast/pisew.html",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Here the Grass River drops 13 m/42.7 ft., changes direction and jets down through a gorge. A short boardwalk leads to observation platforms overlooking Pisew Falls. Another 0.5 km/.3 mi. trail leads to the Rotary Bridge over the Grass River below Pisew Falls. The bridge gives access to a 22 km. (return) hiking trail leading down-river to Kwasitchewan Falls, Manitoba's highest. Backcountry campsites at the far end of the loop trail enable one to rest overnight and soak up the experience.",
+      "coordinates": "{lat: 55.198666033008244, lng: -98.3977947862869}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Bakers Narrows Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/northwest/bakers.html",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Located just south of Flin Flon, Bakers Narrows Provincial Park consists of 145 hectares of Precambrian boreal forest. An angler’s retreat, the park is hidden in the vast mixed forest of coniferous and deciduous trees of the Canadian Shield. The campground can accommodate those who want to camp individually or in larger groups.",
+      "coordinates": "{lat: 54.67599643074761, lng: -101.66279054109738}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Bakers Narrows Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/northwest/bakers.html",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "In the north, where the Manitoba Lowlands and Precambrian Shield meet, there is a river that runs wild. It's name is called Grass River. Its presence is marked on the maps of great explorers like Samuel Hearne as it played a critical role to the history of the fur trade. Today it's the namesake of a superb park. This is a place where woodland caribou thrive, and where wolves, moose, bear and wolverine roam the lush forests. Looking above, you'll see that the sky belongs to the bald eagle and the great gray owl. When exploring along the river and numerous lakes, you'll feel like the first to set eyes on the splendor of untouched land and waters. For those who prefer overland access, four of the most popular lakes can be reached by road. The bounty of Grass River's waters include the great northern pike, walleye, lake trout, whitefish and perch, and are sought after by anglers worldwide.",
+      "coordinates": "{lat: 54.59198293759092,  lng: -100.7984053458286}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Manigotagan River Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/eastern/manigotagan.html",
+      "hiking": "no",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Manigotagan River Provincial Park, Manitoba’s 80th provincial park was designated on December 1, 2004.\n\nThe park is located about 150 kilometers northeast of Winnipeg.  The Manigotagan is a challenging whitewater river just hours by road from the population centre of the province. The community of Manigotagan sits at the river's mouth, on the shore of Lake Winnipeg.\n\nThe park is composed of a corridor stretching 45 kilometers from the north-western tip of Nopiming Provincial Park downstream, ending just outside the community of Manigotagan. The topography is as varied as it is spectacular, ranging from sheer rock faces topped with craggy Jack Pine and Rock Tripe lichen on the upstream stretches, to moist verdant stands of Balsam Poplar, Green Ash and Elderberry near the river mouth.  If you look carefully, you may even find Prickly Pear Cactus, Canada Yew and some of the area's majestic wildlife moose, black bear, wolf or woodland caribou - highlights of a trip to be savoured under evening displays of the Aurora Borealis as the river slips by. The Manigotagan River is classified as a natural park and is composed of two land use categories. Over 99% of the park's 7,432 hectares are backcountry (the area is protected from mining, logging and hydro-electric development). Less than one per cent of the corridor, or 16 hectares, is classified as recreational development.  The corridor contributes to the provincial protected areas initiative.\n\nArchaeological surveys conducted over the years have revealed thousands of artifacts indicating this important river corridor was utilized by the Blackduck and Laurel cultures as far back as 2200 years ago. Since then the Manigotagan River has also been used by trappers, loggers, and gold miners as a route to the natural resources of the region. Rusting log boom anchor bolts, an occasional trappers cabin and an “Alligator” (an unique, ill-fated piece of mining equipment) have joined the more timeless portage routes, campsites and ancient pottery shards that mark the past chapters of the river’s history for today’s observant river traveller.",
+      "coordinates": "{lat: 51.36907135640456,  lang: -96.28784745402251}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Nopiming Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/eastern/nopiming.html",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "\"Entrance to the wilderness,\" — that's exactly what Nopiming means in the Anishinabe language. You won't be disappointed at your arrival to the park, as this phrase aptly describes what you can expect. The entrance road leads to miles of shield country, which is scattered with hundreds of crystal clear lakes that are rimmed by granite rock and sheltered by stands of black spruce, birch and poplar. Take to the waterways which have carried canoes since the time of the voyageurs and the Aboriginal peoples. Follow their adventurous spirit, whether you're looking for a real challenge, or an easy run of the river. Discover the secrets of the park's past. Amidst the bush, find traces of prospectors' dreams. Abandoned shafts, remains of equipment, names like Lucky Strike, Paystreak, and Hidden Treasure hint at the glory days of the 1930s Manitoba gold rush. At an old abandoned trapper's cabin, you'll find yourself knocking on the door, not wanting to intrude...too much. Now the only residents of the area are moose, bear, woodland caribou and bald eagles. Discover why anglers have made this park a tradition — they were first lured by the northern pike, walleye, smallmouth bass, and then drawn back time and time again by the wilds of Nopiming.",
+      "coordinates": "{lat: 50.96276190287046,  lng: -95.34232501290263}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Whiteshell Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/eastern/whiteshell.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Rushing rivers, clear deep lakes, warm sandy beaches and the fresh scent of jack pine. That's just the beginning of a great getaway in Whiteshell Provincial Park. It's a four-season park where nature sets the stage for an outdoor experience as civilized, or as wild as you choose; where a meteorite lake welcomes swimmers and scuba divers; and where children's days are easily filled at one of nature's great playgrounds. Let wildlife watch your best golf shot in years. Stretching far beyond the glimpse you get from HWY 1, Whiteshell Provincial Park will take you away from it all by trail, road, or by water. Choose any one of 200 lakes, throw in a hook and test your skills with big northern pike, bass, walleye, lake and rainbow trout.",
+      "coordinates": "{lat: 50.111884146141094,  lng: -95.4143011459708}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Winnipeg Beach Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/winnipeg.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Years ago the \"Moonlight Special\" trains brought visitors to this resort town on the shore of Lake Winnipeg. Now families are rediscovering Winnipeg Beach as a terrific place to celebrate summer. On a hot day, see the sights, stroll the boardwalk, and catch the same cool breeze which sets the windsurfers skimming across the water.",
+      "coordinates": "{lat: 50.69305610006585,  lng: -96.95016041724294}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Stephenfield Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/stephenfield.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Nestled beside the Boyne River, this is a pretty place for a family vacation. At the shores of a reservoir you'll find swimming, fishing and boating. The Carman golf course is within close proximity of the park. Come for a family picnic or set-up camp; if you are with many people there are group campsites available.",
+      "coordinates": "{lat: 49.71505707564859,  lng: -98.29596987648428}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "River Road Provincial Heritage Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/river.html",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "There are five sites along the eleven kilometer stretch of Red River. Both the south and north interpretive nodes offer orientation information about the cultural features along the parkway. From there, delve into the past which chronicles a nineteenth-century way of life.",
+      "coordinates": "{lat: 50.32187958907844,  lng: -96.93409922220232}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Norris Lake Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/norris.html",
+      "hiking": "no",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "The vibrant and picturesque Interlake region is home to Norris Lake Provincial Park. Visitors can enjoy a variety of activities including fishing for northern pike, waterskiing and swimming. If you enjoy golfing, the nearby  towns of Teulon and Inwood offer golf courses.\n\nNear Norris Lake, you will find the Narcisse Wildlife Management Area. Here, you can see more snakes at a glance than anywhere else in the world. In the spring, thousands of red-sided gater snakes emerge from limestone sinkholes and tangle together during a fascinating mating ritual. The snakes then disperse to the nearby marshes for the summer, returning to their dens in the fall.",
+      "coordinates": "{lat: 50.70026107851883,  lng: -97.48053550719995}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Lake St. George Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/stgeorge.html",
+      "hiking": "no",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Relish in a true wilderness experience.\n\nLake St. George is well-known for its excellent fishing for walleye, northern pike and perch.  A\nboat launch and dock make this campground even more appealing.  Campers can stock up on\nthe supplies at the store in the town of Dallas, 33 kilometers south of Lake St. George.\n\nFor a change of scenery, go fishing for northern pike and bass at Lake St. Andrews, just two kilometers away.",
+      "coordinates": "{lat: 51.724265460712914,  lng: -97.40585601523469}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Elk Island Provincial Park",
+      "camping": "no",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/elk_island.html",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Elk Island Provincial Park, located 32 km north of Grand Beach, is about 900 hectares in size. Situated 1.2 km from the mainland, it is only accessible by boat. The island is virtually free of development and offers visitors an attractive wilderness setting. Parts of its shoreline where many, large, different coloured boulders are surrounded by smooth, white sand, are reminiscent of a stone garden.\n\nCamping and open fires are not permitted on the island. Visitors are asked to help maintain the beauty of this wilderness, by packing out whatever they brought to the island.",
+      "coordinates": "{lat: 51.03858702080082,  lng: -96.53728887539494}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Birds Hill Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/central/birds.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Explore an old homestead. Wander through the wild flowers. Climb to the top of the viewing tower and you'll see for miles. Walk, cycle, horseback ride through a network of trails that will take you anywhere and everywhere.\n\nYear-round the park is a natural stage for a range of recreational activities and sporting events. In July of each year, Birds Hill is home to the Winnipeg Folk Festival, one of North America's largest folk music events. Everything from trail riding to interpretive programs are yours to enjoy. Watch any number of events in the park: horse shows, polo tournaments, and cycling races. Birds Hill is also a favorite picnic spot for small and large groups.",
+      "coordinates": "{lat: 50.27233622262674,  lng: -96.97508026239957}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Asessippi Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/western/asessippi.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Hear the wind whisper as it wafts down over the meeting place of two ancient river valleys. Over the meadows of mixed-grass prairie, dotted with crocuses and wild roses, through the aspen forests and across the waters of Lake of the Prairies, its song tells of the Assiniboine, Cree and Anishinabe people who lived along the Assiniboine and Shell Rivers. Hear the wind whisper Asessippi the next time you're looking for a new park to discover.",
+      "coordinates": "{lat: 51.54675984825942,  lng: -101.35045533218731}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Kettle Stones Provincial Park",
+      "camping": "no",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/western/kettle.html",
+      "hiking": "yes",
+      "swimming": "no",
+      "dog": "yes",
+      "introduction": "Kettle Stones Provincial Park is on the north side of the Kettle Hills, in the Swan-Pelican Provincial Forest. Visitors are greeted by the fragrances of jack pine, spruce, trembling aspen, juniper, birch and ground cedar. Only 4 km2 in size, the park features sandstone concretions known locally as the kettle stones. Its open areas, or meadows, have Manitoba's and possibly Canada's, most northwestern patches of big bluestem - a grass associated with the tall grass prairie.",
+      "coordinates": "{lat: 52.862032208365505,  lng: -100.45125816965829}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Spruce Woods Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/western/spruce.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Sand dunes shifting on the whim of the wind; unlikely plants like the pincushion cactus; and strange creatures like the hognose snake cause one to wonder....Manitoba? This is the truly unique Spirit Sands. Within minutes you're staring down at an eerie blue-green oasis of spruce trees and a spring-fed pond. This is the Devils Punch Bowl. By mid-afternoon you're enjoying the coolness of riverbank forests, wandering through the sweet mixed-grass prairie and lingering at the striking views from the Steels Ferry Overlook. All of this is Spruce Woods, a unique mixture of natural contrasts and wondrous adventures.",
+      "coordinates": "{lat: 49.92835253050899,  lng: -99.31510169602463}"
+    },
+    {
+      "parkOrigin": "Manitoba",
+      "name": "Turtle Mountain Provincial Park",
+      "camping": "yes",
+      "website": "https://www.gov.mb.ca/sd/parks/park-maps-and-locations/western/turtle.html",
+      "hiking": "yes",
+      "swimming": "yes",
+      "dog": "yes",
+      "introduction": "Make a new discovery at the top of every rolling hill, along the shores of more than 200 lakes and wetlands, or amidst the rich hardwood forests of aspen, Manitoba maple, elm, black poplar, ash and birch. For those who love adventure, Turtle Mountain is a wealth of inspiration. Rising up 245 metres/804 feet from the prairie, this rolling terrain is a must for mountain biking enthusiasts. The first dry terrain in Manitoba after the glaciers receded, Turtle Mountain is home to an abundance of wildlife. Moose, white-tailed deer, beaver, and raccoon are joined by the chorus of birds like loons and grebes.",
+      "coordinates": "{lat: 49.31562263328719,  lng: -99.99059426393046}"
+    }
+  ]
+}
