@@ -1,8 +1,13 @@
 const express = require("express");
 const morgan = require("morgan");
-const { getUserByUsername } = require("./handlers");
+const {
+  getUserByUsername,
+  parksList,
+  parkByName,
+  getUserTrips,
+} = require("./handlers");
 
-const PORT = 4000;
+const PORT = 3000;
 
 express()
   .use(function (req, res, next) {
@@ -23,7 +28,10 @@ express()
   .use("/", express.static(__dirname + "/"))
 
   // REST endpoints ----------------------------------------------------------
-  .get("/planner/getUser:username", getUserByUsername)
+  .get("/parks", parksList)
+  .get("/parks/:id", parkByName)
+  // .get("/trips/my-trips/:id", getUserTrips)
+  .post("/user/:username", getUserByUsername)
 
   // -------------------------------------------------------------------------
 
