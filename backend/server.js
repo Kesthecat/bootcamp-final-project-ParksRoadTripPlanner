@@ -7,7 +7,7 @@ const {
   getUserTrips,
 } = require("./handlers");
 
-const PORT = 3000;
+const PORT = 8000;
 
 express()
   .use(function (req, res, next) {
