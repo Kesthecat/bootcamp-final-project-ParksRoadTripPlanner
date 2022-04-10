@@ -48,9 +48,7 @@ export const AppMap = (props) => {
 
   return (
     <Map
-      googleMapURL={
-        "https://maps.googleapis.com/maps/api/js?key=AIzaSyC9FgEONEbxqUVqt1-_pB4a4W-wh8lbaQQ&v=3.exp&libraries=geometry,drawing,places"
-      }
+      googleMapURL={""}
       places={places}
       loadingElement={loadingElement || <div style={{ height: `100%` }} />}
       containerElement={containerElement || <div style={{ height: "80vh" }} />}
