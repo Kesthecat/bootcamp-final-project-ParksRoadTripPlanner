@@ -44,19 +44,32 @@ const getUserByUsername = async (req, res) => {
   client.close();
 };
 
-//GET parksList
+//GET parksList and origin list
 const parksList = async (req, res) => {
   try {
     await client.connect();
-    const result = await db.collection("parks").find().toArray();
+    const parksResult = await db.collection("parks").find().toArray();
+    const originResult = await db.collection("parksOrigin").findOne({});
 
-    if (!result) {
-      res.status(404).json({ status: 404, data: null, message: "Not found" });
+    if (!parksResult) {
+      res
+        .status(404)
+        .json({ status: 404, data: null, message: "Cannot find Parks List." });
       return;
     }
-    res.status(200).json({ status: 200, data: result, message: "succes" });
+
+    if (!originResult) {
+      res
+        .status(404)
+        .json({ status: 404, data: null, message: "Cannot find origin List." });
+      return;
+    }
+    const listParksOrigins = { parks: parksResult, origin: originResult };
+    res
+      .status(200)
+      .json({ status: 200, data: listParksOrigins, message: "succes" });
   } catch (error) {
-    console.log(error.message);
+    console.error(error);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -88,7 +101,10 @@ const parkByName = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    console.log(error.message);
+    console.error(error);
+    res
+      .status(500)
+      .json({ status: 500, data: null, message: "Internal server error" });
   }
   client.close();
 };
