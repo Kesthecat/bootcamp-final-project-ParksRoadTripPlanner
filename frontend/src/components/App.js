@@ -5,6 +5,7 @@ import { HomePage } from "./HomePage";
 // import { AppMap } from "./map/Map2";
 import { ParksList } from "./parks/parksList";
 import { ErrorPage } from "./error";
+import { Park } from "./parks/park";
 
 export const App = () => {
   return (
@@ -19,6 +20,9 @@ export const App = () => {
         </Route>
         <Route exact path="/parks">
           <ParksList />
+        </Route>
+        <Route exact path="/parks/:id">
+          <Park />
         </Route>
         <Route path="">
           <ErrorPage />
