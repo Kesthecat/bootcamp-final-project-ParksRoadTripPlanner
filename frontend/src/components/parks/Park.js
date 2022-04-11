@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { GiHeartPlus } from "react-icons/gi";
+
+import { Loading } from "../Loading";
 import { ReviewForm } from "../ReviewsForm";
 import { PostedReviews } from "../PostedReviews";
 
@@ -9,6 +11,8 @@ export const Park = () => {
   const { id } = useParams();
   const [park, setPark] = useState(null);
   const [parkLoad, setParkLoad] = useState("idle"); //loaded
+  const [hasNewReview, setHasNewReview] = useState(false);
+  const [newReview, setNewReview] = useState(null);
 
   let history = useHistory();
 
@@ -28,7 +32,7 @@ export const Park = () => {
 
   // console.log(park);
 
-  if (parkLoad === "idle") return <div>Loading...</div>;
+  if (parkLoad === "idle") return <Loading />;
 
   return (
     <>
@@ -62,8 +66,16 @@ export const Park = () => {
         </MiddleContainer>
       </InfoContainer>
       <ReviewsContainer>
-        <ReviewForm parkId={id} />
-        <PostedReviews parkId={id} />
+        <ReviewForm
+          parkId={id}
+          setNewReview={setNewReview}
+          setHasNewReview={setHasNewReview}
+        />
+        <PostedReviews
+          parkId={id}
+          hasNewReview={hasNewReview}
+          newReview={newReview}
+        />
       </ReviewsContainer>
     </>
   );
