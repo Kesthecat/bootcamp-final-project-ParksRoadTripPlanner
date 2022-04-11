@@ -1,90 +1,90 @@
 [
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "BRUDENELL RIVER PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/brudenell-river",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/brudenell-river",
     "hiking": "yes",
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Brudenell River is the largest provincial park in eastern Prince Edward Island. In addition to two 18-hole championship golf courses, Brudenell and Dundarave, and tennis, and lawn bowling are offered at the 100-unit Brudenell River Resort. The park has a multitude of activities and special events to amuse campers and day visitors: a marina, river beach, and daily activities are scheduled as part of Brudenell's recreation programs for children. Private sector operators also provide canoeing, sea kayaking, paddleboards and horseback riding.",
-    "coordinates": "{lat: 46.201131537940185, lng: -62.5827946838165}"
+    "coordinates": { "lat": 46.201131537940185, "lng": -62.5827946838165 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "CABOT BEACH PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/cabot-beach",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/cabot-beach",
     "hiking": "yes",
     "swimming": "no",
     "dog": "yes",
-    "introduction": "Cabot Beach is the largest park in western PEI. This beautiful park has a large day-use area with accessible playground equipment, an activity centre with children's programs. There is also supervised swimming on scenic Malpeque Bay. The historical Fanning School is also found on site.",
-    "coordinates": "{lat: 46.55751007977964, lng: -63.70515697306133}"
+    "introduction": "Cabot Beach is the largest park in western Prince Edward Island. This beautiful park has a large day-use area with accessible playground equipment, an activity centre with children's programs. There is also supervised swimming on scenic Malpeque Bay. The historical Fanning School is also found on site.",
+    "coordinates": { "lat": 46.55751007977964, "lng": -63.70515697306133 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "CEDAR DUNES PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/cedar-dunes",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/cedar-dunes",
     "hiking": "yes",
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Cedar Dunes provincial park is located along the scenic North Cape Coastal Drive in the West Point area. Cedar Dunes is famous for beautiful beaches that stretch for miles. The park provides supervised swimming, children's activities, an accessible playground, a beach mat from the parking lot to the water, and a floating wheelchair. The floating wheelchair is available daily from 10 - 6 and is first come, first served. When surf conditions are at Caution or Danger the floating wheelchair is not be accessible.",
-    "coordinates": "{lat: 46.61981644806086, lng: -64.38041664607401}"
+    "coordinates": { "lat": 46.61981644806086, "lng": -64.38041664607401 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "JACQUES CARTIER PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/jacques-cartier",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/jacques-cartier",
     "hiking": "yes",
     "swimming": "yes",
     "dog": "yes",
     "introduction": "The island's first European visitor came ashore in 1534 in the vicinity of this provincial park which bears his name, Jacques Cartier. He remarked that this was “the fairest land 'tis possible to see!” The park holds a celebration of this great discovery every July on Rediscovery Day.\n\nJacques Cartier Provincial Park offers a wide range of activities for all ages. There is supervised swimming at the beautiful beach on the Gulf of St. Lawrence. There is also a ramp and floating wheelchair available. The floating wheelchair is available daily from 10 - 6 and is first come, first served. When surf conditions are at Caution or Danger the floating wheelchair is not be accessible.",
-    "coordinates": "{lat: 46.84913605576647, lng: -64.01436618951226}"
+    "coordinates": { "lat": 46.84913605576647, "lng": -64.01436618951226 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "LINKLETTER PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/linkletter",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/linkletter",
     "hiking": "no",
     "swimming": "yes",
     "dog": "yes",
     "introduction": "This park, located on Bedeque Bay, is in close proximity to Summerside, the recreational and cultural center of Prince County. It is also close to Slemon Park which hosts several summer hockey schools. Linkletter is the closest Provincial Park to the Confederation Bridge that offers camping.",
-    "coordinates": "{lat: 46.3999221848084, lng: -63.85490722410455}"
+    "coordinates": { "lat": 46.3999221848084, "lng": -63.85490722410455 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "NORTHUMBERLAND PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/northumberland",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/northumberland",
     "hiking": "no",
     "swimming": "yes",
     "dog": "yes",
-    "introduction": "Northumberland's convenient location near the Wood Islands Ferry terminal makes this a busy park. Many people choose to stay for a night or two at the beginning or end of their visit to PEI. Cliff swallows burrowing nests along the shore are of special interest. Children's programs and supervised swimming are available.",
-    "coordinates": "{lat: 45.96658427111109, lng: -62.717362173078165}"
+    "introduction": "Northumberland's convenient location near the Wood Islands Ferry terminal makes this a busy park. Many people choose to stay for a night or two at the beginning or end of their visit to Prince Edward Island. Cliff swallows burrowing nests along the shore are of special interest. Children's programs and supervised swimming are available.",
+    "coordinates": { "lat": 45.96658427111109, "lng": -62.717362173078165 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "PANMURE ISLAND PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/panmure-island",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/panmure-island",
     "hiking": "yes",
     "swimming": "yes",
     "dog": "no",
-    "introduction": "Panmure Island features one of the most popular white sand beaches on PEI. The park provides life-guards for its supervised swimming areas. The location along a causeway gives water access on both sides of the highway with the sheltered St. Marys Bay on one side and an ocean beach on the other. The sand dunes on the ocean side provide a secluded atmosphere with long stretches of shoreline and a vast view of the ocean makes Panmure Island a beach lover's haven. Tours are offered at historic Panmure Island Lighthouse.",
-    "coordinates": "{lat: 46.12679405644499, lng: -62.4680828833868}"
+    "introduction": "Panmure Island features one of the most popular white sand beaches on Prince Edward Island. The park provides life-guards for its supervised swimming areas. The location along a causeway gives water access on both sides of the highway with the sheltered St. Marys Bay on one side and an ocean beach on the other. The sand dunes on the ocean side provide a secluded atmosphere with long stretches of shoreline and a vast view of the ocean makes Panmure Island a beach lover's haven. Tours are offered at historic Panmure Island Lighthouse.",
+    "coordinates": { "lat": 46.12679405644499, "lng": -62.4680828833868 }
   },
   {
-    "parkOrigin": "PEI",
+    "parkOrigin": "Prince Edward Island",
     "name": "RED POINT PROVINCIAL PARK",
     "camping": "yes",
-    "website": "https://www.tourismpei.com/provincial-park/red-point",
+    "website": "https://www.tourismPrince Edward Island.com/provincial-park/red-point",
     "hiking": "no",
     "swimming": "yes",
     "dog": "yes",
     "introduction": "With its beautiful beach and supervised swimming, Red Point campground is very popular with families. There are often organized activities for children and special events for the whole family. Red Point is located approximately 10 minutes from Souris where you'll find gas, food, restaurants, a hospital, hotels, exercise facilities, a liquor store, souvenir shops, a tourist information centre and the terminal for the Magdalen Island ferry service. Red Point is also the closest campground to the Rollo Bay Fiddle Festival grounds.",
-    "coordinates": "{lat: 46.36909765141427, lng: -62.13390473073824}"
+    "coordinates": { "lat": 46.36909765141427, "lng": -62.13390473073824 }
   }
 ]
