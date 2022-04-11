@@ -12,7 +12,7 @@ const options = {
 const client = new MongoClient(MONGO_URI, options);
 const db = client.db("planner");
 
-//GET user for login
+//GET user for login/////////////////////////////////
 const getUserByUsername = async (req, res) => {
   const { username } = req.params;
   const { password } = req.body;
@@ -44,7 +44,7 @@ const getUserByUsername = async (req, res) => {
   client.close();
 };
 
-//GET parksList and origin list
+//GET parksList and origin list///////////////////////
 const parksList = async (req, res) => {
   try {
     await client.connect();
@@ -69,7 +69,7 @@ const parksList = async (req, res) => {
       .status(200)
       .json({ status: 200, data: listParksOrigins, message: "succes" });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -77,7 +77,7 @@ const parksList = async (req, res) => {
   client.close();
 };
 
-//GET parkById
+//GET parkById/////////////////////////////////////////
 const parkByName = async (req, res) => {
   const { id } = req.params;
 
@@ -101,7 +101,7 @@ const parkByName = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -109,7 +109,7 @@ const parkByName = async (req, res) => {
   client.close();
 };
 
-//GET user's trips
+//GET user's trips//////////////////////////////////////////
 // const getUserTrips = async (req, res) => {
 //   console.log("inside");
 //   const { id } = req.params;
@@ -130,4 +130,76 @@ const parkByName = async (req, res) => {
 //   }
 // };
 
-module.exports = { getUserByUsername, parksList, parkByName };
+//POST review////////////////////////////////////////////
+const postParkReview = async (req, res) => {
+  const { user, review, time, parkId } = req.body;
+
+  if (!user || !review || !time || !parkId) {
+    return res
+      .status(400)
+      .json({ status: 400, data: req.body, message: "Info missing" });
+  }
+
+  try {
+    await client.connect();
+    const result = await db.collection("reviews").insertOne(req.body);
+    if (!result.acknowledged) {
+      return res
+        .status(502)
+        .json({ status: 502, data: req.body, message: "Cannot add review." });
+    }
+    res.status(200).json({ status: 200, data: req.body, message: "success" });
+  } catch (error) {
+    console.log(error.message);
+    res
+      .status(500)
+      .json({ status: 500, data: null, message: "Internal server error" });
+  }
+  client.close();
+};
+
+////GET reviews/////////////////////////////////////////////
+const getParkReviews = async (req, res) => {
+  const { id } = req.params;
+
+  if (!ObjectID.isValid(id)) {
+    res
+      .status(404)
+      .json({ status: 404, data: id, message: "id not in right format." });
+    return;
+  }
+
+  try {
+    await client.connect();
+    const result = await db
+      .collection("reviews")
+      .find({ parkId: id })
+      .toArray();
+    // console.log("result", result);
+    if (!result) {
+      res
+        .status(404)
+        .json({
+          status: 404,
+          data: id,
+          message: `Cannot find reviews according to park's id.`,
+        });
+      return;
+    }
+    res.status(200).json({ status: 200, data: result, message: "success" });
+  } catch (error) {
+    console.log(error.message);
+    res
+      .status(500)
+      .json({ status: 500, data: null, message: "Internal server error" });
+  }
+  client.close();
+};
+
+module.exports = {
+  getUserByUsername,
+  parksList,
+  parkByName,
+  postParkReview,
+  getParkReviews,
+};

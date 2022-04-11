@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 
 export const ReviewForm = ({ parkId }) => {
   const username = "thing1"; //will be according to the signed in user
@@ -13,6 +14,20 @@ export const ReviewForm = ({ parkId }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsWaiting(true);
+
+    fetch("/review", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        user: username,
+        review: review,
+        time: moment().format("LL"),
+        parkId: parkId,
+      }),
+    });
   };
 
   return (

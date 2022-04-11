@@ -5,6 +5,8 @@ const {
   parksList,
   parkByName,
   getUserTrips,
+  postParkReview,
+  getParkReviews,
 } = require("./handlers");
 
 const PORT = 8000;
@@ -31,8 +33,10 @@ express()
   .get("/parks", parksList)
   .get("/parks/:id", parkByName)
   // .get("/trips/my-trips/:id", getUserTrips)
-  .post("/user/:username", getUserByUsername)
+  .get("/reviews/:id", getParkReviews)
 
+  .post("/user/:username", getUserByUsername)
+  .post("/review", postParkReview)
   // -------------------------------------------------------------------------
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));
