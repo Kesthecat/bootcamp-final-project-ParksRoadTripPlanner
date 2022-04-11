@@ -8,7 +8,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 50.45367264664897,  lng: -112.98648750447067}"
+    "coordinates": { "lat": 50.45367264664897, "lng": -112.98648750447067 }
   },
   {
     "parkOrigin": "Alberta",
@@ -19,7 +19,7 @@
     "swimming": "no",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 49.91906096109653,  lang: -114.34350887302814}"
+    "coordinates": { "lat": 49.91906096109653, "lng": -114.34350887302814 }
   },
   {
     "parkOrigin": "Alberta",
@@ -30,7 +30,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 50.20118148444292,  lng: -110.3339342561186}"
+    "coordinates": { "lat": 50.20118148444292, "lng": -110.3339342561186 }
   },
   {
     "parkOrigin": "Alberta",
@@ -41,7 +41,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 55.39601041106085,  lng: -113.3883311757196}"
+    "coordinates": { "lat": 55.39601041106085, "lng": -113.3883311757196 }
   },
   {
     "parkOrigin": "Alberta",
@@ -52,7 +52,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 52.100571905341795,  lng: -115.25432194199583}"
+    "coordinates": { "lat": 52.100571905341795, "lng": -115.25432194199583 }
   },
   {
     "parkOrigin": "Alberta",
@@ -63,7 +63,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 54.045409698412186, lng: -118.23339921040171}"
+    "coordinates": { "lat": 54.045409698412186, "lng": -118.23339921040171 }
   },
   {
     "parkOrigin": "Alberta",
@@ -74,7 +74,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 54.148490474717256,  lng: -114.94369268338949}"
+    "coordinates": { "lat": 54.148490474717256, "lng": -114.94369268338949 }
   },
   {
     "parkOrigin": "Alberta",
@@ -85,7 +85,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 54.68473686612658,  lng: -111.68159258446491}"
+    "coordinates": { "lat": 54.68473686612658, "lng": -111.68159258446491 }
   },
   {
     "parkOrigin": "Alberta",
@@ -96,7 +96,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 55.19027918565899,  lng: -113.79525173426474}"
+    "coordinates": { "lat": 55.19027918565899, "lng": -113.79525173426474 }
   },
   {
     "parkOrigin": "Alberta",
@@ -107,7 +107,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 56.07001422468433,  lng: -114.98503123341823}"
+    "coordinates": { "lat": 56.07001422468433, "lng": -114.98503123341823 }
   },
   {
     "parkOrigin": "Alberta",
@@ -118,6 +118,6 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 57.94960193343479,  lng: -117.59166390799093}"
+    "coordinates": { "lat": 57.94960193343479, "lng": -117.59166390799093 }
   }
 ]

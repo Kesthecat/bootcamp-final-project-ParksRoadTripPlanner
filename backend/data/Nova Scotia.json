@@ -6,7 +6,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Not available at this moment.",
-    "coordinates": "{lat: 45.36527928919589, lng: -64.89922879028832}",
+    "coordinates": { "lat": 45.36527928919589, "lng": -64.89922879028832 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -17,7 +17,7 @@
     "swimming": "no",
     "dog": "yes",
     "introduction": "Wooded hilltop campground with a spectacular view of Guysborough Harbour an ideal place to camp while touring the Eastern Shore conveniently located between the communities of Boylston and Guysborough (town).",
-    "coordinates": "{lat: 45.42698616204391, lng: -61.51054881542175}",
+    "coordinates": { "lat": 45.42698616204391, "lng": -61.51054881542175 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -28,7 +28,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Situated on a large lake not far from the Musquodoboit Valley, Dollar Lake Provincial Park is the perfect escape. The quiet woodland setting offers a wide range of outdoor opportunities, including camping, boating, canoeing, water-skiing, and fishing. A beautiful sandy beach at the north end of the lake offers fresh water swimming.",
-    "coordinates": "{lat: 44.94636763046887, lng: -63.31539204612122}",
+    "coordinates": { "lat": 44.94636763046887, "lng": -63.31539204612122 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -39,7 +39,7 @@
     "swimming": "no",
     "dog": "yes",
     "introduction": "A quiet setting to relax and rejuvenate. Located on a small peninsula on the east side of Country Harbour, Guysborough County.",
-    "coordinates": "{lat: 45.237052298810504, lng: -61.767330015427156}",
+    "coordinates": { "lat": 45.237052298810504, "lng": -61.767330015427156 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -50,7 +50,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "The quiet lakeside setting offers a wide range of outdoor opportunities including camping, canoeing, water skiing, fishing, and swimming.",
-    "coordinates": "{lat: 44.88217492975145, lng: -63.602446759615745}",
+    "coordinates": { "lat": 44.88217492975145, "lng": -63.602446759615745 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -61,7 +61,7 @@
     "swimming": "no",
     "dog": "yes",
     "introduction": "A charming coastal camping park overlooking Shelburne Harbour.  A popular place to stay while visiting the historic Town of Shelburne and surrounding area.  Close to the Town of Shelburne you can walk or bike there on the Roseway River trail just outside the park. Prior to becoming an operational Provincial Park in 1958, there was a granite quarry on site and evidence can still be seen in the park.",
-    "coordinates": "{lat: 43.84259514391671, lng: -65.35102422853272}",
+    "coordinates": { "lat": 43.84259514391671, "lng": -65.35102422853272 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -72,7 +72,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Overlooking Port Joli Harbour on Nova Scotia's South Shore with over 650 ha (1,600 acres) the park offers visitors a wide range of outdoor experiences, including hiking, camping, picnicing, sight-seeing, or relaxing on the beach.",
-    "coordinates": "{la: t43.839277364612386, lng: -64.90330000197285}",
+    "coordinates": { "lat": 43.839277364612386, "lng": -64.90330000197285 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -83,7 +83,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Joined to the mainland by a short causeway, Graves Island Provincial Park is typical of many of the small islands found along Nova Scotia's Atlantic coast. This quiet ocean-side campground has long been a popular vacation spot for Nova Scotians and visitors alike.",
-    "coordinates": "{lat: 44.56016586812499, lng: -64.20686727311734}",
+    "coordinates": { "lat": 44.56016586812499, "lng": -64.20686727311734 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -94,7 +94,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "A beautiful white sand beach and boardwalk along an inland marsh provide the perfect setting for swimming, beachcombing or relaxing in the sun.",
-    "coordinates": "{lat: 44.23130192004297, lng: -64.42753480258405}",
+    "coordinates": { "lat": 44.23130192004297, "lng": -64.42753480258405 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -105,7 +105,7 @@
     "swimming": "yes",
     "dog": "yes",
     "introduction": "Jutting out into the famous Mira River and only minutes from Sydney or Fortress Louisbourg National Historic site, Mira River Provincial Park is the perfect escape.",
-    "coordinates": "{lat: 46.02873030638706, lng: -60.040619173076244}",
+    "coordinates": { "lat": 46.02873030638706, "lng": -60.040619173076244 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   },
@@ -116,7 +116,7 @@
     "swimming": "no",
     "dog": "yes",
     "introduction": "Occupying a dramatic hillside overlooking the Skye River Valley and the Bras d' Or Lake, the park offers a quiet scenic setting for camping, picnicing, hiking, and access to the Bras d' Or Lake.",
-    "coordinates": "{lat: 45.96689161267568, lng: -61.10477854424226}",
+    "coordinates": { "lat": 45.96689161267568, "lng": -61.10477854424226 },
     "camping": "yes",
     "parkOrigin": "Nova Scotia"
   }

@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import { HomePage } from "./HomePage";
-// import { Map } from "./map/Map";
+import { MainMap } from "./map/MainMap";
 // import { AppMap } from "./map/Map2";
 import { ParksList } from "./parks/ParksList";
 import { ErrorPage } from "./Error";
@@ -15,7 +15,7 @@ export const App = () => {
           <HomePage />
         </Route>
         <Route exact path="/mainMap">
-          {/* <Map /> */}
+          <MainMap />
           {/* <AppMap /> */}
         </Route>
         <Route exact path="/parks">

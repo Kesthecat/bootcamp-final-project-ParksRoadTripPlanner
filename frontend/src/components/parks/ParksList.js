@@ -44,7 +44,7 @@ export const ParksList = () => {
                       <RightSide className="park">
                         <Data>{park.camping.toUpperCase()}</Data>
                         <Data>{park.swimming.toUpperCase()}</Data>
-                        <Data>{park.hiking.toUpperCase()}</Data>
+                        <Data>{park.hiking}</Data>
                         <Data>{park.dog.toUpperCase()}</Data>
                       </RightSide>
                     </ParkContainer>
@@ -80,8 +80,8 @@ const RightSide = styled.div`
   display: flex;
   gap: 20px;
 
-  /* just creATE a new stlyed-component for yes-nos*/
-  &:hover {
+  /* styling YES YES YES*/
+  &.park {
     color: red;
   }
 `;
