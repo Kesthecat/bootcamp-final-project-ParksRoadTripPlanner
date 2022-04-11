@@ -163,10 +163,9 @@ const getParkReviews = async (req, res) => {
   const { id } = req.params;
 
   if (!ObjectID.isValid(id)) {
-    res
+    return res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
-    return;
   }
 
   try {
@@ -177,18 +176,20 @@ const getParkReviews = async (req, res) => {
       .toArray();
     // console.log("result", result);
     if (!result) {
-      res
-        .status(404)
-        .json({
-          status: 404,
-          data: id,
-          message: `Cannot find reviews according to park's id.`,
-        });
-      return;
+      return res.status(404).json({
+        status: 404,
+        data: id,
+        message: `Cannot find reviews according to park's id.`,
+      });
+    }
+    if (result.length === 0) {
+      return res
+        .status(200)
+        .json({ status: 200, data: null, message: "success" });
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    console.log(error.message);
+    console.log("errorMsg", error.message);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });

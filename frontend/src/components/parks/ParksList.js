@@ -3,12 +3,15 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import { ParksListContext } from "../hooks/ParksContext";
+import { Loading } from "../Loading";
 
 export const ParksList = () => {
   const { origins, parksList } = useContext(ParksListContext);
 
   // console.log("origin", origins);
   // console.log("parks", parksList);
+
+  if (origins === [] || parksList === []) return <Loading />;
 
   return (
     <>
@@ -77,8 +80,8 @@ const RightSide = styled.div`
   display: flex;
   gap: 20px;
 
-  /* not working???? */
-  .park {
+  /* just creATE a new stlyed-component for yes-nos*/
+  &:hover {
     color: red;
   }
 `;
