@@ -35,10 +35,11 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
         }
         setUser(data.data);
         setIsSignedIn(true);
+        history.push("/mainMap");
       })
       .catch((error) => {
         console.log("error", error.message);
-        history.pushState("/internalError");
+        history.push("/internalError");
       });
   };
 
@@ -69,6 +70,7 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
       ) : (
         <StyledBtn type="submit">Sign In</StyledBtn>
       )}
+      {error && <p>{errorMsg}</p>}
     </SignInForm>
   );
 };

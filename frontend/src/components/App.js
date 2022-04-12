@@ -14,7 +14,6 @@ import { InternalError } from "./InternalError";
 export const App = () => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [user, setUser] = useState(null);
-  // { username: "thing1", id: "1234" }
 
   return (
     <BrowserRouter>

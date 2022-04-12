@@ -34,7 +34,7 @@ const getUserByUsername = async (req, res) => {
         message: "Password does not match username.",
       });
     }
-    res.status(200).json({ status: 200, data: null, message: "success" });
+    res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (err) {
     // console.log(err.message);
     res
