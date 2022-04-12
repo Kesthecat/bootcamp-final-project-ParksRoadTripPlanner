@@ -2,11 +2,21 @@ import styled from "styled-components";
 import { useState } from "react";
 import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
 
-export const LocationMarker = ({ text }) => {
+export const LocationMarker = ({ park, stopsArr, setStopsArr }) => {
   const [isShown, setIsShown] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
 
-  // window.onclick;
+  //gives the ["test1"]
+  // console.log("stopsArr", stopsArr);
+
+  const handleAddWaypoint = (e) => {
+    e.preventDefault();
+    //get error saying either stopArr is undefined or stopArr.push is not a funct
+    //or gives result but gives me numbers....
+    const stops = stopsArr.push(park);
+    setStopsArr(stops);
+    console.log("afterSet", stopsArr);
+  };
 
   return (
     <>
@@ -20,10 +30,10 @@ export const LocationMarker = ({ text }) => {
         </Marker>
         {(isShown || hasClicked) && (
           <Modal>
-            <ParkName>{text}</ParkName>
+            <ParkName>{park.name}</ParkName>
             <ExitBtn onClick={() => setHasClicked(false)}>x</ExitBtn>
             <BtnContainer>
-              <StyledBtn>
+              <StyledBtn onChange={(e) => handleAddWaypoint(e)}>
                 <GiHealthNormal />
               </StyledBtn>
               <StyledBtn>
@@ -41,6 +51,7 @@ const Container = styled.div`
   /* border: 5px solid black; */
   position: absolute;
   transform: translate(0, -100%);
+  display: flex;
 `;
 const TreeMarker = styled(GiPineTree)`
   color: rgb(255, 64, 0);
@@ -50,10 +61,15 @@ const Marker = styled.div``;
 const ParkName = styled.p`
   margin: 10px;
   color: rgba(36, 36, 35);
+  width: fit-content;
 `;
-const ExitBtn = styled.button``;
+const ExitBtn = styled.button`
+  position: absolute;
+  left: 270px;
+  width: 30px;
+`;
 const BtnContainer = styled.div`
-  margin: 10px;
+  margin: 0 10px;
   display: flex;
   gap: 10px;
 `;
@@ -61,7 +77,13 @@ const StyledBtn = styled.button`
   background-color: rgba(245, 203, 92);
 `;
 const Modal = styled.div`
+  position: absolute;
+  top: -80px;
+  left: 10px;
   border: 1px solid pink;
-  width: fit-content;
+  width: 300px;
   background-color: rgba(207, 219, 213);
+  height: 60px;
+  display: flex;
+  flex-direction: column;
 `;
