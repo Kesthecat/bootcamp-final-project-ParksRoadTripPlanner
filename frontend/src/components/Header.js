@@ -12,14 +12,14 @@ export const Header = ({ isSignedIn, setIsSignedIn, user, setUser }) => {
     <Container>
       <LeftSide>
         <IconTitleWrapper>
-          {/* <ListIcon /> */}
           <StyledNavLink to={"/parks"}>
+            <ListIcon />
             <StyledP>List of Parks</StyledP>
           </StyledNavLink>
         </IconTitleWrapper>
         <IconTitleWrapper>
-          {/* <TripIcon /> */}
           <StyledNavLink to={"/tripsSuggestions"}>
+            <TripIcon />
             <StyledP>Trip suggestions</StyledP>
           </StyledNavLink>
         </IconTitleWrapper>
@@ -53,8 +53,8 @@ const IconTitleWrapper = styled.div`
   display: flex;
 `;
 const StyledNavLink = styled(NavLink)``;
-const ListIcon = styled(GiChecklist);
-const TripIcon = styled(GiLightBulb);
+const ListIcon = styled(GiChecklist)``;
+const TripIcon = styled(GiLightBulb)``;
 const RightSide = styled.div`
   display: flex;
   gap: 20px;

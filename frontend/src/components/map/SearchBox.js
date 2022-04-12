@@ -1,35 +1,40 @@
-import { useCallback } from "react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useRef } from "react";
-import { useState } from "react";
 import styled from "styled-components";
+import { GMAPContext } from "../hooks/GMAPContext";
 
-// onPlacesChanged
-
-export const SearchBox = ({ maps }) => {
+export const SearchBox = ({ settingPoint }) => {
+  const { maps } = useContext(GMAPContext);
   const inputRef = useRef(null);
-  const searchBox = useRef(null);
+  let searchBox = {};
 
-  // const handleOnPlacesChanged = useCallback(() => {
-  //   if (onPlacesChanged) {
-  //     onPlacesChanged(searchBox.current.getPlaces());
-  //   }
-  // }, [onPlacesChanged, searchBox]);
+  const handleOnPlacesChanged = () => {
+    let place = searchBox.getPlace();
+    if (!place.geometry || !place.geometry.location) {
+      window.alert("Please select location from dropdown.");
+    } else {
+      console.log("place", JSON.stringify(place.geometry.location));
+      settingPoint(place.geometry.location);
+    }
+  };
 
   useEffect(() => {
-    if (!searchBox.current && maps) {
-      searchBox.current = new maps.places.SearchBox(inputRef.current);
-      // searchBox.current.addListener("places_changed", handleOnPlacesChanged);
+    if (!searchBox && maps) {
+      searchBox = new maps.places.Autocomplete(inputRef.current, {});
+      // searchBar.bindTo("bounds", map)
+      //map.controls[maps.ControlPosition.TOP_LEFT].push(searchInput.current);
+      //<Search ref={searchInput} type="text" placeholder="Search Box" />
+      searchBox.addListener("place_changed", handleOnPlacesChanged);
     }
     return () => {
       if (maps) {
-        searchBox.current = null;
+        searchBox = null;
         maps.event.clearInstanceListeners(searchBox);
       }
     };
-  }, [maps]);
+  }, [maps, handleOnPlacesChanged]);
 
-  // handleOnPlacesChanged
+  //
 
   return <StyledInput type="text" placeholder="Enter a place" ref={inputRef} />;
 };

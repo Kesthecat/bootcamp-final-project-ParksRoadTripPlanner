@@ -2,12 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
 
-export const ReviewForm = ({
-  parkId,
-  username,
-  setHasNewReview,
-  setNewReview,
-}) => {
+export const ReviewForm = ({ parkId, user, setHasNewReview, setNewReview }) => {
   // const username = "thing1"; //will be according to the signed in user
   const [review, setReview] = useState(null);
   const [isWaiting, setIsWaiting] = useState(false);
@@ -27,7 +22,7 @@ export const ReviewForm = ({
         Accept: "application/json",
       },
       body: JSON.stringify({
-        user: username,
+        user: user.username,
         review: review,
         time: moment().format("LL"),
         parkId: parkId,
@@ -54,20 +49,26 @@ export const ReviewForm = ({
 
   return (
     <FormWrapper onSubmit={(e) => handleSubmit(e)}>
-      <p>User: {username}</p>
-      <StyledInput
-        type="text"
-        placeholder="What do you have to say?"
-        required
-        onChange={(e) => handleChangeReview(e)}
-      />
-      {/* add the word counter feature from twitter */}
-      {isWaiting ? (
-        <SubmitBtn type="submit" disabled={true}>
-          LOADING
-        </SubmitBtn>
+      {!user ? (
+        <p>Sign In to leave a review.</p>
       ) : (
-        <SubmitBtn type="submit">Submit</SubmitBtn>
+        <>
+          <p>User: {user.username}</p>
+          <StyledInput
+            type="text"
+            placeholder="What do you have to say?"
+            required
+            onChange={(e) => handleChangeReview(e)}
+          />
+          {/* add the word counter feature from twitter */}
+          {isWaiting ? (
+            <SubmitBtn type="submit" disabled={true}>
+              LOADING
+            </SubmitBtn>
+          ) : (
+            <SubmitBtn type="submit">Submit</SubmitBtn>
+          )}
+        </>
       )}
     </FormWrapper>
   );

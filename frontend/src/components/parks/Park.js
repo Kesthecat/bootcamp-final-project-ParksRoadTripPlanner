@@ -68,7 +68,7 @@ export const Park = ({ user }) => {
       <ReviewsContainer>
         <ReviewForm
           parkId={id}
-          username={user.username}
+          user={user}
           setNewReview={setNewReview}
           setHasNewReview={setHasNewReview}
         />

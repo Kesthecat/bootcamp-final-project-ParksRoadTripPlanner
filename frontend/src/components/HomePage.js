@@ -50,7 +50,7 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
           id="username"
           type="text"
           placeholder="Username"
-          onChange={(e) => setUsername(e.target.value)}
+          onChange={(e) => setInitialUsername(e.target.value)}
         />
       </Wrapper>
       <Wrapper>

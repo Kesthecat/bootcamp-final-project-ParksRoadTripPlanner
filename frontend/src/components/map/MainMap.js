@@ -11,15 +11,22 @@ import { PageWrapper } from "../PageWrapper";
 import { DepartureDestination } from "./DepartureDestination";
 import { Waypoints } from "./Waypoints";
 import { SaveCleatTripBtn } from "./SaveClearTripBtn";
+import { GMAPContext } from "../hooks/GMAPContext";
+
+///////////////////////////////////////////////////////////////
 
 export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
+  const { setMaps } = useContext(GMAPContext);
+
   const [departure, setDeparture] = useState(null);
   const [destination, setDestination] = useState(null);
   const [waypoints, setWaypoints] = useState(["test1", "test2"]);
 
-  //on GoogleMap APi load, will render a route
+  /////on GoogleMap APi load, will render a route
   const handleApiLoaded = (map, maps) => {
+    setMaps(maps);
+
     const directionsService = new maps.DirectionsService();
     const directionsDisplay = new maps.DirectionsRenderer();
     directionsService.route(
@@ -44,13 +51,18 @@ export const MainMap = () => {
     );
   };
 
+  ////////////////////////////////////
   if (parksList === []) return <Loading />;
+  //////////////////////////////////////
 
   return (
     <PageWrapper>
       <SearchContainer>
         <p>Enter you point of departure and destination: </p>
-        <DepartureDestination />
+        <DepartureDestination
+          setDeparture={setDeparture}
+          setDestination={setDestination}
+        />
         <Waypoints />
         <SaveCleatTripBtn />
       </SearchContainer>

@@ -1,16 +1,27 @@
+import { useState } from "react";
 import styled from "styled-components";
-// import { SearchBox } from "./SearchBox";
+import { SearchBox } from "./SearchBox";
 
-export const DepartureDestination = () => {
+export const DepartureDestination = ({ setDeparture, setDestination }) => {
+  const [address, setAddress] = useState(null);
+
+  const settingDeparture = (location) => {
+    setDeparture(location);
+  };
+
+  const settingDestination = (location) => {
+    setDestination(location);
+  };
+
   return (
     <>
       <PointContainer>
         <p>Departure: </p>
-        {/* <SearchBox maps={maps} /> */}
+        <SearchBox settingPoint={settingDeparture} />
       </PointContainer>
       <PointContainer>
         <p>Destination: </p>
-        {/* <SearchBox maps={maps} /> */}
+        <SearchBox settingPoint={settingDestination} />
       </PointContainer>
     </>
   );

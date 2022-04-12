@@ -11,11 +11,11 @@ export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
 
   const handleAddWaypoint = (e) => {
     e.preventDefault();
-    //get error saying either stopArr is undefined or stopArr.push is not a funct
+    //get error saying either waypoints is undefined or waypoints.push is not a funct
     //or gives result but gives me numbers....
-    const stops = waypoints.push(park);
+    const stops = [...waypoints].concat(park.coordinates);
     setWaypoints(stops);
-    console.log("afterSet", waypoints);
+    console.log("stops", stops);
   };
 
   return (
@@ -33,7 +33,7 @@ export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
             <ParkName>{park.name}</ParkName>
             <ExitBtn onClick={() => setHasClicked(false)}>x</ExitBtn>
             <BtnContainer>
-              <StyledBtn onChange={(e) => handleAddWaypoint(e)}>
+              <StyledBtn onClick={(e) => handleAddWaypoint(e)}>
                 <GiHealthNormal />
               </StyledBtn>
               <StyledBtn>
