@@ -14,7 +14,7 @@ export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
   const [departure, setDeparture] = useState(null);
   const [destination, setDestination] = useState(null);
-  //   console.log(parksList);
+  const [stopsArr, setStopsArr] = useState(["test1", "test2"]);
 
   //on GoogleMap APi load, will render a route
   const handleApiLoaded = (map, maps) => {
@@ -59,6 +59,11 @@ export const MainMap = () => {
         <WayPointsContainer>
           <p>Your Stops:</p>
           <p>List of waypoints added from pins on map.</p>
+          {/* {stopsArr.length !== 0 && (
+            {stopsArr.map((stop, i) => {
+              return <p>Waypoint {i}: {stop.name}</p>
+            })}
+          )} */}
         </WayPointsContainer>
         <FunctionsContainer>
           <StyledBtn>Clear Trip</StyledBtn>
@@ -75,13 +80,16 @@ export const MainMap = () => {
         >
           {/* rendering all the parks on the map on load */}
           {parksList.map((park, i) => {
-            const lat = park.coordinates.lat;
+            // console.log("stopArrInMap", stopsArr);
+            //console.log fine
             return (
               <LocationMarker
                 key={park._id + i}
-                lat={lat}
+                lat={park.coordinates.lat}
                 lng={park.coordinates.lng}
-                text={park.name}
+                park={park}
+                setStopsArr={setStopsArr}
+                stopsArr={stopsArr}
               />
             );
           })}
