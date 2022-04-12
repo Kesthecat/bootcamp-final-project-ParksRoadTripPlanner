@@ -11,18 +11,17 @@ export const Header = ({ isSignedIn, setIsSignedIn, user, setUser }) => {
   return (
     <Container>
       <LeftSide>
-        <IconTitleWrapper>
-          <StyledNavLink to={"/parks"}>
-            <ListIcon />
-            <StyledP>List of Parks</StyledP>
-          </StyledNavLink>
-        </IconTitleWrapper>
-        <IconTitleWrapper>
-          <StyledNavLink to={"/tripsSuggestions"}>
-            <TripIcon />
-            <StyledP>Trip suggestions</StyledP>
-          </StyledNavLink>
-        </IconTitleWrapper>
+        <StyledNavLink to={"/mainMap"}>
+          <StyledP>Map</StyledP>
+        </StyledNavLink>
+        <StyledNavLink to={"/parks"}>
+          <ListIcon />
+          <StyledP>List of Parks</StyledP>
+        </StyledNavLink>
+        <StyledNavLink to={"/tripsSuggestions"}>
+          <TripIcon />
+          <StyledP>Trip suggestions</StyledP>
+        </StyledNavLink>
       </LeftSide>
       {isSignedIn && (
         <RightSide>
@@ -49,10 +48,9 @@ const LeftSide = styled.div`
   display: flex;
   gap: 20px;
 `;
-const IconTitleWrapper = styled.div`
+const StyledNavLink = styled(NavLink)`
   display: flex;
 `;
-const StyledNavLink = styled(NavLink)``;
 const ListIcon = styled(GiChecklist)``;
 const TripIcon = styled(GiLightBulb)``;
 const RightSide = styled.div`

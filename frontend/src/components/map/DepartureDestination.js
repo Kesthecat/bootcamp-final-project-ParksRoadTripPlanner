@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { SearchBox } from "./SearchBox";
 
 export const DepartureDestination = ({ setDeparture, setDestination }) => {
-  const [address, setAddress] = useState(null);
-
   const settingDeparture = (location) => {
     setDeparture(location);
   };
@@ -17,11 +15,11 @@ export const DepartureDestination = ({ setDeparture, setDestination }) => {
     <>
       <PointContainer>
         <p>Departure: </p>
-        <SearchBox settingPoint={settingDeparture} />
+        <SearchBox settingPoint={setDeparture} />
       </PointContainer>
       <PointContainer>
         <p>Destination: </p>
-        <SearchBox settingPoint={settingDestination} />
+        <SearchBox settingPoint={setDestination} />
       </PointContainer>
     </>
   );

@@ -41,7 +41,9 @@ export const Park = ({ user }) => {
         <Intro>{park.introduction}</Intro>
         <MiddleContainer>
           <InnerContainer>
-            <p>{park.website}</p>
+            <a href={park.website} target="_blank">
+              {park.website}
+            </a>
           </InnerContainer>
           <InnerContainer>
             <p>
