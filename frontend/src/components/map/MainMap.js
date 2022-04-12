@@ -21,7 +21,14 @@ export const MainMap = () => {
 
   const [departure, setDeparture] = useState(null);
   const [destination, setDestination] = useState(null);
-  const [waypoints, setWaypoints] = useState(["test1", "test2"]);
+  const [waypoints, setWaypoints] = useState([]);
+
+  let waypointsCoord = [];
+  waypoints.forEach((point) => {
+    waypointsCoord.push(point.coordinates);
+  });
+
+  // console.log("waypointsCoord", waypointsCoord);
 
   /////on GoogleMap APi load, will render a route
   const handleApiLoaded = (map, maps) => {
@@ -63,7 +70,7 @@ export const MainMap = () => {
           setDeparture={setDeparture}
           setDestination={setDestination}
         />
-        <Waypoints />
+        <Waypoints waypoints={waypoints} setWaypoints={setWaypoints} />
         <SaveCleatTripBtn />
       </SearchContainer>
       <MapContainer>

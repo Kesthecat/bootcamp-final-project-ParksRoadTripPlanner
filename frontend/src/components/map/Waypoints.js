@@ -1,15 +1,35 @@
 import styled from "styled-components";
+import { AiOutlineMinus } from "react-icons/ai";
 
-export const Waypoints = () => {
+export const Waypoints = ({ waypoints, setWaypoints }) => {
+  console.log(waypoints);
+
+  const handleRemove = (id) => {
+    console.log("stop", id);
+    const updatedWayppoints = waypoints.filter((point) => point._id !== id);
+    setWaypoints(updatedWayppoints);
+  };
+
   return (
     <WayPointsContainer>
-      <p>Your Stops:</p>
-      <p>List of waypoints added from pins on map.</p>
-      {/* {stopsArr.length !== 0 && (
-            {stopsArr.map((stop, i) => {
-              return <p>Waypoint {i}: {stop.name}</p>
-            })}
-          )} */}
+      <StyledP>Your Stops:</StyledP>
+      <StyledP>List of waypoints added from pins on map.</StyledP>
+      {waypoints.length !== 0 ? (
+        waypoints.map((stop, i) => {
+          return (
+            <WaypointWrapper>
+              <StyledP key={stop.name + i}>
+                Waypoint {i}: {stop.name}
+              </StyledP>
+              <StyledBtn onClick={() => handleRemove(stop._id)}>
+                <RemoveIcon />
+              </StyledBtn>
+            </WaypointWrapper>
+          );
+        })
+      ) : (
+        <StyledP>No waypoints added.</StyledP>
+      )}
     </WayPointsContainer>
   );
 };
@@ -17,3 +37,9 @@ export const Waypoints = () => {
 const WayPointsContainer = styled.div`
   background-color: gray;
 `;
+const WaypointWrapper = styled.div`
+  display: flex;
+`;
+const StyledP = styled.p``;
+const StyledBtn = styled.button``;
+const RemoveIcon = styled(AiOutlineMinus)``;

@@ -18,13 +18,12 @@ export const SearchBox = ({ settingPoint }) => {
       // console.log("place", JSON.stringify(place.geometry.location));
       const location = JSON.stringify(place.geometry.location);
       const locationValues = Object.values(JSON.parse(location));
-      const coordinates = { lat: locationValues[0], lng: locationValues[1] };
+      const inputLocation = {
+        coordinates: { lat: locationValues[0], lng: locationValues[1] },
+        name: place.name,
+      };
       // console.log(coordinates);
-      settingPoint(
-        coordinates
-        // lat: JSON.stringify(place.geometry.location.lat),
-        // lng: JSON.stringify(place.geometry.location.lng),
-      );
+      settingPoint(inputLocation);
     }
   };
 

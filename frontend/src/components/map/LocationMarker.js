@@ -13,7 +13,7 @@ export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
     e.preventDefault();
     //get error saying either waypoints is undefined or waypoints.push is not a funct
     //or gives result but gives me numbers....
-    const stops = [...waypoints].concat(park.coordinates);
+    const stops = [...waypoints].concat(park);
     setWaypoints(stops);
     console.log("stops", stops);
   };
