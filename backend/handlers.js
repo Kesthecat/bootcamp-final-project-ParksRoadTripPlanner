@@ -19,7 +19,7 @@ const getUserByUsername = async (req, res) => {
   try {
     await client.connect();
     const result = await db.collection("users").findOne({ username: username });
-    console.log(result);
+    // console.log(result);
     //validation
     if (!result) {
       res

@@ -2,20 +2,20 @@ import styled from "styled-components";
 import { useState } from "react";
 import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
 
-export const LocationMarker = ({ park, stopsArr, setStopsArr }) => {
+export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
   const [isShown, setIsShown] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
 
   //gives the ["test1"]
-  // console.log("stopsArr", stopsArr);
+  // console.log("waypoints", waypoints);
 
   const handleAddWaypoint = (e) => {
     e.preventDefault();
     //get error saying either stopArr is undefined or stopArr.push is not a funct
     //or gives result but gives me numbers....
-    const stops = stopsArr.push(park);
-    setStopsArr(stops);
-    console.log("afterSet", stopsArr);
+    const stops = waypoints.push(park);
+    setWaypoints(stops);
+    console.log("afterSet", waypoints);
   };
 
   return (

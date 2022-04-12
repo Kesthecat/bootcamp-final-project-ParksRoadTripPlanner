@@ -7,7 +7,7 @@ import { Loading } from "../Loading";
 import { ReviewForm } from "../ReviewsForm";
 import { PostedReviews } from "../PostedReviews";
 
-export const Park = () => {
+export const Park = ({ user }) => {
   const { id } = useParams();
   const [park, setPark] = useState(null);
   const [parkLoad, setParkLoad] = useState("idle"); //loaded
@@ -26,7 +26,7 @@ export const Park = () => {
       })
       .catch((error) => {
         // console.log(error.message);
-        history.push("/error");
+        history.push("/internalError");
       });
   }, []);
 
@@ -58,7 +58,7 @@ export const Park = () => {
             </p>
           </InnerContainer>
           <BtnContainer>
-            Add to favorite{" "}
+            Add to favorite
             <StyledBtn>
               <GiHeartPlus />
             </StyledBtn>
@@ -68,6 +68,7 @@ export const Park = () => {
       <ReviewsContainer>
         <ReviewForm
           parkId={id}
+          username={user.username}
           setNewReview={setNewReview}
           setHasNewReview={setHasNewReview}
         />

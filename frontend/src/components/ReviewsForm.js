@@ -2,8 +2,13 @@ import { useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
 
-export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
-  const username = "thing1"; //will be according to the signed in user
+export const ReviewForm = ({
+  parkId,
+  username,
+  setHasNewReview,
+  setNewReview,
+}) => {
+  // const username = "thing1"; //will be according to the signed in user
   const [review, setReview] = useState(null);
   const [isWaiting, setIsWaiting] = useState(false);
 

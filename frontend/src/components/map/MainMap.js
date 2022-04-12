@@ -8,13 +8,15 @@ import { ParksListContext } from "../hooks/ParksContext";
 import { Loading } from "../Loading";
 import { useState } from "react";
 import { PageWrapper } from "../PageWrapper";
-// import { SearchBox } from "./SearchBox";
+import { DepartureDestination } from "./DepartureDestination";
+import { Waypoints } from "./Waypoints";
+import { SaveCleatTripBtn } from "./SaveClearTripBtn";
 
 export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
   const [departure, setDeparture] = useState(null);
   const [destination, setDestination] = useState(null);
-  const [stopsArr, setStopsArr] = useState(["test1", "test2"]);
+  const [waypoints, setWaypoints] = useState(["test1", "test2"]);
 
   //on GoogleMap APi load, will render a route
   const handleApiLoaded = (map, maps) => {
@@ -48,27 +50,9 @@ export const MainMap = () => {
     <PageWrapper>
       <SearchContainer>
         <p>Enter you point of departure and destination: </p>
-        <PointContainer>
-          <p>Departure: </p>
-          {/* <SearchBox maps={maps} /> */}
-        </PointContainer>
-        <PointContainer>
-          <p>Destination: </p>
-          {/* <SearchBox maps={maps} /> */}
-        </PointContainer>
-        <WayPointsContainer>
-          <p>Your Stops:</p>
-          <p>List of waypoints added from pins on map.</p>
-          {/* {stopsArr.length !== 0 && (
-            {stopsArr.map((stop, i) => {
-              return <p>Waypoint {i}: {stop.name}</p>
-            })}
-          )} */}
-        </WayPointsContainer>
-        <FunctionsContainer>
-          <StyledBtn>Clear Trip</StyledBtn>
-          <StyledBtn>Save Trip</StyledBtn>
-        </FunctionsContainer>
+        <DepartureDestination />
+        <Waypoints />
+        <SaveCleatTripBtn />
       </SearchContainer>
       <MapContainer>
         <GoogleMapReact
@@ -88,8 +72,8 @@ export const MainMap = () => {
                 lat={park.coordinates.lat}
                 lng={park.coordinates.lng}
                 park={park}
-                setStopsArr={setStopsArr}
-                stopsArr={stopsArr}
+                setWaypoints={setWaypoints}
+                waypoints={waypoints}
               />
             );
           })}
@@ -104,15 +88,7 @@ const SearchContainer = styled.div`
   width: 400px;
   border: 2px solid yellowgreen;
 `;
-const PointContainer = styled.div`
-  display: flex;
-  border: 2px dotted purple;
-`;
-const WayPointsContainer = styled.div`
-  background-color: gray;
-`;
-const FunctionsContainer = styled.div``;
-const StyledBtn = styled.button``;
+
 const MapContainer = styled.div`
   height: 900px;
   width: 1300px;
