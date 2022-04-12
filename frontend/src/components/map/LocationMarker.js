@@ -1,21 +1,27 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
+import { AiOutlineMinus } from "react-icons/ai";
 
 export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
   const [isShown, setIsShown] = useState(false);
-  const [hasClicked, setHasClicked] = useState(false);
+  const [hasClickedModal, setHasClickedModal] = useState(false);
+  const [hasAdded, setHasAdded] = useState(false);
 
   //gives the ["test1"]
   // console.log("waypoints", waypoints);
 
-  const handleAddWaypoint = (e) => {
-    e.preventDefault();
-    //get error saying either waypoints is undefined or waypoints.push is not a funct
-    //or gives result but gives me numbers....
+  const handleAddWaypoint = () => {
     const stops = [...waypoints].concat(park);
     setWaypoints(stops);
+    setHasAdded(true);
     console.log("stops", stops);
+  };
+
+  const handleRemoveWaypoint = (id) => {
+    const updatedWaypoints = waypoints.filter((point) => point._id !== id);
+    setWaypoints(updatedWaypoints);
+    setHasAdded(false);
   };
 
   return (
@@ -24,18 +30,24 @@ export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
         <Marker
           onMouseOver={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
-          onClick={() => setHasClicked(true)}
+          onClick={() => setHasClickedModal(true)}
         >
           <TreeMarker />
         </Marker>
-        {(isShown || hasClicked) && (
+        {(isShown || hasClickedModal) && (
           <Modal>
             <ParkName>{park.name}</ParkName>
-            <ExitBtn onClick={() => setHasClicked(false)}>x</ExitBtn>
+            <ExitBtn onClick={() => setHasClickedModal(false)}>x</ExitBtn>
             <BtnContainer>
-              <StyledBtn onClick={(e) => handleAddWaypoint(e)}>
-                <GiHealthNormal />
-              </StyledBtn>
+              {hasAdded ? (
+                <StyledBtn onClick={() => handleRemoveWaypoint(park._id)}>
+                  <AiOutlineMinus />
+                </StyledBtn>
+              ) : (
+                <StyledBtn onClick={() => handleAddWaypoint()}>
+                  <GiHealthNormal />
+                </StyledBtn>
+              )}
               <StyledBtn>
                 <GiHeartPlus />
               </StyledBtn>
