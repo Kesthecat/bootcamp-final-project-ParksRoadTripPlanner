@@ -12,7 +12,7 @@ const options = {
 const client = new MongoClient(MONGO_URI, options);
 const db = client.db("planner");
 
-//GET user for login/////////////////////////////////
+//POST user for login/////////////////////////////////
 const getUserByUsername = async (req, res) => {
   const { username } = req.params;
   const { password } = req.body;

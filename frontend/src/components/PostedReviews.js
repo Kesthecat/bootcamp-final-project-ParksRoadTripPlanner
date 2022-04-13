@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Loading } from "./Loading";
 
-export const PostedReviews = ({ parkId, hasNewReview, newReview }) => {
+export const PostedReviews = ({ hasNewReview, newReview }) => {
+  const { id } = useParams();
   const [postedReviews, setPostedReviews] = useState([]);
   const [reviewsStatus, setReviewsStatus] = useState("idle"); // loaded, error
 
   useEffect(() => {
     setReviewsStatus("loading");
-    fetch(`/reviews/${parkId}`)
+    fetch(`/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log("reviews", data);
@@ -29,7 +31,7 @@ export const PostedReviews = ({ parkId, hasNewReview, newReview }) => {
 
   return (
     <ReviewsWrapper>
-      {hasNewReview && (
+      {newReview && (
         <SingleReviewWrapper>
           <PostInfo>
             <p>{newReview.user}</p>

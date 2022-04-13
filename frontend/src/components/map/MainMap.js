@@ -12,12 +12,14 @@ import { DepartureDestination } from "./DepartureDestination";
 import { Waypoints } from "./Waypoints";
 import { SaveCleatTripBtn } from "./SaveClearTripBtn";
 import { GMAPContext } from "../hooks/GMAPContext";
+import { UserContext } from "../hooks/userContext";
 
 ///////////////////////////////////////////////////////////////
 
 export const MainMap = ({ isSignedIn }) => {
   const { parksList } = useContext(ParksListContext);
   const { setMaps } = useContext(GMAPContext);
+  const { username } = useContext(UserContext);
 
   const [departure, setDeparture] = useState(null);
   const [destination, setDestination] = useState(null);
@@ -64,7 +66,7 @@ export const MainMap = ({ isSignedIn }) => {
 
   return (
     <PageWrapper>
-      {isSignedIn ? (
+      {username ? (
         <SearchContainer>
           <p>Enter you point of departure and destination: </p>
           <DepartureDestination

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
+import { UserContext } from "./hooks/userContext";
 
-export const HomePage = ({ setIsSignedIn, setUser }) => {
+export const HomePage = () => {
+  const { setUsername, setUserId } = useContext(UserContext);
+
   const [password, setPassword] = useState(null);
   const [initialUsername, setInitialUsername] = useState(null);
   const [isWaiting, setIsWaiting] = useState(false);
@@ -14,7 +17,6 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsWaiting(true);
-    console.log(initialUsername);
 
     const username = initialUsername.toLowerCase();
 
@@ -34,21 +36,26 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
           setError(true);
           setErrorMsg(data.message);
         }
-        setUser(data.data);
-        setIsSignedIn(true);
-        history.push("/mainMap");
+        localStorage.setItem("user", data.data.username);
+        localStorage.setItem("userId", data.data._id);
+        const signedInUser = localStorage.getItem("user");
+        const id = localStorage.getItem("userId");
+        setUsername(signedInUser);
+        setUserId(id);
+        setIsWaiting(false);
+        history.push("/parks");
       })
       .catch((error) => {
         console.log("error", error.message);
         // history.push("/internalError");
-        // window.alert(error.message);
+        window.alert(error.message);
       });
   };
 
   return (
     <SignInForm onSubmit={(e) => handleSubmit(e)}>
       <Wrapper>
-        <StyledLabel for="username">Username:</StyledLabel>
+        <StyledLabel>Username:</StyledLabel>
         <StyledInput
           id="username"
           type="text"
@@ -57,13 +64,15 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
         />
       </Wrapper>
       <Wrapper>
-        <StyledLabel for="password">Password</StyledLabel>
-        <StyledInput
-          id="password"
-          type="password"
-          placeholder="Case Sensitive"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <StyledLabel>
+          Password
+          <StyledInput
+            id="password"
+            type="password"
+            placeholder="Case Sensitive"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </StyledLabel>
       </Wrapper>
       {isWaiting ? (
         <StyledBtn type="submit" disabled={true}>

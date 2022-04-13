@@ -12,23 +12,15 @@ import { User } from "./user/User";
 import { InternalError } from "./InternalError";
 
 export const App = () => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  const [user, setUser] = useState(null);
-
   return (
     <BrowserRouter>
-      <Header
-        isSignedIn={isSignedIn}
-        setIsSignedIn={setIsSignedIn}
-        user={user}
-        setUser={setUser}
-      />
+      <Header />
       <Switch>
         <Route exact path="/">
-          <HomePage setIsSignedIn={setIsSignedIn} setUser={setUser} />
+          <HomePage />
         </Route>
         <Route exact path="/mainMap">
-          <MainMap isSignedIn={isSignedIn} />
+          <MainMap />
         </Route>
         <Route exact path="/tripsSuggestions">
           <TripsSuggestions />
@@ -37,7 +29,7 @@ export const App = () => {
           <ParksList />
         </Route>
         <Route exact path="/parks/:id">
-          <Park user={user} />
+          <Park />
         </Route>
         <Route exact path="/user/:id">
           <User />

@@ -6,9 +6,11 @@ import { GiHeartPlus } from "react-icons/gi";
 import { Loading } from "../Loading";
 import { ReviewForm } from "../ReviewsForm";
 import { PostedReviews } from "../PostedReviews";
+import { useContext } from "react";
 
-export const Park = ({ user }) => {
+export const Park = () => {
   const { id } = useParams();
+
   const [park, setPark] = useState(null);
   const [parkLoad, setParkLoad] = useState("idle"); //loaded
   const [hasNewReview, setHasNewReview] = useState(false);
@@ -70,7 +72,6 @@ export const Park = ({ user }) => {
       <ReviewsContainer>
         <ReviewForm
           parkId={id}
-          user={user}
           setNewReview={setNewReview}
           setHasNewReview={setHasNewReview}
         />

@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
+import { useContext } from "react";
+import { UserContext } from "./hooks/userContext";
 
-export const Header = ({ isSignedIn, setIsSignedIn, user, setUser }) => {
+export const Header = () => {
+  const { username, setUsername, userId } = useContext(UserContext);
+
   const handleSignOut = () => {
-    setIsSignedIn(false);
-    setUser(null);
+    setUsername(null);
+    localStorage.clear();
   };
 
   return (
@@ -23,11 +27,11 @@ export const Header = ({ isSignedIn, setIsSignedIn, user, setUser }) => {
           <StyledP>Trip suggestions</StyledP>
         </StyledNavLink>
       </LeftSide>
-      {isSignedIn ? (
+      {username ? (
         <RightSide>
-          <StyledNavLink to={`/user/${user.id}`}>
+          <StyledNavLink to={`/user/${userId}`}>
             <Avatar src="../assets/000019.jpg" alt="user's avatar" />
-            <StyledP>{user.username}</StyledP>
+            <StyledP>{username}</StyledP>
           </StyledNavLink>
           <StyledNavLink to={"/"} onClick={() => handleSignOut()}>
             Sign Out

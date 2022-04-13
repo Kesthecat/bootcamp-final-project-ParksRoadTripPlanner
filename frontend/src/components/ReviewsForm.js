@@ -1,9 +1,12 @@
 import { useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
+import { useContext } from "react";
+import { UserContext } from "./hooks/userContext";
 
-export const ReviewForm = ({ parkId, user, setHasNewReview, setNewReview }) => {
-  // const username = "thing1"; //will be according to the signed in user
+export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
+  const { username } = useContext(UserContext);
+
   const [review, setReview] = useState(null);
   const [isWaiting, setIsWaiting] = useState(false);
 
@@ -22,7 +25,7 @@ export const ReviewForm = ({ parkId, user, setHasNewReview, setNewReview }) => {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        user: user.username,
+        user: username,
         review: review,
         time: moment().format("LL"),
         parkId: parkId,
@@ -31,33 +34,32 @@ export const ReviewForm = ({ parkId, user, setHasNewReview, setNewReview }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message !== "success") {
-          window.alert(
-            "An error has occur, cannot post review. Refresh the page."
-          );
+          window.alert(data.message);
         } else {
           setHasNewReview(true);
           setNewReview(data.data);
+          setIsWaiting(false);
+          setReview("");
         }
       })
       .catch((error) => {
         console.log("error", error);
-        window.alert(
-          "An error has occur, cannot post review. Refresh the page."
-        );
+        window.alert(error.message);
       });
   };
 
   return (
     <FormWrapper onSubmit={(e) => handleSubmit(e)}>
-      {!user ? (
+      {!username ? (
         <p>Sign In to leave a review.</p>
       ) : (
         <>
-          <p>User: {user.username}</p>
+          <p>User: {username}</p>
           <StyledInput
             type="text"
             placeholder="What do you have to say?"
             required
+            value={review}
             onChange={(e) => handleChangeReview(e)}
           />
           {/* add the word counter feature from twitter */}
