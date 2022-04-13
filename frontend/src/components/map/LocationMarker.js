@@ -2,11 +2,14 @@ import styled from "styled-components";
 import { useState } from "react";
 import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
 import { AiOutlineMinus } from "react-icons/ai";
+import { useContext } from "react";
+import { GMAPContext } from "../hooks/GMAPContext";
 
-export const LocationMarker = ({ park, waypoints, setWaypoints }) => {
+export const LocationMarker = ({ park }) => {
   const [isShown, setIsShown] = useState(false);
   const [hasClickedModal, setHasClickedModal] = useState(false);
   const [hasAdded, setHasAdded] = useState(false);
+  const { waypoints, setWaypoints } = useContext(GMAPContext);
 
   //gives the ["test1"]
   // console.log("waypoints", waypoints);

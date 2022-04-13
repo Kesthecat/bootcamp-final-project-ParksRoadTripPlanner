@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { AiOutlineMinus } from "react-icons/ai";
+import { useContext } from "react";
+import { GMAPContext } from "../hooks/GMAPContext";
 
-export const Waypoints = ({ waypoints, setWaypoints }) => {
-  console.log(waypoints);
+export const Waypoints = () => {
+  // console.log(waypoints);
 
+  const { waypoints, setWaypoints } = useContext(GMAPContext);
   const handleRemove = (id) => {
     console.log("stop", id);
     const updatedWayppoints = waypoints.filter((point) => point._id !== id);

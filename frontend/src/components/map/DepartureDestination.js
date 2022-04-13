@@ -1,14 +1,10 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { GMAPContext } from "../hooks/GMAPContext";
 import { SearchBox } from "./SearchBox";
 
-export const DepartureDestination = ({ setDeparture, setDestination }) => {
-  // const settingDeparture = (location) => {
-  //   setDeparture(location);
-  // };
-
-  // const settingDestination = (location) => {
-  //   setDestination(location);
-  // };
+export const DepartureDestination = () => {
+  const { setDeparture, setDestination, setRoute } = useContext(GMAPContext);
 
   return (
     <>
@@ -20,7 +16,7 @@ export const DepartureDestination = ({ setDeparture, setDestination }) => {
         <p>Destination: </p>
         <SearchBox settingPoint={setDestination} />
       </PointContainer>
-      <StyledBtn>Render Route</StyledBtn>
+      <StyledBtn onClick={() => setRoute()}>Render Route</StyledBtn>
     </>
   );
 };

@@ -10,8 +10,6 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const signedInUser = localStorage.getItem("user");
     const id = localStorage.getItem("userId");
-    console.log("username", signedInUser);
-    console.log("id", id);
 
     if (signedInUser && id) {
       setUserId(id);
@@ -21,7 +19,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider value={{ username, setUsername, userId, setUserId }}>
-      ({children})
+      {children}
     </UserContext.Provider>
   );
 };

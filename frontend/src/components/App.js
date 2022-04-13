@@ -5,7 +5,6 @@ import { MainMap } from "./map/MainMap";
 import { ParksList } from "./parks/ParksList";
 import { ErrorPage } from "./Error";
 import { Park } from "./parks/Park";
-import { useState } from "react";
 import { Header } from "./Header";
 import { TripsSuggestions } from "./trips/TripsSuggestions";
 import { User } from "./user/User";

@@ -11,7 +11,7 @@ export const SearchBox = ({ settingPoint }) => {
 
   const handleOnPlacesChanged = () => {
     let place = searchBox.getPlace();
-    console.log("inside", place);
+    // console.log("inside", place);
     if (!place.geometry || !place.geometry.location) {
       window.alert("Please select location from dropdown.");
     } else {
@@ -26,9 +26,11 @@ export const SearchBox = ({ settingPoint }) => {
       settingPoint(inputLocation);
     }
   };
-
   // useEffect(() => {
+
   if (maps) {
+    console.log("inside maps", maps.places);
+
     searchBox = new maps.places.Autocomplete(inputRef.current, options);
     // searchBar.bindTo("bounds", map)
     //map.controls[maps.ControlPosition.TOP_LEFT].push(searchInput.current);
