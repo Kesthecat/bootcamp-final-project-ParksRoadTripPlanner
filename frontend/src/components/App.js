@@ -28,7 +28,7 @@ export const App = () => {
           <HomePage setIsSignedIn={setIsSignedIn} setUser={setUser} />
         </Route>
         <Route exact path="/mainMap">
-          <MainMap />
+          <MainMap isSignedIn={isSignedIn} />
         </Route>
         <Route exact path="/tripsSuggestions">
           <TripsSuggestions />

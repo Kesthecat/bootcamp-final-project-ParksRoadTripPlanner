@@ -14,6 +14,7 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsWaiting(true);
+    console.log(initialUsername);
 
     const username = initialUsername.toLowerCase();
 
@@ -39,7 +40,8 @@ export const HomePage = ({ setIsSignedIn, setUser }) => {
       })
       .catch((error) => {
         console.log("error", error.message);
-        history.push("/internalError");
+        // history.push("/internalError");
+        // window.alert(error.message);
       });
   };
 

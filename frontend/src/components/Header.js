@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
 
 export const Header = ({ isSignedIn, setIsSignedIn, user, setUser }) => {
@@ -29,7 +29,7 @@ export const Header = ({ isSignedIn, setIsSignedIn, user, setUser }) => {
             <Avatar src="../assets/000019.jpg" alt="user's avatar" />
             <StyledP>{user.username}</StyledP>
           </StyledNavLink>
-          <StyledNavLink onClick={() => handleSignOut()}>
+          <StyledNavLink to={"/"} onClick={() => handleSignOut()}>
             Sign Out
           </StyledNavLink>
         </RightSide>

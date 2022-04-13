@@ -15,7 +15,7 @@ import { GMAPContext } from "../hooks/GMAPContext";
 
 ///////////////////////////////////////////////////////////////
 
-export const MainMap = () => {
+export const MainMap = ({ isSignedIn }) => {
   const { parksList } = useContext(ParksListContext);
   const { setMaps } = useContext(GMAPContext);
 
@@ -64,15 +64,21 @@ export const MainMap = () => {
 
   return (
     <PageWrapper>
-      <SearchContainer>
-        <p>Enter you point of departure and destination: </p>
-        <DepartureDestination
-          setDeparture={setDeparture}
-          setDestination={setDestination}
-        />
-        <Waypoints waypoints={waypoints} setWaypoints={setWaypoints} />
-        <SaveCleatTripBtn />
-      </SearchContainer>
+      {isSignedIn ? (
+        <SearchContainer>
+          <p>Enter you point of departure and destination: </p>
+          <DepartureDestination
+            setDeparture={setDeparture}
+            setDestination={setDestination}
+          />
+          <Waypoints waypoints={waypoints} setWaypoints={setWaypoints} />
+          <SaveCleatTripBtn />
+        </SearchContainer>
+      ) : (
+        <SearchContainer>
+          <p>Sign In or Sign Up to use the trip planning feature.</p>
+        </SearchContainer>
+      )}
       <MapContainer>
         <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
