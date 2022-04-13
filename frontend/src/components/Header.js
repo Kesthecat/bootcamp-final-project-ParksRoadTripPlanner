@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
 import { useContext } from "react";
 import { UserContext } from "./hooks/userContext";
+import avatar from "../assets/000019.jpg";
 
 export const Header = () => {
   const { username, setUsername, userId } = useContext(UserContext);
@@ -30,7 +31,7 @@ export const Header = () => {
       {username ? (
         <RightSide>
           <StyledNavLink to={`/user/${userId}`}>
-            <Avatar src="../assets/000019.jpg" alt="user's avatar" />
+            <Avatar src={avatar} alt="user's avatar" />
             <StyledP>{username}</StyledP>
           </StyledNavLink>
           <StyledNavLink to={"/"} onClick={() => handleSignOut()}>

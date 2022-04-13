@@ -2,7 +2,7 @@ const { ObjectID } = require("bson");
 const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
-const objectId = require("mongodb").objectId;
+// const ObjectId = require("mongodb").ObjectId;
 
 const options = {
   useNewUrlParser: true,
@@ -11,6 +11,9 @@ const options = {
 
 const client = new MongoClient(MONGO_URI, options);
 const db = client.db("planner");
+
+const client2 = new MongoClient(MONGO_URI, options);
+const db2 = client2.db("planner");
 
 //POST user for login/////////////////////////////////
 const getUserByUsername = async (req, res) => {
@@ -37,6 +40,36 @@ const getUserByUsername = async (req, res) => {
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (err) {
     // console.log(err.message);
+    res
+      .status(500)
+      .json({ status: 500, data: req.body, message: "Internal server error." });
+  }
+  client.close();
+};
+
+//GET user by id//////////////////////
+const getUser = async (req, res) => {
+  const { id } = req.params;
+
+  //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
+  if (!ObjectId.isValid(id)) {
+    res
+      .status(404)
+      .json({ status: 404, data: id, message: "id not in right format." });
+    return;
+  }
+
+  try {
+    await client.connect();
+    const result = await db.collection("users").findOne({ _id: ObjectId(id) });
+    if (!result) {
+      res
+        .status(404)
+        .json({ status: 404, data: id, message: `Cannot find park.` });
+      return;
+    }
+    res.status(200).json({ status: 200, data: result, message: "success" });
+  } catch (error) {
     res
       .status(500)
       .json({ status: 500, data: req.body, message: "Internal server error." });
@@ -90,9 +123,73 @@ const parkByName = async (req, res) => {
   }
 
   try {
-    await client.connect();
-    const result = await db.collection("parks").findOne({ _id: ObjectId(id) });
+    await client2.connect();
+    const result = await db2.collection("parks").findOne({ _id: ObjectId(id) });
     // console.log("result", result);
+    if (!result) {
+      res
+        .status(404)
+        .json({ status: 404, data: id, message: `Cannot find park.` });
+      return;
+    }
+    res.status(200).json({ status: 200, data: result, message: "success" });
+  } catch (error) {
+    // console.error(error);
+    res
+      .status(500)
+      .json({ status: 500, data: null, message: "Internal server error" });
+  }
+  client2.close();
+};
+
+//GET user's trips//////////////////////////////////////////
+const getUserTrips = async (req, res) => {
+  const { user } = req.params;
+
+  if (!ObjectId.isValid(user)) {
+    res
+      .status(404)
+      .json({ status: 404, data: id, message: "id not in right format." });
+    return;
+  }
+
+  try {
+    await client.connect();
+    const result = await db
+      .collection("trips")
+      .find({ userId: user })
+      .toArray();
+    console.log("result", result.length);
+    if (!result) {
+      res
+        .status(404)
+        .json({ status: 404, data: user, message: "Cannot find trips." });
+      return;
+    }
+    res.status(200).json({ status: 200, data: result, message: "success" });
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(500)
+      .json({ status: 500, data: null, message: "Internal server error" });
+  }
+  client.close();
+};
+
+//GET trip by tripId//////////////////////////////////////
+const getTripById = async (req, res) => {
+  const { id } = req.params;
+
+  if (!ObjectId.isValid(id)) {
+    res
+      .status(404)
+      .json({ status: 404, data: id, message: "id not in right format." });
+    return;
+  }
+
+  try {
+    await client.connect();
+    const result = await db.collection("trips").findOne({ _id: ObjectId(id) });
     if (!result) {
       res
         .status(404)
@@ -108,27 +205,6 @@ const parkByName = async (req, res) => {
   }
   client.close();
 };
-
-//GET user's trips//////////////////////////////////////////
-// const getUserTrips = async (req, res) => {
-//   console.log("inside");
-//   const { id } = req.params;
-
-//   if (!ObjectID.isValid(id)) {
-//     res
-//       .status(404)
-//       .json({ status: 404, data: id, message: "id not in right format." });
-//     return;
-//   }
-
-//   try {
-//     await client.connect();
-//     const user = await db.collection("users").findOne({}, { trips: 1 });
-//     console.log("user", user);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// };
 
 //POST trip//////////////////////////////////////////////
 const postNewTrip = async (req, res) => {
@@ -254,9 +330,12 @@ const getParkReviews = async (req, res) => {
 
 module.exports = {
   getUserByUsername,
+  getUser,
   parksList,
   parkByName,
   postParkReview,
   getParkReviews,
   postNewTrip,
+  getTripById,
+  getUserTrips,
 };

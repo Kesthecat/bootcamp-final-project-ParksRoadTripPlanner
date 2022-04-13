@@ -8,6 +8,8 @@ const {
   postParkReview,
   getParkReviews,
   postNewTrip,
+  getTripById,
+  getUser,
 } = require("./handlers");
 
 const PORT = 8000;
@@ -31,10 +33,12 @@ express()
   .use("/", express.static(__dirname + "/"))
 
   // REST endpoints ----------------------------------------------------------
+  .get("/user/:id", getUser)
   .get("/parks", parksList)
   .get("/parks/:id", parkByName)
-  // .get("/trips/my-trips/:id", getUserTrips)
+  .get("/trip/:id", getTripById)
   .get("/reviews/:id", getParkReviews)
+  .get("/trips/user/:user", getUserTrips)
 
   .post("/user/:username", getUserByUsername)
   .post("/review", postParkReview)

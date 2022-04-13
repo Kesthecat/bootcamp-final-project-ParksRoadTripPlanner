@@ -6,7 +6,6 @@ import { GiHeartPlus } from "react-icons/gi";
 import { Loading } from "../Loading";
 import { ReviewForm } from "../ReviewsForm";
 import { PostedReviews } from "../PostedReviews";
-import { useContext } from "react";
 
 export const Park = () => {
   const { id } = useParams();
@@ -28,7 +27,8 @@ export const Park = () => {
       })
       .catch((error) => {
         // console.log(error.message);
-        history.push("/internalError");
+        // history.push("/internalError");
+        window.alert(error.message);
       });
   }, []);
 
