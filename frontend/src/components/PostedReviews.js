@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Loading } from "./Loading";
 
-export const PostedReviews = ({ hasNewReview, newReview }) => {
+export const PostedReviews = ({ newReview }) => {
   const { id } = useParams();
   const [postedReviews, setPostedReviews] = useState([]);
   const [reviewsStatus, setReviewsStatus] = useState("idle"); // loaded, error
@@ -18,7 +18,9 @@ export const PostedReviews = ({ hasNewReview, newReview }) => {
           setPostedReviews("none");
           setReviewsStatus("loaded");
         } else {
-          setPostedReviews(data.data);
+          const reviewlist = data.data;
+          const revervedList = reviewlist.reverse();
+          setPostedReviews(revervedList);
           setReviewsStatus("loaded");
         }
       })
