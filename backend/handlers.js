@@ -2,7 +2,7 @@ const { ObjectID } = require("bson");
 const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
-const objectID = require("mongodb").objectID;
+const objectId = require("mongodb").objectId;
 
 const options = {
   useNewUrlParser: true,
@@ -82,7 +82,7 @@ const parkByName = async (req, res) => {
   const { id } = req.params;
 
   //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectID.isValid(id)) {
+  if (!ObjectId.isValid(id)) {
     res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -129,6 +129,61 @@ const parkByName = async (req, res) => {
 //     console.log(error.message);
 //   }
 // };
+
+//POST trip//////////////////////////////////////////////
+const postNewTrip = async (req, res) => {
+  const { departure, destination, waypoints, tripName, userId, time } =
+    req.body;
+
+  //validating no missing inputs
+  if (
+    !departure ||
+    !destination ||
+    !waypoints ||
+    !tripName ||
+    !userId ||
+    !time
+  ) {
+    return res
+      .status(400)
+      .json({ status: 400, data: req.body, mesage: "Missing info" });
+  }
+
+  //validating whether userId is a string of 12 bytes or a string of 24 hex characters or an integer
+  if (!ObjectID.isValid(userId)) {
+    res
+      .status(404)
+      .json({ status: 404, data: id, message: "id not in right format." });
+    return;
+  }
+
+  try {
+    //make sure the user exist in database
+    await client.connect();
+    const user = await db
+      .collection("users")
+      .findOne({ _id: ObjectId(userId) });
+    if (!user) {
+      return res
+        .status(404)
+        .json({ status: 404, data: req.body, message: "User not found." });
+    }
+    ///////add the trip to trip collection
+    const result = await db.collection("trips").insertOne(req.body);
+    if (!result.acknowledged) {
+      return res
+        .status(502)
+        .json({ status: 502, data: req.body, message: "Cannot add review." });
+    }
+    res.status(200).json({ status: 200, data: req.body, mesage: "success" });
+  } catch (error) {
+    console.error(error.message);
+    res
+      .status(500)
+      .json({ status: 500, data: null, message: "Internal server error" });
+  }
+  client.close();
+};
 
 //POST review////////////////////////////////////////////
 const postParkReview = async (req, res) => {
@@ -203,4 +258,5 @@ module.exports = {
   parkByName,
   postParkReview,
   getParkReviews,
+  postNewTrip,
 };

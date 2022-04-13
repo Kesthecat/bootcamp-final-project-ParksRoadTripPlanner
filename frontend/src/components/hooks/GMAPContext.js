@@ -25,11 +25,8 @@ export const GMAPProvider = ({ children }) => {
       {
         origin: departure.coordinates,
         destination: destination.coordinates,
-        // origin: { lat: 40.756795, lng: -73.954298 }, // first waypoint
-        // destination: { lat: 41.756795, lng: -78.954298 }, // last waypoint
         travelMode: maps.TravelMode.DRIVING,
         waypoints: waypointsCoord,
-        // waypoints: [], // all the waypoints
       },
       (response, status) => {
         console.log({ response, status });

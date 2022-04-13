@@ -7,6 +7,7 @@ const {
   getUserTrips,
   postParkReview,
   getParkReviews,
+  postNewTrip,
 } = require("./handlers");
 
 const PORT = 8000;
@@ -37,6 +38,7 @@ express()
 
   .post("/user/:username", getUserByUsername)
   .post("/review", postParkReview)
+  .post("/trip", postNewTrip)
   // -------------------------------------------------------------------------
 
   .listen(PORT, () => console.info(`Listening on port ${PORT}`));

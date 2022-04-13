@@ -10,10 +10,9 @@ import { useState } from "react";
 import { PageWrapper } from "../PageWrapper";
 import { DepartureDestination } from "./DepartureDestination";
 import { Waypoints } from "./Waypoints";
-import { SaveCleatTripBtn } from "./SaveClearTripBtn";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { UserContext } from "../hooks/userContext";
-import { useEffect } from "react";
+import { CreateTrip } from "./CreateTrip";
 
 ///////////////////////////////////////////////////////////////
 
@@ -22,9 +21,6 @@ export const MainMap = () => {
   const { setMaps, setMap } = useContext(GMAPContext);
   const { username } = useContext(UserContext);
 
-  // console.log("waypointsCoord", waypointsCoord);
-
-  /////on GoogleMap APi load, will render a route
   const handleApiLoaded = (map, maps) => {
     setMaps(maps);
     setMap(map);
@@ -41,7 +37,7 @@ export const MainMap = () => {
           <p>Enter you point of departure and destination: </p>
           <DepartureDestination />
           <Waypoints />
-          <SaveCleatTripBtn />
+          <CreateTrip />
         </SearchContainer>
       ) : (
         <SearchContainer>
@@ -56,10 +52,7 @@ export const MainMap = () => {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
-          {/* rendering all the parks on the map on load */}
           {parksList.map((park, i) => {
-            // console.log("stopArrInMap", stopsArr);
-            //console.log fine
             return (
               <LocationMarker
                 key={park._id + i}

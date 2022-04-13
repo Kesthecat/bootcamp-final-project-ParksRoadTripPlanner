@@ -29,7 +29,7 @@ export const SearchBox = ({ settingPoint }) => {
   // useEffect(() => {
 
   if (maps) {
-    console.log("inside maps", maps.places);
+    // console.log("inside maps", maps.places);
 
     searchBox = new maps.places.Autocomplete(inputRef.current, options);
     // searchBar.bindTo("bounds", map)

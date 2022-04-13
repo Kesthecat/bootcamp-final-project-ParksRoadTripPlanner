@@ -9,6 +9,7 @@ import { Header } from "./Header";
 import { TripsSuggestions } from "./trips/TripsSuggestions";
 import { User } from "./user/User";
 import { InternalError } from "./InternalError";
+import { Trip } from "./trips/Trip";
 
 export const App = () => {
   return (
@@ -26,6 +27,9 @@ export const App = () => {
         </Route>
         <Route exact path="/parks">
           <ParksList />
+        </Route>
+        <Route exact path="/trip/:id">
+          <Trip />
         </Route>
         <Route exact path="/parks/:id">
           <Park />

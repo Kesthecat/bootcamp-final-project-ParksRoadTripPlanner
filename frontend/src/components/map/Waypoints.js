@@ -8,7 +8,7 @@ export const Waypoints = () => {
 
   const { waypoints, setWaypoints } = useContext(GMAPContext);
   const handleRemove = (id) => {
-    console.log("stop", id);
+    // console.log("stop", id);
     const updatedWayppoints = waypoints.filter((point) => point._id !== id);
     setWaypoints(updatedWayppoints);
   };

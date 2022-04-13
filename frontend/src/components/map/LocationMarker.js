@@ -11,9 +11,6 @@ export const LocationMarker = ({ park }) => {
   const [hasAdded, setHasAdded] = useState(false);
   const { waypoints, setWaypoints } = useContext(GMAPContext);
 
-  //gives the ["test1"]
-  // console.log("waypoints", waypoints);
-
   const handleAddWaypoint = () => {
     const stops = [...waypoints].concat(park);
     setWaypoints(stops);
