@@ -1,13 +1,32 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
+import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
+
+import { bootstrapURLKeys } from "../map/GoogleMapKey";
+import { GMAPContext } from "../hooks/GMAPContext";
 import { Loading } from "../Loading";
 
 export const Trip = () => {
   const { id } = useParams();
   const [trip, setTrip] = useState(null);
-  const [stops, setStops] = useState([]);
+  // const [stops, setStops] = useState([]);
   const [hasStops, setHasStops] = useState(false);
+  const {
+    setRoute,
+    setMap,
+    setMaps,
+    setDeparture,
+    setDestination,
+    setWaypoints,
+    waypoints,
+  } = useContext(GMAPContext);
+
+  const handleApiLoaded = (map, maps) => {
+    console.log({ map, maps });
+    setMaps(maps);
+    setMap(map);
+  };
 
   useEffect(() => {
     fetch(`/trip/${id}`)
@@ -15,17 +34,21 @@ export const Trip = () => {
       .then((data) => {
         console.log(data.data.destination.name);
         setTrip(data.data);
+        setDestination(data.data.destination);
+        setDeparture(data.data.departure);
         if (data.data.waypoints.length > 0) {
           setHasStops(true);
-          setStops(data.data.waypoints);
+          // setStops(data.data.waypoints);
+          setWaypoints(data.data.waypoints);
         }
+        // setRoute();
       })
       .catch((error) => {
         window.alert(error.message);
       });
   }, []);
 
-  console.log("stops", stops);
+  // console.log("stops", stops);
 
   if (!trip) return <Loading />;
 
@@ -39,7 +62,7 @@ export const Trip = () => {
             <StyledP>{trip.departure.name}</StyledP>
           </InfoWrapper>
           {hasStops &&
-            stops.map((stop) => {
+            waypoints.map((stop) => {
               return (
                 <InfoWrapper>
                   <ParkLink to={`/parks/${stop._id}`}>{stop.name}</ParkLink>
@@ -67,6 +90,15 @@ export const Trip = () => {
           <StyledBtn>Share trip btn</StyledBtn>
         </Wrapper>
       </InfoContainer>
+      <MapContainer>
+        <GoogleMapReact
+          bootstrapURLKeys={bootstrapURLKeys}
+          defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
+          defaultZoom={4}
+          yesIWantToUseGoogleMapApiInternals
+          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+        ></GoogleMapReact>
+      </MapContainer>
     </Container>
   );
 };
@@ -83,3 +115,7 @@ const InfoWrapper = styled.div`
 const StyledP = styled.p``;
 const ParkLink = styled(NavLink)``;
 const StyledBtn = styled.button``;
+const MapContainer = styled.div`
+  height: 600px;
+  width: 1000px;
+`;

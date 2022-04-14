@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
 import { Loading } from "../Loading";
-import { useState } from "react";
 import { PageWrapper } from "../PageWrapper";
 import { DepartureDestination } from "./DepartureDestination";
 import { Waypoints } from "./Waypoints";

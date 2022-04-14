@@ -18,10 +18,17 @@ export const GMAPProvider = ({ children }) => {
       location: point.coordinates,
     });
   });
-  console.log({ waypoints, departure, destination, waypointsCoord });
 
   const setRoute = () => {
-    if (!map || !maps) return;
+    console.log({
+      waypoints,
+      departure,
+      destination,
+      waypointsCoord,
+      map,
+      maps,
+    });
+    if (!map || !maps || !departure || !destination) return;
 
     if (polyline) polyline.setMap(null);
 
@@ -38,11 +45,11 @@ export const GMAPProvider = ({ children }) => {
       (response, status) => {
         console.log({ response, status, response });
         if (status === "OK") {
-          console.log({ map, maps });
           directionsDisplay.setDirections(response);
           const routePolyline = new maps.Polyline({
             path: response.routes[0].overview_path,
           });
+          console.log({ routePolyline });
           routePolyline.setMap(map);
           setPolyline(routePolyline);
         } else {
@@ -53,8 +60,9 @@ export const GMAPProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    console.log("setRoute");
     setRoute();
-  }, [waypoints]);
+  }, [waypoints, map, maps]);
 
   return (
     <GMAPContext.Provider

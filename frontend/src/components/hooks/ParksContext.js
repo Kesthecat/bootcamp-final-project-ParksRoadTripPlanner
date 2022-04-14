@@ -15,8 +15,8 @@ export const ParksListProvider = ({ children }) => {
       .then((res) => res.json())
       .then((data) => {
         // console.log("data", data.data.origin.parksOrigin);
-        setParksList(data.data.parks);
-        setOrigins(data.data.origin.parksOrigin);
+        setParksList(data.data?.parks || []);
+        setOrigins(data.data?.origin.parksOrigin || []);
       })
       .catch((error) => {
         console.log(error.message);
