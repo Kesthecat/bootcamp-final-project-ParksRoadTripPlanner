@@ -207,8 +207,15 @@ const getTripById = async (req, res) => {
 
 //POST trip//////////////////////////////////////////////
 const postNewTrip = async (req, res) => {
-  const { departure, destination, waypoints, tripName, userId, time } =
-    req.body;
+  const {
+    departure,
+    destination,
+    waypoints,
+    tripName,
+    userId,
+    time,
+    routeMetrics,
+  } = req.body;
 
   //validating no missing inputs
   if (

@@ -15,6 +15,7 @@ export const CreateTrip = () => {
     setDestination,
     waypoints,
     setWaypoints,
+    routeInfo,
   } = useContext(GMAPContext);
   const { userId } = useContext(UserContext);
 
@@ -22,6 +23,17 @@ export const CreateTrip = () => {
   const [tripName, setTripName] = useState(null);
 
   let history = useHistory();
+
+  console.log("routeInfo", routeInfo);
+
+  let savedRouteInfo = [];
+  if (routeInfo.length > 0) {
+    routeInfo.forEach((leg) => {
+      const distance = leg.distance.text;
+      const duration = leg.duration.text;
+      savedRouteInfo.push({ distance: distance, duration: duration });
+    });
+  }
 
   const handleClear = (e) => {
     e.preventDefault();
@@ -56,6 +68,7 @@ export const CreateTrip = () => {
         tripName: tripName,
         userId: userId,
         time: moment().format("LL"),
+        routeMetrics: savedRouteInfo,
       }),
     })
       .then((res) => res.json())

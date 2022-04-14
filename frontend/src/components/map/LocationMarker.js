@@ -9,21 +9,21 @@ import { FlagContext } from "../hooks/Flags";
 export const LocationMarker = ({ park }) => {
   const [isShown, setIsShown] = useState(false);
   const [hasClickedModal, setHasClickedModal] = useState(false);
-  const [hasAdded, setHasAdded] = useState(false);
   const { waypoints, setWaypoints } = useContext(GMAPContext);
-  const { notTripPage } = useContext(FlagContext);
+  const { notTripPage, addedWaypoint, setAddedWaypoint } =
+    useContext(FlagContext);
 
   const handleAddWaypoint = () => {
     const stops = [...waypoints].concat(park);
     setWaypoints(stops);
-    setHasAdded(true);
+    setAddedWaypoint(true);
     console.log("stops", stops);
   };
 
   const handleRemoveWaypoint = (id) => {
     const updatedWaypoints = waypoints.filter((point) => point._id !== id);
     setWaypoints(updatedWaypoints);
-    setHasAdded(false);
+    setAddedWaypoint(false);
   };
 
   return (
@@ -42,7 +42,7 @@ export const LocationMarker = ({ park }) => {
             <ExitBtn onClick={() => setHasClickedModal(false)}>x</ExitBtn>
             {notTripPage && (
               <BtnContainer>
-                {hasAdded ? (
+                {addedWaypoint ? (
                   <StyledBtn onClick={() => handleRemoveWaypoint(park._id)}>
                     <AiOutlineMinus />
                   </StyledBtn>

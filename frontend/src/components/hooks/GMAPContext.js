@@ -10,6 +10,7 @@ export const GMAPProvider = ({ children }) => {
   const [destination, setDestination] = useState(null);
   const [waypoints, setWaypoints] = useState([]);
   const [polyline, setPolyline] = useState(null);
+  const [routeInfo, setRouteInfo] = useState([]);
 
   let waypointsCoord = [];
   waypoints.forEach((point) => {
@@ -45,6 +46,7 @@ export const GMAPProvider = ({ children }) => {
       (response, status) => {
         console.log({ response, status, response });
         if (status === "OK") {
+          setRouteInfo(response.routes[0].legs);
           directionsDisplay.setDirections(response);
           const routePolyline = new maps.Polyline({
             path: response.routes[0].overview_path,
@@ -97,6 +99,8 @@ export const GMAPProvider = ({ children }) => {
         setRoute,
         setDepartureMarker,
         setDestinationMarker,
+        routeInfo,
+        setRouteInfo,
       }}
     >
       {children}
