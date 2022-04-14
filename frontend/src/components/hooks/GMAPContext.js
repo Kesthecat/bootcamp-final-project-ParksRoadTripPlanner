@@ -20,14 +20,14 @@ export const GMAPProvider = ({ children }) => {
   });
 
   const setRoute = () => {
-    console.log({
-      waypoints,
-      departure,
-      destination,
-      waypointsCoord,
-      map,
-      maps,
-    });
+    // console.log({
+    //   waypoints,
+    //   departure,
+    //   destination,
+    //   waypointsCoord,
+    //   map,
+    //   maps,
+    // });
     if (!map || !maps || !departure || !destination) return;
 
     if (polyline) polyline.setMap(null);
@@ -49,7 +49,7 @@ export const GMAPProvider = ({ children }) => {
           const routePolyline = new maps.Polyline({
             path: response.routes[0].overview_path,
           });
-          console.log({ routePolyline });
+          // console.log({ routePolyline });
           routePolyline.setMap(map);
           setPolyline(routePolyline);
         } else {
@@ -59,8 +59,26 @@ export const GMAPProvider = ({ children }) => {
     );
   };
 
+  const setDepartureMarker = () => {
+    if (!map || !maps || !departure) return;
+    let marker = new maps.Marker({
+      position: departure.coordinates,
+      map,
+    });
+    return marker;
+  };
+
+  const setDestinationMarker = () => {
+    if (!map || !maps || !departure) return;
+    let marker = new maps.Marker({
+      position: destination.coordinates,
+      map,
+    });
+    return marker;
+  };
+
   useEffect(() => {
-    console.log("setRoute");
+    // console.log("setRoute");
     setRoute();
   }, [waypoints, map, maps]);
 
@@ -77,6 +95,8 @@ export const GMAPProvider = ({ children }) => {
         destination,
         setDestination,
         setRoute,
+        setDepartureMarker,
+        setDestinationMarker,
       }}
     >
       {children}

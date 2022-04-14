@@ -4,7 +4,19 @@ import { GMAPContext } from "../hooks/GMAPContext";
 import { SearchBox } from "./SearchBox";
 
 export const DepartureDestination = () => {
-  const { setDeparture, setDestination, setRoute } = useContext(GMAPContext);
+  const {
+    setDeparture,
+    setDestination,
+    setRoute,
+    setDepartureMarker,
+    setDestinationMarker,
+  } = useContext(GMAPContext);
+
+  const handleClick = () => {
+    setRoute();
+    setDepartureMarker();
+    setDestinationMarker();
+  };
 
   return (
     <>
@@ -16,7 +28,7 @@ export const DepartureDestination = () => {
         <p>Destination: </p>
         <SearchBox settingPoint={setDestination} />
       </PointContainer>
-      <StyledBtn onClick={() => setRoute()}>Render Route</StyledBtn>
+      <StyledBtn onClick={() => handleClick()}>Render Route</StyledBtn>
     </>
   );
 };

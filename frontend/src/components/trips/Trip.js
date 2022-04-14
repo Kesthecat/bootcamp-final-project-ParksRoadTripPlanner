@@ -6,29 +6,34 @@ import styled from "styled-components";
 import { bootstrapURLKeys } from "../map/GoogleMapKey";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { Loading } from "../Loading";
+import { LocationMarker } from "../map/LocationMarker";
+import { FlagContext } from "../hooks/Flags";
 
 export const Trip = () => {
   const { id } = useParams();
   const [trip, setTrip] = useState(null);
-  // const [stops, setStops] = useState([]);
   const [hasStops, setHasStops] = useState(false);
   const {
-    setRoute,
     setMap,
     setMaps,
     setDeparture,
     setDestination,
     setWaypoints,
     waypoints,
+    setDepartureMarker,
+    setDestinationMarker,
   } = useContext(GMAPContext);
+  const { setNotTripPage, notTripPage } = useContext(FlagContext);
 
   const handleApiLoaded = (map, maps) => {
-    console.log({ map, maps });
+    // console.log({ map, maps });
     setMaps(maps);
     setMap(map);
   };
 
   useEffect(() => {
+    setNotTripPage(false);
+
     fetch(`/trip/${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -38,17 +43,16 @@ export const Trip = () => {
         setDeparture(data.data.departure);
         if (data.data.waypoints.length > 0) {
           setHasStops(true);
-          // setStops(data.data.waypoints);
           setWaypoints(data.data.waypoints);
         }
-        // setRoute();
+        ///not load right away....at refresh only....
+        setDepartureMarker();
+        setDestinationMarker();
       })
       .catch((error) => {
         window.alert(error.message);
       });
   }, []);
-
-  // console.log("stops", stops);
 
   if (!trip) return <Loading />;
 
@@ -62,10 +66,12 @@ export const Trip = () => {
             <StyledP>{trip.departure.name}</StyledP>
           </InfoWrapper>
           {hasStops &&
-            waypoints.map((stop) => {
+            waypoints.map((waypoint) => {
               return (
                 <InfoWrapper>
-                  <ParkLink to={`/parks/${stop._id}`}>{stop.name}</ParkLink>
+                  <ParkLink to={`/parks/${waypoint._id}`}>
+                    {waypoint.name}
+                  </ParkLink>
                 </InfoWrapper>
               );
             })}
@@ -91,13 +97,24 @@ export const Trip = () => {
         </Wrapper>
       </InfoContainer>
       <MapContainer>
-        <GoogleMapReact
+        {/* <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
           defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
           defaultZoom={4}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-        ></GoogleMapReact>
+        >
+          {waypoints.map((waypoint, i) => {
+            return (
+              <LocationMarker
+                key={i}
+                lat={waypoint.coordinates.lat}
+                lng={waypoint.coordinates.lng}
+                park={waypoint}
+              />
+            );
+          })}
+        </GoogleMapReact> */}
       </MapContainer>
     </Container>
   );

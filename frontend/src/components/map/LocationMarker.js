@@ -4,12 +4,14 @@ import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
 import { AiOutlineMinus } from "react-icons/ai";
 import { useContext } from "react";
 import { GMAPContext } from "../hooks/GMAPContext";
+import { FlagContext } from "../hooks/Flags";
 
 export const LocationMarker = ({ park }) => {
   const [isShown, setIsShown] = useState(false);
   const [hasClickedModal, setHasClickedModal] = useState(false);
   const [hasAdded, setHasAdded] = useState(false);
   const { waypoints, setWaypoints } = useContext(GMAPContext);
+  const { notTripPage } = useContext(FlagContext);
 
   const handleAddWaypoint = () => {
     const stops = [...waypoints].concat(park);
@@ -38,20 +40,22 @@ export const LocationMarker = ({ park }) => {
           <Modal>
             <ParkName>{park.name}</ParkName>
             <ExitBtn onClick={() => setHasClickedModal(false)}>x</ExitBtn>
-            <BtnContainer>
-              {hasAdded ? (
-                <StyledBtn onClick={() => handleRemoveWaypoint(park._id)}>
-                  <AiOutlineMinus />
+            {notTripPage && (
+              <BtnContainer>
+                {hasAdded ? (
+                  <StyledBtn onClick={() => handleRemoveWaypoint(park._id)}>
+                    <AiOutlineMinus />
+                  </StyledBtn>
+                ) : (
+                  <StyledBtn onClick={() => handleAddWaypoint()}>
+                    <GiHealthNormal />
+                  </StyledBtn>
+                )}
+                <StyledBtn>
+                  <GiHeartPlus />
                 </StyledBtn>
-              ) : (
-                <StyledBtn onClick={() => handleAddWaypoint()}>
-                  <GiHealthNormal />
-                </StyledBtn>
-              )}
-              <StyledBtn>
-                <GiHeartPlus />
-              </StyledBtn>
-            </BtnContainer>
+              </BtnContainer>
+            )}
           </Modal>
         )}
       </Container>
@@ -98,4 +102,5 @@ const Modal = styled.div`
   height: 60px;
   display: flex;
   flex-direction: column;
+  z-index: 100;
 `;

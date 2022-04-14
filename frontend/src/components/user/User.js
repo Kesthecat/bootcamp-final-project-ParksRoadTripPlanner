@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { Loading } from "../Loading";
-// import avatar from "/assets/000019.jpg";
+import avatar from "../../assets/000019.jpg";
 
 export const User = () => {
   const { id } = useParams();
@@ -35,7 +35,7 @@ export const User = () => {
 
   return (
     <Container>
-      <Avatar alt="user's avatar" />
+      <Avatar src={avatar} alt="user's avatar" />
       <InfoContainer>
         <TopLeft>
           <Styledh2>{userInfo.uername}</Styledh2>

@@ -12,6 +12,7 @@ import { Waypoints } from "./Waypoints";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { UserContext } from "../hooks/userContext";
 import { CreateTrip } from "./CreateTrip";
+import { FlagContext } from "../hooks/Flags";
 
 ///////////////////////////////////////////////////////////////
 
@@ -19,10 +20,12 @@ export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
   const { setMaps, setMap } = useContext(GMAPContext);
   const { username } = useContext(UserContext);
+  const { setNotTripPage } = useContext(FlagContext);
 
   const handleApiLoaded = (map, maps) => {
     setMaps(maps);
     setMap(map);
+    setNotTripPage(true);
   };
 
   ////////////////////////////////////
@@ -44,7 +47,7 @@ export const MainMap = () => {
         </SearchContainer>
       )}
       <MapContainer>
-        <GoogleMapReact
+        {/* <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
           defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
           defaultZoom={4}
@@ -61,7 +64,7 @@ export const MainMap = () => {
               />
             );
           })}
-        </GoogleMapReact>
+        </GoogleMapReact> */}
       </MapContainer>
     </PageWrapper>
   );
