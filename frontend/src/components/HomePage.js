@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { UserContext } from "./hooks/userContext";
 
 export const HomePage = () => {
-  const { setUsername, setUserId, setUserInfo } = useContext(UserContext);
+  const { setUsername, setUserId } = useContext(UserContext);
 
   const [password, setPassword] = useState(null);
   const [initialUsername, setInitialUsername] = useState(null);
@@ -42,7 +42,6 @@ export const HomePage = () => {
         const id = localStorage.getItem("userId");
         setUsername(signedInUser);
         setUserId(id);
-        setUserInfo(data.data);
         setIsWaiting(false);
         history.push("/parks");
       })

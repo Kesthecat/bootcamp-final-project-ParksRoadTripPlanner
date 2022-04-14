@@ -159,7 +159,6 @@ const getUserTrips = async (req, res) => {
       .collection("trips")
       .find({ userId: user })
       .toArray();
-    console.log("result", result.length);
     if (!result) {
       res
         .status(404)

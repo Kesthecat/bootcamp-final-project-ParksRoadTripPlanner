@@ -23,7 +23,8 @@ export const CreateTrip = () => {
 
   let history = useHistory();
 
-  const handleClear = () => {
+  const handleClear = (e) => {
+    e.preventDefault();
     setDeparture(null);
     setDestination(null);
     setWaypoints([]);
@@ -81,7 +82,7 @@ export const CreateTrip = () => {
           <StyledBtn
             type="button"
             disabled={isWaiting}
-            onClick={() => handleClear()}
+            onClick={(e) => handleClear(e)}
           >
             Clear trip
           </StyledBtn>
