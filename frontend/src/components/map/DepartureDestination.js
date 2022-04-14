@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { SearchBox } from "./SearchBox";
 
-export const DepartureDestination = () => {
+export const DepartureDestination = ({ hasClear, setHasClear }) => {
   const {
     setDeparture,
     setDestination,
@@ -22,11 +22,19 @@ export const DepartureDestination = () => {
     <>
       <PointContainer>
         <p>Departure: </p>
-        <SearchBox settingPoint={setDeparture} />
+        <SearchBox
+          settingPoint={setDeparture}
+          hasClear={hasClear}
+          setHasClear={setHasClear}
+        />
       </PointContainer>
       <PointContainer>
         <p>Destination: </p>
-        <SearchBox settingPoint={setDestination} />
+        <SearchBox
+          settingPoint={setDestination}
+          hasClear={hasClear}
+          setHasClear={setHasClear}
+        />
       </PointContainer>
       <StyledBtn onClick={() => handleClick()}>Render Route</StyledBtn>
     </>

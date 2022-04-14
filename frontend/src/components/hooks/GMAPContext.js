@@ -29,9 +29,8 @@ export const GMAPProvider = ({ children }) => {
     //   map,
     //   maps,
     // });
-    if (!map || !maps || !departure || !destination) return;
-
     if (polyline) polyline.setMap(null);
+    if (!map || !maps || !departure || !destination) return;
 
     const directionsService = new maps.DirectionsService();
     const directionsDisplay = new maps.DirectionsRenderer();
@@ -101,6 +100,7 @@ export const GMAPProvider = ({ children }) => {
         setDestinationMarker,
         routeInfo,
         setRouteInfo,
+        setPolyline,
       }}
     >
       {children}

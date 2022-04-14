@@ -10,21 +10,20 @@ export const LocationMarker = ({ park }) => {
   const [isShown, setIsShown] = useState(false);
   const [hasClickedModal, setHasClickedModal] = useState(false);
   const { waypoints, setWaypoints } = useContext(GMAPContext);
-  const { notTripPage, addedWaypoint, setAddedWaypoint } =
-    useContext(FlagContext);
+  const { notTripPage } = useContext(FlagContext);
 
   const handleAddWaypoint = () => {
     const stops = [...waypoints].concat(park);
     setWaypoints(stops);
-    setAddedWaypoint(true);
-    console.log("stops", stops);
+    // console.log("stops", stops);
   };
 
   const handleRemoveWaypoint = (id) => {
     const updatedWaypoints = waypoints.filter((point) => point._id !== id);
     setWaypoints(updatedWaypoints);
-    setAddedWaypoint(false);
   };
+
+  const addedWaypoint = !!waypoints.find((point) => point._id === park._id);
 
   return (
     <>

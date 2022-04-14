@@ -3,9 +3,10 @@ import { useRef } from "react";
 import styled from "styled-components";
 import { GMAPContext } from "../hooks/GMAPContext";
 
-export const SearchBox = ({ settingPoint }) => {
+export const SearchBox = ({ settingPoint, hasClear, setHasClear }) => {
   const { maps } = useContext(GMAPContext);
   const inputRef = useRef(null);
+
   let searchBox = {};
   const options = { fields: ["place_id", "name", "geometry"] };
 
@@ -26,26 +27,11 @@ export const SearchBox = ({ settingPoint }) => {
       settingPoint(inputLocation);
     }
   };
-  // useEffect(() => {
 
   if (maps) {
-    // console.log("inside maps", maps.places);
-
     searchBox = new maps.places.Autocomplete(inputRef.current, options);
-    // searchBar.bindTo("bounds", map)
-    //map.controls[maps.ControlPosition.TOP_LEFT].push(searchInput.current);
-    //<Search ref={searchInput} type="text" placeholder="Search Box" />
     searchBox.addListener("place_changed", handleOnPlacesChanged);
   }
-  // return () => {
-  //     if (maps) {
-  //       searchBox = null;
-  //       maps.event.clearInstanceListeners(searchBox);
-  //     }
-  //   };
-  // }, [maps, handleOnPlacesChanged]);
-
-  //
 
   return <StyledInput type="text" placeholder="Enter a place" ref={inputRef} />;
 };

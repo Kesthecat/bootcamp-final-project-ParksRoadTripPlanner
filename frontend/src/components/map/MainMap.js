@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GoogleMapReact from "google-map-react";
 import { bootstrapURLKeys } from "./GoogleMapKey";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
@@ -22,6 +22,8 @@ export const MainMap = () => {
   const { username } = useContext(UserContext);
   const { setNotTripPage } = useContext(FlagContext);
 
+  const [hasClear, setHasClear] = useState(false);
+
   const handleApiLoaded = (map, maps) => {
     setMaps(maps);
     setMap(map);
@@ -37,9 +39,9 @@ export const MainMap = () => {
       {username ? (
         <SearchContainer>
           <p>Enter you point of departure and destination: </p>
-          <DepartureDestination />
+          <DepartureDestination hasClear={hasClear} setHasClear={setHasClear} />
           <Waypoints />
-          <CreateTrip />
+          <CreateTrip setHasClear={setHasClear} />
         </SearchContainer>
       ) : (
         <SearchContainer>
@@ -47,7 +49,7 @@ export const MainMap = () => {
         </SearchContainer>
       )}
       <MapContainer>
-        <GoogleMapReact
+        {/* <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
           defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
           defaultZoom={4}
@@ -64,7 +66,7 @@ export const MainMap = () => {
               />
             );
           })}
-        </GoogleMapReact>
+        </GoogleMapReact> */}
       </MapContainer>
     </PageWrapper>
   );

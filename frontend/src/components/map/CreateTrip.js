@@ -7,7 +7,7 @@ import { UserContext } from "../hooks/userContext";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
 
-export const CreateTrip = () => {
+export const CreateTrip = ({ setHasClear }) => {
   const {
     departure,
     setDeparture,
@@ -16,6 +16,7 @@ export const CreateTrip = () => {
     waypoints,
     setWaypoints,
     routeInfo,
+    setPolyline,
   } = useContext(GMAPContext);
   const { userId } = useContext(UserContext);
 
@@ -24,8 +25,10 @@ export const CreateTrip = () => {
 
   let history = useHistory();
 
-  console.log("routeInfo", routeInfo);
+  // console.log("routeInfo", routeInfo);
 
+  console.log("departure", departure);
+  console.log("destination", destination);
   let savedRouteInfo = [];
   if (routeInfo.length > 0) {
     routeInfo.forEach((leg) => {
@@ -37,10 +40,16 @@ export const CreateTrip = () => {
 
   const handleClear = (e) => {
     e.preventDefault();
-    setDeparture(null);
-    setDestination(null);
-    setWaypoints([]);
-    setTripName("");
+    window.location.reload();
+    // //not woking
+    // setPolyline(null);
+
+    // //working
+    // setDestination(null);
+    // setTripName("");
+    // setDeparture(null); //state null but not visually
+    // setHasClear(true);
+    // setWaypoints([]);
   };
 
   const handleSave = (e) => {
@@ -89,6 +98,7 @@ export const CreateTrip = () => {
           type="text"
           placeholder="ex: Quebec roadtrip"
           required
+          value={tripName}
           onChange={(e) => setTripName(e.target.value)}
         />
         <BtnContainer>
