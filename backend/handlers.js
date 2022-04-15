@@ -1,8 +1,8 @@
-const { ObjectID } = require("bson");
+// const { ObjectID } = require("bson");
 const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
-// const ObjectId = require("mongodb").ObjectId;
+const ObjectID = require("mongodb").ObjectID;
 
 const options = {
   useNewUrlParser: true,
@@ -52,7 +52,7 @@ const getUser = async (req, res) => {
   const { id } = req.params;
 
   //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectId.isValid(id)) {
+  if (!ObjectID.isValid(id)) {
     res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -115,7 +115,7 @@ const parkByName = async (req, res) => {
   const { id } = req.params;
 
   //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectId.isValid(id)) {
+  if (!ObjectID.isValid(id)) {
     res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -146,7 +146,7 @@ const parkByName = async (req, res) => {
 const getUserTrips = async (req, res) => {
   const { user } = req.params;
 
-  if (!ObjectId.isValid(user)) {
+  if (!ObjectID.isValid(user)) {
     res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -179,7 +179,7 @@ const getUserTrips = async (req, res) => {
 const getTripById = async (req, res) => {
   const { id } = req.params;
 
-  if (!ObjectId.isValid(id)) {
+  if (!ObjectID.isValid(id)) {
     res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -232,7 +232,7 @@ const postNewTrip = async (req, res) => {
   }
 
   //validating whether userId is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectId.isValid(userId)) {
+  if (!ObjectID.isValid(userId)) {
     res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -299,7 +299,7 @@ const postParkReview = async (req, res) => {
 const getParkReviews = async (req, res) => {
   const { id } = req.params;
 
-  if (!ObjectId.isValid(id)) {
+  if (!ObjectID.isValid(id)) {
     return res
       .status(404)
       .json({ status: 404, data: id, message: "id not in right format." });
@@ -338,15 +338,12 @@ const getParkReviews = async (req, res) => {
 const deleteTripById = async (req, res) => {
   const { id } = req.params;
 
-  if (!ObjectId.isValid(id)) {
-    return res
-      .status(404)
-      .json({
-        status: 404,
-        data: id,
-        message:
-          "Trip id not in right format. Please contact customer services.",
-      });
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).json({
+      status: 404,
+      data: id,
+      message: "Trip id not in right format. Please contact customer services.",
+    });
   }
 
   try {
@@ -366,13 +363,11 @@ const deleteTripById = async (req, res) => {
       .collection("trips")
       .deleteOne({ _id: ObjectId(id) });
     if (result.deletedCount === 0) {
-      return res
-        .status(400)
-        .json({
-          status: 400,
-          data: id,
-          message: "Unable to delete trip. Please contact customer services.",
-        });
+      return res.status(400).json({
+        status: 400,
+        data: id,
+        message: "Unable to delete trip. Please contact customer services.",
+      });
     }
     res.status(200).json({ status: 200, data: null, message: "success" });
   } catch (error) {

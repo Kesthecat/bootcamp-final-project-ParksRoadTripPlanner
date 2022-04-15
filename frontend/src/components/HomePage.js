@@ -47,7 +47,7 @@ export const HomePage = () => {
       })
       .catch((error) => {
         console.log("error", error.message);
-        // history.push("/internalError");
+        // history.push("/Error");
         window.alert(error.message);
       });
   };

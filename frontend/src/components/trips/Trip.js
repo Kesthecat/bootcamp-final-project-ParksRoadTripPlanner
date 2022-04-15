@@ -49,7 +49,7 @@ export const Trip = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log("data", { data });
-        console.log("routeMetrics", data.data.routeMetrics);
+        // console.log("routeMetrics", data.data.routeMetrics);
         setDestination(data.data.destination);
         setDeparture(data.data.departure);
         setLegsInfo(data.data.routeMetrics);
@@ -74,7 +74,7 @@ export const Trip = () => {
     const sumDistance =
       legsInfo.reduce((acc, cur) => acc + cur.distance.value, totalDistance) /
       100;
-    console.log("distance", sumDistance);
+    // console.log("distance", sumDistance);
 
     // setTotalDistance(sumDistance); ///get Too many re-render error message
 
@@ -86,7 +86,7 @@ export const Trip = () => {
       start: 0,
       end: durationSumSec * 1000,
     });
-    console.log("durationObj", durationObj);
+    // console.log("durationObj", durationObj);
 
     // const duration = (s) => moment.duration(s, "seconds").humanize(); //rounds the time
     // console.log("duration", duration(durationSumSec));

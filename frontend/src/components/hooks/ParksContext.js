@@ -20,7 +20,7 @@ export const ParksListProvider = ({ children }) => {
       })
       .catch((error) => {
         console.log(error.message);
-        history.push("/internalError");
+        history.push("/Error");
       });
   }, []);
 

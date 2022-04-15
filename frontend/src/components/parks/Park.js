@@ -27,7 +27,7 @@ export const Park = () => {
       })
       .catch((error) => {
         // console.log(error.message);
-        // history.push("/internalError");
+        // history.push("/Error");
         window.alert(error.message);
       });
   }, []);

@@ -42,8 +42,8 @@ export const App = () => {
         <Route exact path="/user/:id">
           <User />
         </Route>
-        <Route path="/internalError">
-          <InternalError />
+        <Route path="/Error">
+          <ErrorPage />
         </Route>
         <Route path="">
           <ErrorPage />

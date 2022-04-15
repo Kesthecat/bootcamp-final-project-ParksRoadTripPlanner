@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GiConsoleController } from "react-icons/gi";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { Loading } from "../Loading";
@@ -14,16 +14,21 @@ export const User = () => {
   // const [isDeleted, setIsDeleted] = useState(false);
   const [delMsg, setDelMsg] = useState(null);
 
+  let history = useHistory();
+
   useEffect(() => {
     fetch(`/user/${id}`)
       .then((res) => res.json())
       .then((data) => {
+        if (data.message !== "success") {
+          history.push("/Error");
+        }
         setUserInfo(data.data);
-        console.log("userInfo", data.data);
+        // console.log("userInfo", data.data);
         fetch(`/trips/user/${id}`)
           .then((res) => res.json())
           .then((data) => {
-            console.log("trips", data.data);
+            // console.log("trips", data.data);
             setUserTrips(data.data);
             setIsWaiting(false);
           });
@@ -74,7 +79,7 @@ export const User = () => {
               {userTrips.length > 0 &&
                 userTrips.map((trip) => {
                   return (
-                    <TripWrapper>
+                    <TripWrapper key={trip._id}>
                       <StyledNavLink to={`/trip/${trip._id}`}>
                         {trip.tripName}
                       </StyledNavLink>
