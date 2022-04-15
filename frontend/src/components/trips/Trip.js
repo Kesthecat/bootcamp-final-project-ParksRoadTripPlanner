@@ -13,6 +13,8 @@ export const Trip = () => {
   const { id } = useParams();
   const [trip, setTrip] = useState(null);
   const [hasStops, setHasStops] = useState(false);
+  const [legsInfo, setLegsInfo] = useState([]);
+  const [last, setLast] = useState(0);
   const {
     setMap,
     setMaps,
@@ -23,7 +25,7 @@ export const Trip = () => {
     setDepartureMarker,
     setDestinationMarker,
   } = useContext(GMAPContext);
-  const { setNotTripPage, notTripPage } = useContext(FlagContext);
+  const { setNotTripPage } = useContext(FlagContext);
 
   const handleApiLoaded = (map, maps) => {
     // console.log({ map, maps });
@@ -37,13 +39,14 @@ export const Trip = () => {
     fetch(`/trip/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data.destination.name);
         setTrip(data.data);
         setDestination(data.data.destination);
         setDeparture(data.data.departure);
         if (data.data.waypoints.length > 0) {
           setHasStops(true);
           setWaypoints(data.data.waypoints);
+          setLegsInfo(data.data.routeMetrics);
+          setLast(data.data.routeMetrics.length);
         }
         ///not load right away....at refresh only....
         setDepartureMarker();
@@ -53,6 +56,11 @@ export const Trip = () => {
         window.alert(error.message);
       });
   }, []);
+
+  console.log("trip type", typeof trip);
+  console.log("trip", trip);
+  console.log("legsInfo type", typeof legsInfo);
+  console.log("legsInfo", legsInfo);
 
   if (!trip) return <Loading />;
 
@@ -64,20 +72,26 @@ export const Trip = () => {
           <InfoWrapper>
             <StyledP>Departure: </StyledP>
             <StyledP>{trip.departure.name}</StyledP>
+            <StyledP>Distance: {legsInfo[0].distance.text}</StyledP>
+            <StyledP>Duration: {legsInfo[0].duration.text}</StyledP>
           </InfoWrapper>
           {hasStops &&
-            waypoints.map((waypoint) => {
+            waypoints.map((waypoint, i) => {
               return (
                 <InfoWrapper>
                   <ParkLink to={`/parks/${waypoint._id}`}>
                     {waypoint.name}
                   </ParkLink>
+                  <StyledP>Distance: {legsInfo[i + 1].distance.text}</StyledP>
+                  <StyledP>Durating: {legsInfo[i + 1].duration.text}</StyledP>
                 </InfoWrapper>
               );
             })}
           <InfoWrapper>
             <StyledP>Destination: </StyledP>
             <StyledP>{trip.destination.name}</StyledP>
+            <StyledP>Distance: {legsInfo[last].distance.text}</StyledP>
+            <StyledP>Durating: {legsInfo[last].duration.text}</StyledP>
           </InfoWrapper>
         </Wrapper>
         <Wrapper className="Driving">
@@ -128,6 +142,7 @@ const InfoContainer = styled.div`
 const Wrapper = styled.div``;
 const InfoWrapper = styled.div`
   display: flex;
+  border: 2px solid purple;
 `;
 const StyledP = styled.p``;
 const ParkLink = styled(NavLink)``;

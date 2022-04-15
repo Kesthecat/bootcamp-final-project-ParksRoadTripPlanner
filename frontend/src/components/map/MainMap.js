@@ -49,7 +49,7 @@ export const MainMap = () => {
         </SearchContainer>
       )}
       <MapContainer>
-        {/* <GoogleMapReact
+        <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
           defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
           defaultZoom={4}
@@ -66,7 +66,7 @@ export const MainMap = () => {
               />
             );
           })}
-        </GoogleMapReact> */}
+        </GoogleMapReact>
       </MapContainer>
     </PageWrapper>
   );

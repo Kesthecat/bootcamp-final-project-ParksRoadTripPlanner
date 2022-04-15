@@ -95,7 +95,7 @@ export const GMAPProvider = ({ children }) => {
         setDeparture,
         destination,
         setDestination,
-        setRoute,
+        // setRoute,
         setDepartureMarker,
         setDestinationMarker,
         routeInfo,

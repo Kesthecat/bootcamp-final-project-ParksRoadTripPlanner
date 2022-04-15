@@ -27,30 +27,28 @@ export const CreateTrip = ({ setHasClear }) => {
 
   // console.log("routeInfo", routeInfo);
 
-  console.log("departure", departure);
-  console.log("destination", destination);
   let savedRouteInfo = [];
   if (routeInfo.length > 0) {
     routeInfo.forEach((leg) => {
-      const distance = leg.distance.text;
-      const duration = leg.duration.text;
+      const distance = leg.distance;
+      const duration = leg.duration;
       savedRouteInfo.push({ distance: distance, duration: duration });
     });
   }
 
-  const handleClear = (e) => {
-    e.preventDefault();
-    window.location.reload();
-    // //not woking
-    // setPolyline(null);
+  // const handleClear = (e) => {
+  //   e.preventDefault();
+  //   // window.location.reload();
+  //   // //not woking
+  //   // setPolyline(null);
 
-    // //working
-    // setDestination(null);
-    // setTripName("");
-    // setDeparture(null); //state null but not visually
-    // setHasClear(true);
-    // setWaypoints([]);
-  };
+  //   // //working
+  //   setDestination(null);
+  //   setTripName("");
+  //   setDeparture(null); //state null but not visually
+  //   setHasClear(true);
+  //   setWaypoints([]);
+  // };
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -82,7 +80,7 @@ export const CreateTrip = ({ setHasClear }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data);
+        // console.log(data.data);
         setIsWaiting(false);
         history.push(`/trip/${data.data._id}`);
       })
@@ -102,13 +100,13 @@ export const CreateTrip = ({ setHasClear }) => {
           onChange={(e) => setTripName(e.target.value)}
         />
         <BtnContainer>
-          <StyledBtn
+          {/* <StyledBtn
             type="button"
             disabled={isWaiting}
             onClick={(e) => handleClear(e)}
           >
             Clear trip
-          </StyledBtn>
+          </StyledBtn> */}
           <StyledBtn type="submit" disabled={isWaiting}>
             Save trip
           </StyledBtn>

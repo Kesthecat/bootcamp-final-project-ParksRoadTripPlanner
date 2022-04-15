@@ -24,7 +24,7 @@ export const Waypoints = () => {
       {waypoints.length !== 0 ? (
         <>
           {waypoints.map((stop, i) => {
-            console.log("routeInfo", routeInfo);
+            // console.log("routeInfo", routeInfo);
             return (
               <WaypointWrapper>
                 <StyledP key={stop.name + i}>

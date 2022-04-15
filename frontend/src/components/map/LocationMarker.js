@@ -71,6 +71,7 @@ const Container = styled.div`
 const TreeMarker = styled(GiPineTree)`
   color: rgb(255, 64, 0);
   transform: scale(3);
+  z-index: -5;
 `;
 const Marker = styled.div``;
 const ParkName = styled.p`
@@ -101,5 +102,5 @@ const Modal = styled.div`
   height: 60px;
   display: flex;
   flex-direction: column;
-  z-index: 100;
+  z-index: 1000;
 `;
