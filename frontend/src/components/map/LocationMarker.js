@@ -6,9 +6,7 @@ import { useContext } from "react";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { FlagContext } from "../hooks/Flags";
 
-export const LocationMarker = ({ park }) => {
-  const [isShown, setIsShown] = useState(false);
-  const [hasClickedModal, setHasClickedModal] = useState(false);
+export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
   const { waypoints, setWaypoints } = useContext(GMAPContext);
   const { notTripPage } = useContext(FlagContext);
 
@@ -31,14 +29,14 @@ export const LocationMarker = ({ park }) => {
         <Marker
           onMouseOver={() => setIsShown(true)}
           onMouseLeave={() => setIsShown(false)}
-          onClick={() => setHasClickedModal(true)}
+          onClick={() => setIsPinned(true)}
         >
           <TreeMarker />
         </Marker>
-        {(isShown || hasClickedModal) && (
+        {isShown && (
           <Modal>
             <ParkName>{park.name}</ParkName>
-            <ExitBtn onClick={() => setHasClickedModal(false)}>x</ExitBtn>
+            <ExitBtn onClick={() => setIsPinned(false)}>x</ExitBtn>
             {notTripPage && (
               <BtnContainer>
                 {addedWaypoint ? (

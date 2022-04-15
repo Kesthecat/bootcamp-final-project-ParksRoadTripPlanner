@@ -21,7 +21,8 @@ export const MainMap = () => {
   const { setMaps, setMap, nukeMap } = useContext(GMAPContext);
   const { username } = useContext(UserContext);
   const { setNotTripPage } = useContext(FlagContext);
-
+  const [activeModalId, setActiveModalId] = useState(null);
+  const [pinnedModalId, setPinnedModalId] = useState(null);
   const [hasClear, setHasClear] = useState(false);
 
   const handleApiLoaded = (map, maps) => {
@@ -37,7 +38,7 @@ export const MainMap = () => {
   ////////////////////////////////////
   if (parksList === []) return <Loading />;
   //////////////////////////////////////
-
+  console.log({ activeModalId });
   return (
     <PageWrapper>
       {username ? (
@@ -67,6 +68,11 @@ export const MainMap = () => {
                 lat={park.coordinates.lat}
                 lng={park.coordinates.lng}
                 park={park}
+                setIsShown={(bool) => setActiveModalId(bool ? park._id : null)}
+                isShown={
+                  park._id === activeModalId || park._id === pinnedModalId
+                }
+                setIsPinned={(bool) => setPinnedModalId(bool ? park._id : null)}
               />
             );
           })}

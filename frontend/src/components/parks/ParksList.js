@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { ParksListContext } from "../hooks/ParksContext";
@@ -16,11 +16,23 @@ export const ParksList = () => {
   return (
     <>
       <h2>Canada and Provincial Parks</h2>
+      <ChoicesContainer>
+        {origins.map((origin) => {
+          return (
+            <Link
+              to={{ hash: `#${origin}`, pathname: "/parks" }}
+              key={`link-${origin}`}
+            >
+              {origin}
+            </Link>
+          );
+        })}
+      </ChoicesContainer>
       <Container>
         {origins.map((origin) => {
           return (
             <ListContainer key={origin}>
-              <Origin>{origin}</Origin>
+              <Origin id={origin}>{origin}</Origin>
               <LabelsContainer>
                 <LeftSide>
                   <Data>Name</Data>
@@ -44,7 +56,7 @@ export const ParksList = () => {
                       <RightSide className="park">
                         <Data>{park.camping.toUpperCase()}</Data>
                         <Data>{park.swimming.toUpperCase()}</Data>
-                        <Data>{park.hiking}</Data>
+                        <Data>{park.hiking.toUpperCase()}</Data>
                         <Data>{park.dog.toUpperCase()}</Data>
                       </RightSide>
                     </ParkContainer>
@@ -62,6 +74,9 @@ export const ParksList = () => {
 const Container = styled.div`
   border: 2px solid gray;
 `;
+const ChoicesContainer = styled.div`
+  border: 2px solid palevioletred;
+`;
 const ListContainer = styled.div`
   border: 2px dotted purple;
 `;
@@ -74,15 +89,18 @@ const LabelsContainer = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
+  position: sticky;
+  top: 0;
 `;
 const LeftSide = styled.div``;
 const RightSide = styled.div`
   display: flex;
   gap: 20px;
 
-  /* styling YES YES YES*/
   &.park {
-    color: red;
+    /* color: red; */
+    justify-content: space-evenly;
+    width: 385px;
   }
 `;
 const Data = styled.h3``;

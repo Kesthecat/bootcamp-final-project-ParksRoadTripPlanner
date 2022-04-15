@@ -3,6 +3,8 @@ import { useParams, NavLink } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
 import { MdLocationPin } from "react-icons/md";
+import { intervalToDuration } from "date-fns";
+import moment from "moment";
 
 import { bootstrapURLKeys } from "../map/GoogleMapKey";
 import { GMAPContext } from "../hooks/GMAPContext";
@@ -16,6 +18,8 @@ export const Trip = () => {
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
   const [last, setLast] = useState(0);
+  const [totalDistance, setTotalDistance] = useState(0);
+  const [totalDuration, setTotalDuration] = useState(0);
 
   const {
     setMap,
@@ -44,14 +48,14 @@ export const Trip = () => {
     fetch(`/trip/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("data", { data });
+        // console.log("data", { data });
         console.log("routeMetrics", data.data.routeMetrics);
         setDestination(data.data.destination);
         setDeparture(data.data.departure);
+        setLegsInfo(data.data.routeMetrics);
         if (data.data.waypoints.length > 0) {
           setHasStops(true);
           setWaypoints(data.data.waypoints);
-          setLegsInfo(data.data.routeMetrics);
           setLast(data.data.routeMetrics.length - 1);
         }
         setTrip(data.data);
@@ -66,9 +70,33 @@ export const Trip = () => {
     return () => nukeMap();
   }, []);
 
+  if (setLegsInfo.length > 0) {
+    const sumDistance =
+      legsInfo.reduce((acc, cur) => acc + cur.distance.value, totalDistance) /
+      100;
+    console.log("distance", sumDistance);
+
+    // setTotalDistance(sumDistance); ///get Too many re-render error message
+
+    const durationSumSec = legsInfo.reduce(
+      (acc, cur) => acc + cur.duration.value,
+      totalDuration
+    );
+    const durationObj = intervalToDuration({
+      start: 0,
+      end: durationSumSec * 1000,
+    });
+    console.log("durationObj", durationObj);
+
+    // const duration = (s) => moment.duration(s, "seconds").humanize(); //rounds the time
+    // console.log("duration", duration(durationSumSec));
+
+    // setTotalDuration()
+  }
+
   if (!trip) return <Loading />;
 
-  console.log({ departure, legsInfo });
+  // console.log({ departure, legsInfo });
   return (
     <Container>
       <TripName>{trip.tripName}</TripName>
@@ -95,18 +123,38 @@ export const Trip = () => {
           <InfoWrapper>
             <StyledP>Destination: </StyledP>
             <StyledP>{trip.destination.name}</StyledP>
-            <StyledP>Distance: {legsInfo[last].distance.text}</StyledP>
-            <StyledP>Durating: {legsInfo[last].duration.text}</StyledP>
+            {!hasStops && (
+              <>
+                <StyledP>Distance: {legsInfo[last].distance.text}</StyledP>
+                <StyledP>Durating: {legsInfo[last].duration.text}</StyledP>
+              </>
+            )}
           </InfoWrapper>
         </Wrapper>
         <Wrapper className="Driving">
           <InfoWrapper>
             <StyledP>Total Distance: </StyledP>
-            <StyledP>distance according to route rendered...</StyledP>
+            <StyledP>{totalDistance} km</StyledP>
           </InfoWrapper>
           <InfoWrapper>
             <StyledP>Driving duration: </StyledP>
-            <StyledP>driving time according to route</StyledP>
+            <DurationWrapper>
+              <StyledP>problem with rendering</StyledP>
+              {/* {
+                totalDuration === 0 ? <StyledP>{totalDuration} minutes</StyledP> :
+                ({totalDuration.days && 
+                  <StyledP>{totalDuration.days} days(s)</StyledP>
+              }
+              {
+                totalDuration.hours && 
+              <StyledP>{totalDuration.hours} hour(s)</StyledP>
+              }
+              {
+                totalDuration.minutes &&
+              <StyledP>{totalDuration.minutes} minute(s)</StyledP>
+              })
+                } */}
+            </DurationWrapper>
           </InfoWrapper>
         </Wrapper>
         <Wrapper className="Buttons">
@@ -116,7 +164,7 @@ export const Trip = () => {
         </Wrapper>
       </InfoContainer>
       <MapContainer>
-        <GoogleMapReact
+        {/* <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
           defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
           defaultZoom={4}
@@ -147,7 +195,7 @@ export const Trip = () => {
               />
             );
           })}
-        </GoogleMapReact>
+        </GoogleMapReact> */}
       </MapContainer>
     </Container>
   );
@@ -169,4 +217,7 @@ const StyledBtn = styled.button``;
 const MapContainer = styled.div`
   height: 600px;
   width: 1000px;
+`;
+const DurationWrapper = styled.div`
+  display: flex;
 `;

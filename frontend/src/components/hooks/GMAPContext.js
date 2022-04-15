@@ -79,7 +79,7 @@ export const GMAPProvider = ({ children }) => {
   // };
 
   const nukeMap = () => {
-    console.log("nuke");
+    // console.log("nuke");
     polyline?.setMap(null);
     setDeparture(null);
     setDestination(null);
