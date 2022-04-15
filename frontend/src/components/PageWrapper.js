@@ -5,5 +5,9 @@ export const PageWrapper = ({ children }) => {
 };
 
 const Wrapper = styled.div`
-  display: flex;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 20px;
+  border: 3px solid red;
+  padding: 20px;
 `;

@@ -15,8 +15,8 @@ export const ParksList = () => {
 
   return (
     <>
-      <h2>Canada and Provincial Parks</h2>
-      <ChoicesContainer>
+      <h1>Canada and Provincial Parks</h1>
+      {/* <ChoicesContainer>
         {origins.map((origin) => {
           return (
             <Link
@@ -27,7 +27,7 @@ export const ParksList = () => {
             </Link>
           );
         })}
-      </ChoicesContainer>
+      </ChoicesContainer> */}
       <Container>
         {origins.map((origin) => {
           return (

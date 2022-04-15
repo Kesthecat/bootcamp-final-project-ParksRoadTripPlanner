@@ -100,7 +100,7 @@ const parksList = async (req, res) => {
     const listParksOrigins = { parks: parksResult, origin: originResult };
     res
       .status(200)
-      .json({ status: 200, data: listParksOrigins, message: "succes" });
+      .json({ status: 200, data: listParksOrigins, message: "success" });
   } catch (error) {
     // console.error(error);
     res

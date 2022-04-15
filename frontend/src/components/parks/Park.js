@@ -94,7 +94,7 @@ const InfoContainer = styled.div`
   flex-direction: column;
   border: 2px solid red;
 `;
-const Intro = styled.div`
+const Intro = styled.p`
   border: 2px dotted orange;
   margin: 25px 0;
   /* need to set

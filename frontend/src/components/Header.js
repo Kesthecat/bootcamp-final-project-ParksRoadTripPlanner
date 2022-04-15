@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
+import { FaMapMarkedAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { UserContext } from "./hooks/userContext";
 import avatar from "../assets/000019.jpg";
@@ -17,6 +18,7 @@ export const Header = () => {
     <Container>
       <LeftSide>
         <StyledNavLink to={"/mainMap"}>
+          <MapIcon />
           <StyledP>Map</StyledP>
         </StyledNavLink>
         <StyledNavLink to={"/parks"}>
@@ -49,7 +51,7 @@ export const Header = () => {
 
 const Container = styled.div`
   height: 60px;
-  background-color: rgb(245, 203, 61);
+  background-color: var(--color-main);
   display: flex;
   justify-content: space-between;
 `;
@@ -60,6 +62,7 @@ const LeftSide = styled.div`
 const StyledNavLink = styled(NavLink)`
   display: flex;
 `;
+const MapIcon = styled(FaMapMarkedAlt)``;
 const ListIcon = styled(GiChecklist)``;
 const TripIcon = styled(GiLightBulb)``;
 const RightSide = styled.div`

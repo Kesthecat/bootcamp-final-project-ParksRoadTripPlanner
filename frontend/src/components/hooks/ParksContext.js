@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { createContext } from "react";
-import { useHistory } from "react-router-dom";
 
 export const ParksListContext = createContext();
 
@@ -8,14 +7,13 @@ export const ParksListProvider = ({ children }) => {
   const [parksList, setParksList] = useState([]);
   const [origins, setOrigins] = useState([]);
 
-  let history = useHistory();
-
   useEffect(() => {
     fetch("/parks")
       .then((res) => res.json())
       .then((data) => {
+        // console.log("data", data.message);
         if (data.message !== "success") {
-          history.push("/Error");
+          window.alert("Something went wrong, please try again.");
           return;
         }
         // console.log("data", data.data.origin.parksOrigin);
@@ -24,7 +22,7 @@ export const ParksListProvider = ({ children }) => {
       })
       .catch((error) => {
         // console.log(error.message);
-        history.push("/Error");
+        window.alert("Something went wrong, please contact customer services.");
       });
   }, []);
 

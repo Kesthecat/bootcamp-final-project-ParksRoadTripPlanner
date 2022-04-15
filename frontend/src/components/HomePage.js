@@ -92,6 +92,10 @@ export const HomePage = () => {
 
 const SignInForm = styled.form``;
 const Wrapper = styled.div``;
-const StyledLabel = styled.label``;
+const StyledLabel = styled.label`
+  font-family: var(--font-heading);
+  font-size: 26px;
+  color: var(--color-text);
+`;
 const StyledInput = styled.input``;
 const StyledBtn = styled.button``;
