@@ -60,24 +60,32 @@ export const GMAPProvider = ({ children }) => {
     );
   };
 
-  const setDepartureMarker = () => {
-    if (!map || !maps || !departure) return;
-    let marker = new maps.Marker({
-      position: departure.coordinates,
-      map,
-    });
-    return marker;
-  };
+  // const setDepartureMarker = () => {
+  //   if (!map || !maps || !departure) return;
+  //   let marker = new maps.Marker({
+  //     position: departure.coordinates,
+  //     map,
+  //   });
+  //   return marker;
+  // };
 
-  const setDestinationMarker = () => {
-    if (!map || !maps || !departure) return;
-    let marker = new maps.Marker({
-      position: destination.coordinates,
-      map,
-    });
-    return marker;
-  };
+  // const setDestinationMarker = () => {
+  //   if (!map || !maps || !departure) return;
+  //   let marker = new maps.Marker({
+  //     position: destination.coordinates,
+  //     map,
+  //   });
+  //   return marker;
+  // };
 
+  const nukeMap = () => {
+    console.log("nuke");
+    polyline?.setMap(null);
+    setDeparture(null);
+    setDestination(null);
+    setWaypoints([]);
+    setRouteInfo([]);
+  };
   useEffect(() => {
     // console.log("setRoute");
     setRoute();
@@ -95,9 +103,10 @@ export const GMAPProvider = ({ children }) => {
         setDeparture,
         destination,
         setDestination,
-        // setRoute,
-        setDepartureMarker,
-        setDestinationMarker,
+        setRoute,
+        // setDepartureMarker,
+        // setDestinationMarker,
+        nukeMap,
         routeInfo,
         setRouteInfo,
         setPolyline,

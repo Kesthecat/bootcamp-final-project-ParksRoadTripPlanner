@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
+import { MdLocationPin } from "react-icons/md";
 
 import { bootstrapURLKeys } from "../map/GoogleMapKey";
 import { GMAPContext } from "../hooks/GMAPContext";
@@ -15,6 +16,7 @@ export const Trip = () => {
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
   const [last, setLast] = useState(0);
+
   const {
     setMap,
     setMaps,
@@ -23,7 +25,10 @@ export const Trip = () => {
     setWaypoints,
     waypoints,
     setDepartureMarker,
+    departure,
+    destination,
     setDestinationMarker,
+    nukeMap,
   } = useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
 
@@ -39,31 +44,31 @@ export const Trip = () => {
     fetch(`/trip/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setTrip(data.data);
+        console.log("data", { data });
+        console.log("routeMetrics", data.data.routeMetrics);
         setDestination(data.data.destination);
         setDeparture(data.data.departure);
         if (data.data.waypoints.length > 0) {
           setHasStops(true);
           setWaypoints(data.data.waypoints);
           setLegsInfo(data.data.routeMetrics);
-          setLast(data.data.routeMetrics.length);
+          setLast(data.data.routeMetrics.length - 1);
         }
-        ///not load right away....at refresh only....
-        setDepartureMarker();
-        setDestinationMarker();
+        setTrip(data.data);
       })
       .catch((error) => {
-        window.alert(error.message);
+        console.error("error", error);
+        // window.alert(error.message);
       });
   }, []);
 
-  console.log("trip type", typeof trip);
-  console.log("trip", trip);
-  console.log("legsInfo type", typeof legsInfo);
-  console.log("legsInfo", legsInfo);
+  useEffect(() => {
+    return () => nukeMap();
+  }, []);
 
   if (!trip) return <Loading />;
 
+  console.log({ departure, legsInfo });
   return (
     <Container>
       <TripName>{trip.tripName}</TripName>
@@ -78,7 +83,7 @@ export const Trip = () => {
           {hasStops &&
             waypoints.map((waypoint, i) => {
               return (
-                <InfoWrapper>
+                <InfoWrapper key={waypoint._id}>
                   <ParkLink to={`/parks/${waypoint._id}`}>
                     {waypoint.name}
                   </ParkLink>
@@ -111,13 +116,27 @@ export const Trip = () => {
         </Wrapper>
       </InfoContainer>
       <MapContainer>
-        {/* <GoogleMapReact
+        <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
           defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
           defaultZoom={4}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
         >
+          {!!departure && (
+            <MdLocationPin
+              size={40}
+              lat={departure.coordinates.lat}
+              lng={departure.coordinates.lng}
+            />
+          )}
+          {!!destination && (
+            <MdLocationPin
+              size={40}
+              lat={destination.coordinates.lat}
+              lng={destination.coordinates.lng}
+            />
+          )}
           {waypoints.map((waypoint, i) => {
             return (
               <LocationMarker
@@ -128,7 +147,7 @@ export const Trip = () => {
               />
             );
           })}
-        </GoogleMapReact> */}
+        </GoogleMapReact>
       </MapContainer>
     </Container>
   );

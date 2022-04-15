@@ -10,6 +10,7 @@ import { TripsSuggestions } from "./trips/TripsSuggestions";
 import { User } from "./user/User";
 import { InternalError } from "./InternalError";
 import { Trip } from "./trips/Trip";
+import { GMAPProvider } from "./hooks/GMAPContext";
 
 export const App = () => {
   return (
@@ -20,7 +21,9 @@ export const App = () => {
           <HomePage />
         </Route>
         <Route exact path="/mainMap">
-          <MainMap />
+          <GMAPProvider>
+            <MainMap />
+          </GMAPProvider>
         </Route>
         <Route exact path="/tripsSuggestions">
           <TripsSuggestions />
@@ -29,7 +32,9 @@ export const App = () => {
           <ParksList />
         </Route>
         <Route exact path="/trip/:id">
-          <Trip />
+          <GMAPProvider>
+            <Trip />
+          </GMAPProvider>
         </Route>
         <Route exact path="/parks/:id">
           <Park />

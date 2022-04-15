@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import GoogleMapReact from "google-map-react";
 import { bootstrapURLKeys } from "./GoogleMapKey";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
@@ -18,7 +18,7 @@ import { FlagContext } from "../hooks/Flags";
 
 export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
-  const { setMaps, setMap } = useContext(GMAPContext);
+  const { setMaps, setMap, nukeMap } = useContext(GMAPContext);
   const { username } = useContext(UserContext);
   const { setNotTripPage } = useContext(FlagContext);
 
@@ -29,6 +29,10 @@ export const MainMap = () => {
     setMap(map);
     setNotTripPage(true);
   };
+
+  useEffect(() => {
+    return () => nukeMap();
+  }, []);
 
   ////////////////////////////////////
   if (parksList === []) return <Loading />;
