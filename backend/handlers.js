@@ -257,7 +257,7 @@ const postNewTrip = async (req, res) => {
         .status(502)
         .json({ status: 502, data: req.body, message: "Cannot add review." });
     }
-    res.status(200).json({ status: 200, data: req.body, mesage: "success" });
+    res.status(200).json({ status: 200, data: req.body, message: "success" });
   } catch (error) {
     console.error(error.message);
     res

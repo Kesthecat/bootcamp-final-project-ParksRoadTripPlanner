@@ -22,13 +22,17 @@ export const Park = () => {
       .then((res) => res.json())
       .then((data) => {
         // console.log(data.data);
+        if (data.message !== "success") {
+          history.push("/Error");
+          return;
+        }
         setPark(data.data);
         setParkLoad("loaded");
       })
       .catch((error) => {
         // console.log(error.message);
-        // history.push("/Error");
-        window.alert(error.message);
+        history.push("/Error");
+        // window.alert(error.message);
       });
   }, []);
 
@@ -61,7 +65,7 @@ export const Park = () => {
               Pet Friendly: <span>{park.dog.toUpperCase()}</span>
             </p>
           </InnerContainer>
-          <BtnContainer>
+          <BtnContainer disabled={true}>
             Add to favorite
             <StyledBtn>
               <GiHeartPlus />

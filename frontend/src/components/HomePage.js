@@ -32,9 +32,12 @@ export const HomePage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        // console.log("data", data);
         if (data.message !== "success") {
           setError(true);
           setErrorMsg(data.message);
+          setIsWaiting(false);
+          return;
         }
         localStorage.setItem("user", data.data.username);
         localStorage.setItem("userId", data.data._id);
@@ -46,9 +49,8 @@ export const HomePage = () => {
         history.push("/parks");
       })
       .catch((error) => {
-        console.log("error", error.message);
-        // history.push("/Error");
-        window.alert(error.message);
+        // console.log("error", error.message);
+        history.push("/Error");
       });
   };
 
@@ -61,6 +63,7 @@ export const HomePage = () => {
           type="text"
           placeholder="Username"
           onChange={(e) => setInitialUsername(e.target.value)}
+          required
         />
       </Wrapper>
       <Wrapper>
@@ -71,6 +74,7 @@ export const HomePage = () => {
             type="password"
             placeholder="Case Sensitive"
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
         </StyledLabel>
       </Wrapper>

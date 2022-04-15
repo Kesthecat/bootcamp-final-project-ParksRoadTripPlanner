@@ -11,7 +11,6 @@ export const User = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [userTrips, setUserTrips] = useState([]);
   const [isWaiting, setIsWaiting] = useState(true);
-  // const [isDeleted, setIsDeleted] = useState(false);
   const [delMsg, setDelMsg] = useState(null);
 
   let history = useHistory();
@@ -21,7 +20,9 @@ export const User = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message !== "success") {
+          setIsWaiting(false);
           history.push("/Error");
+          return;
         }
         setUserInfo(data.data);
         // console.log("userInfo", data.data);
@@ -34,7 +35,8 @@ export const User = () => {
           });
       })
       .catch((error) => {
-        window.alert(error.message);
+        // window.alert(error.message);
+        history.push("/Error");
       });
   }, []);
 

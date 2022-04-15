@@ -2,6 +2,7 @@ import styled from "styled-components";
 import GoogleMapReact from "google-map-react";
 import { bootstrapURLKeys } from "./GoogleMapKey";
 import { useContext, useEffect, useState } from "react";
+import { MdLocationPin } from "react-icons/md";
 
 import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
@@ -18,7 +19,8 @@ import { FlagContext } from "../hooks/Flags";
 
 export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
-  const { setMaps, setMap, nukeMap } = useContext(GMAPContext);
+  const { setMaps, setMap, nukeMap, departure, destination } =
+    useContext(GMAPContext);
   const { username } = useContext(UserContext);
   const { setNotTripPage } = useContext(FlagContext);
   const [activeModalId, setActiveModalId] = useState(null);
@@ -38,7 +40,7 @@ export const MainMap = () => {
   ////////////////////////////////////
   if (parksList === []) return <Loading />;
   //////////////////////////////////////
-  console.log({ activeModalId });
+  // console.log({ activeModalId });
   return (
     <PageWrapper>
       {username ? (
@@ -76,6 +78,20 @@ export const MainMap = () => {
               />
             );
           })}
+          {!!departure && (
+            <MdLocationPin
+              size={40}
+              lat={departure.coordinates.lat}
+              lng={departure.coordinates.lng}
+            />
+          )}
+          {!!destination && (
+            <MdLocationPin
+              size={40}
+              lat={destination.coordinates.lat}
+              lng={destination.coordinates.lng}
+            />
+          )}
         </GoogleMapReact>
       </MapContainer>
     </PageWrapper>

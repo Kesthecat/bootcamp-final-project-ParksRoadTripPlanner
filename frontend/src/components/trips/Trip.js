@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, NavLink } from "react-router-dom";
+import { useParams, NavLink, useHistory } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
 import { MdLocationPin } from "react-icons/md";
@@ -17,7 +17,7 @@ export const Trip = () => {
   const [trip, setTrip] = useState(null);
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
-  const [last, setLast] = useState(0);
+  // const [last, setLast] = useState(0);
   const [totalDistance, setTotalDistance] = useState(0);
   const [totalDuration, setTotalDuration] = useState(0);
 
@@ -36,6 +36,8 @@ export const Trip = () => {
   } = useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
 
+  let history = useHistory();
+
   const handleApiLoaded = (map, maps) => {
     // console.log({ map, maps });
     setMaps(maps);
@@ -50,19 +52,25 @@ export const Trip = () => {
       .then((data) => {
         // console.log("data", { data });
         // console.log("routeMetrics", data.data.routeMetrics);
+        if (data.message !== "success") {
+          setNotTripPage(true);
+          history.push("/Error");
+          return;
+        }
         setDestination(data.data.destination);
         setDeparture(data.data.departure);
         setLegsInfo(data.data.routeMetrics);
         if (data.data.waypoints.length > 0) {
           setHasStops(true);
           setWaypoints(data.data.waypoints);
-          setLast(data.data.routeMetrics.length - 1);
+          // setLast(data.data.routeMetrics.length - 1);
         }
         setTrip(data.data);
       })
       .catch((error) => {
         console.error("error", error);
         // window.alert(error.message);
+        history.push("/Error");
       });
   }, []);
 
@@ -123,12 +131,12 @@ export const Trip = () => {
           <InfoWrapper>
             <StyledP>Destination: </StyledP>
             <StyledP>{trip.destination.name}</StyledP>
-            {!hasStops && (
+            {/* {!hasStops && (
               <>
                 <StyledP>Distance: {legsInfo[last].distance.text}</StyledP>
                 <StyledP>Durating: {legsInfo[last].duration.text}</StyledP>
               </>
-            )}
+            )} */}
           </InfoWrapper>
         </Wrapper>
         <Wrapper className="Driving">

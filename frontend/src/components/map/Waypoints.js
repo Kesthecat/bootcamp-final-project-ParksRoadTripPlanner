@@ -26,8 +26,8 @@ export const Waypoints = () => {
           {waypoints.map((stop, i) => {
             // console.log("routeInfo", routeInfo);
             return (
-              <WaypointWrapper>
-                <StyledP key={stop.name + i}>
+              <WaypointWrapper key={stop.name + i}>
+                <StyledP>
                   Waypoint {i + 1}: {stop.name}
                 </StyledP>
                 <StyledBtn onClick={() => handleRemove(stop._id)}>

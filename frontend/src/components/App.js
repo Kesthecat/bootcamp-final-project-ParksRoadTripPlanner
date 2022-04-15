@@ -8,7 +8,6 @@ import { Park } from "./parks/Park";
 import { Header } from "./Header";
 import { TripsSuggestions } from "./trips/TripsSuggestions";
 import { User } from "./user/User";
-import { InternalError } from "./InternalError";
 import { Trip } from "./trips/Trip";
 import { GMAPProvider } from "./hooks/GMAPContext";
 

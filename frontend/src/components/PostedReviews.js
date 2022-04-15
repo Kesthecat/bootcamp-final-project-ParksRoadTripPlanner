@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Loading } from "./Loading";
 
@@ -7,6 +7,7 @@ export const PostedReviews = ({ newReview }) => {
   const { id } = useParams();
   const [postedReviews, setPostedReviews] = useState([]);
   const [reviewsStatus, setReviewsStatus] = useState("idle"); // loaded, error
+  let history = useHistory();
 
   useEffect(() => {
     setReviewsStatus("loading");
@@ -14,7 +15,10 @@ export const PostedReviews = ({ newReview }) => {
       .then((res) => res.json())
       .then((data) => {
         // console.log("reviews", data);
-        if (data.data === null) {
+        if (data.message !== "success") {
+          setReviewsStatus("idle");
+          history.push("/Error");
+        } else if (data.data === null) {
           setPostedReviews("none");
           setReviewsStatus("loaded");
         } else {
@@ -25,11 +29,12 @@ export const PostedReviews = ({ newReview }) => {
         }
       })
       .catch((error) => {
-        console.log("loadReviewError", error.message);
+        // console.log("loadReviewError", error.message);
+        history.push("/Error");
       });
   }, []);
 
-  if (reviewsStatus === "loading") return <Loading />;
+  if (reviewsStatus === "loading") return <p>Loading ...</p>;
 
   return (
     <ReviewsWrapper>

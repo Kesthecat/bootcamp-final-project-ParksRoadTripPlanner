@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import { GMAPContext } from "../hooks/GMAPContext";
-import { Loading } from "../Loading";
 import { UserContext } from "../hooks/userContext";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
@@ -80,11 +79,20 @@ export const CreateTrip = ({ setHasClear }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log("error", data.message);
+        if (data.message !== "success") {
+          setIsWaiting(false);
+          history.push("/Error");
+          return;
+        }
         // console.log(data.data);
         setIsWaiting(false);
         history.push(`/trip/${data.data._id}`);
       })
-      .catch((error) => console.log("error", error));
+      .catch((error) => {
+        console.log("error", error);
+        history.push("/Error");
+      });
   };
 
   return (
@@ -112,7 +120,7 @@ export const CreateTrip = ({ setHasClear }) => {
           </StyledBtn>
         </BtnContainer>
       </FormWrapper>
-      {isWaiting && <Loading />}
+      {isWaiting && <p>Loading</p>}
     </>
   );
 };
