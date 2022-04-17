@@ -1,15 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { UserContext } from "./hooks/userContext";
 import avatar from "../assets/000019.jpg";
+import { useState } from "react";
 
 export const Header = () => {
   const { username, setUsername, userId } = useContext(UserContext);
+  // const [isClicked, setIsCliked] = useState(false);
 
   const handleSignOut = () => {
+    // setIsCliked(true);
     setUsername(null);
     localStorage.clear();
   };
@@ -32,24 +35,30 @@ export const Header = () => {
       </LeftSide>
       {username ? (
         <RightSide>
-          <StyledNavLink to={`/user/${userId}`}>
+          <StyledNavLink to={`/user/${userId}`} className="avatar">
             <Avatar src={avatar} alt="user's avatar" />
             <StyledH3>{username}</StyledH3>
           </StyledNavLink>
           <StyledNavLink to={"/"} onClick={() => handleSignOut()}>
-            <StyledH3>Sign Out</StyledH3>
+            <StyledH3 className="signout">Sign Out</StyledH3>
           </StyledNavLink>
         </RightSide>
       ) : (
         <RightSide>
           <StyledNavLink to={"/"}>
-            <StyledH3>Sign In</StyledH3>
+            <StyledH3 className="signin">Sign In</StyledH3>
           </StyledNavLink>
         </RightSide>
       )}
     </Container>
   );
 };
+
+//animations
+// const antiClockWiseSpin = keyframes`
+// from {transform: rotate(360)}
+// to{transform: rotate(0)}
+// `;
 
 const Container = styled.div`
   height: 100px;
@@ -65,6 +74,10 @@ const LeftSide = styled.div`
 `;
 const StyledNavLink = styled(NavLink)`
   display: flex;
+
+  &.avatar {
+    align-items: center;
+  }
 `;
 const MapIcon = styled(FaMapMarkedAlt)`
   transform: scale(2);
@@ -79,9 +92,17 @@ const TripIcon = styled(GiLightBulb)`
 const RightSide = styled.div`
   display: flex;
   gap: 40px;
+  align-items: center;
 `;
 const StyledH3 = styled.h3`
   margin-left: 10px;
+
+  /* &.signin {
+  }
+
+  &.signout {
+    animation:${antiClockWiseSpin} 500ms;
+  } */
 `;
 const Avatar = styled.img`
   height: 40px;
