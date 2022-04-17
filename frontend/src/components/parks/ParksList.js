@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { ParksListContext } from "../hooks/ParksContext";
 import { Loading } from "../Loading";
+import { Logo } from "../ParksLogo";
 
 export const ParksList = () => {
   const { origins, parksList } = useContext(ParksListContext);
@@ -15,7 +16,8 @@ export const ParksList = () => {
 
   return (
     <>
-      <h1>Canada and Provincial Parks</h1>
+      <StyledH1>Canada and Provincial Parks</StyledH1>
+      <Logo />
       {/* <ChoicesContainer>
         {origins.map((origin) => {
           return (
@@ -37,7 +39,7 @@ export const ParksList = () => {
                 <LeftSide>
                   <Data>Name</Data>
                 </LeftSide>
-                <RightSide>
+                <RightSide className="labels">
                   <Data>Camping</Data>
                   <Data>Swimming</Data>
                   <Data>Hiking</Data>
@@ -50,14 +52,20 @@ export const ParksList = () => {
                     <ParkContainer key={park._id}>
                       <LeftSide>
                         <NameLink to={`/parks/${park._id}`}>
-                          {park.name}
+                          <Data className="name">{park.name}</Data>
                         </NameLink>
                       </LeftSide>
                       <RightSide className="park">
-                        <Data>{park.camping.toUpperCase()}</Data>
-                        <Data>{park.swimming.toUpperCase()}</Data>
-                        <Data>{park.hiking.toUpperCase()}</Data>
-                        <Data>{park.dog.toUpperCase()}</Data>
+                        <Data className="YesNo">
+                          {park.camping.toUpperCase()}
+                        </Data>
+                        <Data className="YesNo">
+                          {park.swimming.toUpperCase()}
+                        </Data>
+                        <Data className="YesNo">
+                          {park.hiking.toUpperCase()}
+                        </Data>
+                        <Data className="YesNo">{park.dog.toUpperCase()}</Data>
                       </RightSide>
                     </ParkContainer>
                   );
@@ -72,42 +80,68 @@ export const ParksList = () => {
 };
 
 const Container = styled.div`
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
 `;
-const ChoicesContainer = styled.div`
-  border: 2px solid palevioletred;
+const StyledH1 = styled.h1`
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-main);
+  padding-bottom: 10px;
 `;
+// const ChoicesContainer = styled.div`
+//   border: 2px solid palevioletred;
+// `;
 const ListContainer = styled.div`
-  border: 2px dotted purple;
+  /* border: 2px dotted purple; */
 `;
 const Origin = styled.h2`
-  border: 2px solid gray;
+  /* border: 2px solid gray; */
   padding-left: 15px;
+  background-color: var(--color-secondary);
+  padding: 15px;
 `;
 const LabelsContainer = styled.div`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 10px 15px;
   position: sticky;
   top: 0;
+  background-color: var(--color-tertiary);
 `;
-const LeftSide = styled.div``;
+const LeftSide = styled.div`
+  padding: 10px 0;
+`;
 const RightSide = styled.div`
   display: flex;
   gap: 20px;
+
+  &.labels {
+    align-items: center;
+  }
 
   &.park {
     /* color: red; */
     justify-content: space-evenly;
     width: 385px;
+    gap: 85px;
+    margin-right: 72px;
+    align-items: center;
   }
 `;
-const Data = styled.h3``;
+const Data = styled.h3`
+  &.name {
+    font-weight: 200;
+  }
+  &.YesNo {
+    font-weight: 200;
+  }
+`;
 const ParkContainer = styled.div`
-  border: 2px solid green;
+  border: 1px solid var(--color-tertiary);
   display: flex;
   justify-content: space-between;
   padding: 0 15px;
 `;
-const NameLink = styled(NavLink)``;
+const NameLink = styled(NavLink)`
+  font-size: 20px;
+`;

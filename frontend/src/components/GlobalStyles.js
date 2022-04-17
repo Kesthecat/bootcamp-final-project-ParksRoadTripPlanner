@@ -20,8 +20,8 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
   :root {
     --color-main: rgba(245, 203, 92); //maize croyola
-    --color-secondary: 	rgba(232, 237, 223); //alabaster (bluish gray)
-    --color-tertiary: rgba(207, 219, 213); //gainsboro (gray sky blue)
+    --color-secondary: 	rgba(207, 219, 213); //gainsboro (gray sky blue)
+    --color-tertiary: rgba(232, 237, 223); //alabaster (bluish gray)
     --color-marker: rgba(234, 115, 23); //princeton orange
     --color-text: rgba(36, 36, 35); //eerie black)
     --color-text-hover: rgba(84, 105, 133, 1); 

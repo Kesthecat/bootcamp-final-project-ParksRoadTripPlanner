@@ -45,45 +45,51 @@ export const Logo = () => {
   );
 };
 const Container = styled.div`
-  /* display: flex; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
 `;
 const StyledImg = styled.img`
   display: inline-block;
   position: relative;
-  opacity: 0.5;
+  /* opacity: 0.5; */
+  width: 100px;
 
-  &.alberta {
+  /* &.alberta {
     left: 15px;
-    width: 200px;
-  }
+  /* } */
   &.bc {
-    width: 300px;
-    top: -55px;
-    right: -23px;
+    width: 130px; 
+    /* top: -55px; */
+    /* right: -23px;  */
   }
+  
   &.canada {
-    top: 62px;
-    right: -80px;
-    height: 160px;
+    /* top: 62px; */
+    /* right: -80px; */ 
+    width: 50px;
   }
+  /*  *
   &.manitoba {
-    width: 250px;
-  }
+    /* width: 250px; */
+  /* } */
+
   &.newB {
-    width: 300px;
+    width: 130px;
   }
   &.nova {
-    width: 300px;
+    /* width: 300px; */
   }
   &.ontario {
-    height: 160px;
+    width: 50px;
   }
   &.pei {
-    width: 230px;
+    width: 90px;
   }
   &.sepaq {
-    width: 200px;
+    width: 90px;
   }
   &.sask {
-  }
+  } */
 `;
