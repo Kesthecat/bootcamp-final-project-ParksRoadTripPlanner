@@ -101,7 +101,7 @@ const StyledH3 = styled.h3`
   }
 
   &.signout {
-    animation:${antiClockWiseSpin} 500ms;
+    animation: 500ms;
   } */
 `;
 const Avatar = styled.img`

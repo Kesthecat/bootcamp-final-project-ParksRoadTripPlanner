@@ -37,7 +37,7 @@ export const ParksList = () => {
               <Origin id={origin}>{origin}</Origin>
               <LabelsContainer>
                 <LeftSide>
-                  <Data>Name</Data>
+                  <Data>Park Name</Data>
                 </LeftSide>
                 <RightSide className="labels">
                   <Data>Camping</Data>
