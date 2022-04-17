@@ -18,8 +18,6 @@ export const Trip = () => {
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
   // const [last, setLast] = useState(0);
-  const [totalDistance, setTotalDistance] = useState(0);
-  const [totalDuration, setTotalDuration] = useState(0);
 
   const {
     setMap,
@@ -78,33 +76,26 @@ export const Trip = () => {
     return () => nukeMap();
   }, []);
 
-  if (setLegsInfo.length > 0) {
-    const sumDistance =
-      legsInfo.reduce((acc, cur) => acc + cur.distance.value, totalDistance) /
-      100;
-    // console.log("distance", sumDistance);
-
-    // setTotalDistance(sumDistance); ///get Too many re-render error message
-
-    const durationSumSec = legsInfo.reduce(
-      (acc, cur) => acc + cur.duration.value,
-      totalDuration
-    );
-    const durationObj = intervalToDuration({
-      start: 0,
-      end: durationSumSec * 1000,
-    });
-    // console.log("durationObj", durationObj);
-
-    // const duration = (s) => moment.duration(s, "seconds").humanize(); //rounds the time
-    // console.log("duration", duration(durationSumSec));
-
-    // setTotalDuration()
-  }
-
   if (!trip) return <Loading />;
 
+  const sumDistance =
+    legsInfo.reduce((acc, cur) => acc + cur.distance.value, 0) / 100;
+  // console.log("distance", sumDistance);
+
+  // setTotalDistance(sumDistance); ///get Too many re-render error message
+
+  const durationSumSec = legsInfo.reduce(
+    (acc, cur) => acc + cur.duration.value,
+    0
+  );
+  const durationObj = intervalToDuration({
+    start: 0,
+    end: durationSumSec * 1000,
+  });
+  // console.log("durationObj", durationObj);
+
   // console.log({ departure, legsInfo });
+
   return (
     <Container>
       <TripName>{trip.tripName}</TripName>
@@ -142,26 +133,20 @@ export const Trip = () => {
         <Wrapper className="Driving">
           <InfoWrapper>
             <StyledP>Total Distance: </StyledP>
-            <StyledP>{totalDistance} km</StyledP>
+            <StyledP>{sumDistance} km</StyledP>
           </InfoWrapper>
           <InfoWrapper>
             <StyledP>Driving duration: </StyledP>
             <DurationWrapper>
-              <StyledP>problem with rendering</StyledP>
-              {/* {
-                totalDuration === 0 ? <StyledP>{totalDuration} minutes</StyledP> :
-                ({totalDuration.days && 
-                  <StyledP>{totalDuration.days} days(s)</StyledP>
-              }
-              {
-                totalDuration.hours && 
-              <StyledP>{totalDuration.hours} hour(s)</StyledP>
-              }
-              {
-                totalDuration.minutes &&
-              <StyledP>{totalDuration.minutes} minute(s)</StyledP>
-              })
-                } */}
+              {durationObj.days !== 0 && (
+                <StyledP>{durationObj.days} days(s)</StyledP>
+              )}
+              {durationObj.hours !== 0 && (
+                <StyledP>{durationObj.hours} hour(s)</StyledP>
+              )}
+              {durationObj.minutes !== 0 && (
+                <StyledP>{durationObj.minutes} minutes</StyledP>
+              )}
             </DurationWrapper>
           </InfoWrapper>
         </Wrapper>

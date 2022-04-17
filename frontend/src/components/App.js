@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import { HomePage } from "./HomePage";
 import { MainMap } from "./map/MainMap";
 import { ParksList } from "./parks/ParksList";
 import { ErrorPage } from "./Error";
@@ -13,6 +12,7 @@ import { GMAPProvider } from "./hooks/GMAPContext";
 import GlobalStyles from "./GlobalStyles";
 import { PageWrapper } from "./PageWrapper";
 import styled from "styled-components";
+import { HomePage } from "./homePage/HomePage";
 
 export const App = () => {
   return (
