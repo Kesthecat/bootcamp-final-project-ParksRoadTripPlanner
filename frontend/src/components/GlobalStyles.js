@@ -24,7 +24,7 @@ export default createGlobalStyle`
     --color-tertiary: rgba(207, 219, 213); //gainsboro (gray sky blue)
     --color-marker: rgba(234, 115, 23); //princeton orange
     --color-text: rgba(36, 36, 35); //eerie black)
-    --color-text-hover: rgba(95, 140, 127, 1); 
+    --color-text-hover: rgba(84, 105, 133, 1); 
     --font-logo: 'Arvo', serif;
     --font-heading: 'Crete Round', serif;
     /* --font-subheading: 'Poppins', Arial, Helvetica, sans-serif; */

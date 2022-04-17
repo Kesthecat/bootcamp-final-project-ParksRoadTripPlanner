@@ -19,30 +19,32 @@ export const Header = () => {
       <LeftSide>
         <StyledNavLink to={"/mainMap"}>
           <MapIcon />
-          <StyledP>Map</StyledP>
+          <StyledH3>Map</StyledH3>
         </StyledNavLink>
         <StyledNavLink to={"/parks"}>
           <ListIcon />
-          <StyledP>List of Parks</StyledP>
+          <StyledH3>List of Parks</StyledH3>
         </StyledNavLink>
         <StyledNavLink to={"/tripsSuggestions"}>
           <TripIcon />
-          <StyledP>Trip suggestions</StyledP>
+          <StyledH3>Trip suggestions</StyledH3>
         </StyledNavLink>
       </LeftSide>
       {username ? (
         <RightSide>
           <StyledNavLink to={`/user/${userId}`}>
             <Avatar src={avatar} alt="user's avatar" />
-            <StyledP>{username}</StyledP>
+            <StyledH3>{username}</StyledH3>
           </StyledNavLink>
           <StyledNavLink to={"/"} onClick={() => handleSignOut()}>
-            Sign Out
+            <StyledH3>Sign Out</StyledH3>
           </StyledNavLink>
         </RightSide>
       ) : (
         <RightSide>
-          <StyledNavLink to={"/"}>Sign In</StyledNavLink>
+          <StyledNavLink to={"/"}>
+            <StyledH3>Sign In</StyledH3>
+          </StyledNavLink>
         </RightSide>
       )}
     </Container>
@@ -50,26 +52,37 @@ export const Header = () => {
 };
 
 const Container = styled.div`
-  height: 60px;
+  height: 100px;
   background-color: var(--color-main);
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
 `;
 const LeftSide = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 40px;
 `;
 const StyledNavLink = styled(NavLink)`
   display: flex;
 `;
-const MapIcon = styled(FaMapMarkedAlt)``;
-const ListIcon = styled(GiChecklist)``;
-const TripIcon = styled(GiLightBulb)``;
+const MapIcon = styled(FaMapMarkedAlt)`
+  transform: scale(2);
+  margin-right: 10px;
+`;
+const ListIcon = styled(GiChecklist)`
+  transform: scale(2);
+`;
+const TripIcon = styled(GiLightBulb)`
+  transform: scale(2);
+`;
 const RightSide = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 40px;
 `;
-const StyledP = styled.p``;
+const StyledH3 = styled.h3`
+  margin-left: 10px;
+`;
 const Avatar = styled.img`
   height: 40px;
   border-radius: 50%;
