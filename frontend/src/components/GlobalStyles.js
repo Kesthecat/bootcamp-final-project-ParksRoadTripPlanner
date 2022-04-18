@@ -81,11 +81,8 @@ export default createGlobalStyle`
       text-decoration: none;
       cursor: pointer;
       color: var(--color-text);
-
       &:hover {
-          color: var(--color-text-hover);
-          transform: scale(1.1);
-      }
+    color: var(--color-text-hover);}
 
   }
   button {

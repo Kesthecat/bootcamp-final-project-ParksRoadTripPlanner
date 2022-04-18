@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Loading } from "./Loading";
 
 export const PostedReviews = ({ newReview }) => {
   const { id } = useParams();
@@ -71,7 +70,7 @@ export const PostedReviews = ({ newReview }) => {
 const ReviewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   gap: 10px;
   border-top: 2px solid var(--color-secondary);
   margin-top: 15px;

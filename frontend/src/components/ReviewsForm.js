@@ -97,6 +97,7 @@ const FormWrapper = styled.form`
   flex-direction: column;
   gap: 10px;
   margin-left: 5px;
+  margin-top: 15px;
 `;
 const StyledInput = styled.input`
   width: 1000px;

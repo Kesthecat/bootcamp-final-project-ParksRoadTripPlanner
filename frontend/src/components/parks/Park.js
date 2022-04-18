@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { GiHeartPlus } from "react-icons/gi";
+import { GiCampingTent } from "react-icons/gi";
+import { FaSwimmer, FaHiking, FaDog } from "react-icons/fa";
 
 import { Loading } from "../Loading";
 import { ReviewForm } from "../ReviewsForm";
@@ -60,15 +62,26 @@ export const Park = () => {
           </InnerContainer>
           <InnerContainer>
             <StyledP>
+              <GiCampingTent
+                style={{ marginRight: "10px", transform: "scale(1.5)" }}
+              />
               Camping: <span>{park.camping.toUpperCase()}</span>
             </StyledP>
             <StyledP>
+              {" "}
+              <FaSwimmer
+                style={{ marginRight: "10px", transform: "scale(1.5)" }}
+              />
               Swimming: <span>{park.swimming.toUpperCase()}</span>
             </StyledP>
             <StyledP>
+              <FaHiking
+                style={{ marginRight: "10px", transform: "scale(1.5)" }}
+              />
               Hiking: <span>{park.hiking.toUpperCase()}</span>
             </StyledP>
             <StyledP>
+              <FaDog style={{ marginRight: "10px", transform: "scale(1.5)" }} />
               Pet Friendly: <span>{park.dog.toUpperCase()}</span>
             </StyledP>
           </InnerContainer>
@@ -105,10 +118,10 @@ const Styledh1 = styled.h1`
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
+  border: 2px dotted var(--color-secondary);
   /* border: 2px solid red; */
 `;
 const Intro = styled.p`
-  border: 2px dotted var(--color-secondary);
   margin: 25px;
   padding: 15px;
   height: fit-content;
@@ -120,17 +133,18 @@ const MiddleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px 25px;
+  /* border: 2px solid green; */
 `;
 const InnerContainer = styled.div`
-  border: 2px dotted var(--color-secondary);
+  /* border: 2px dotted var(--color-secondary); */
   width: fit-content;
   height: fit-content;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   &.contacts {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
   }
 `;
 const BtnContainer = styled.div`
@@ -141,6 +155,7 @@ const BtnContainer = styled.div`
   justify-content: center;
   gap: 10px;
   font-size: 20px;
+  padding: 15px;
 `;
 const StyledBtn = styled.button`
   height: 50px;
@@ -152,5 +167,5 @@ const ReviewsContainer = styled.div`
   flex-direction: column;
   gap: 10px;
   /* border: 2px solid brown; */
-  margin: 25px;
+  margin: 35px 25px;
 `;

@@ -74,6 +74,11 @@ const LeftSide = styled.div`
 `;
 const StyledNavLink = styled(NavLink)`
   display: flex;
+  transition: 200ms;
+  &:hover {
+    color: var(--color-text-hover);
+    transform: scale(1.1);
+  }
 
   &.avatar {
     align-items: center;
