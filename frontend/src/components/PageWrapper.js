@@ -9,5 +9,5 @@ const Wrapper = styled.div`
   max-width: 1280px;
   min-height: 100vh;
   margin: 0 20px;
-  /* border: 3px solid red; */
+  border: 3px solid red;
 `;
