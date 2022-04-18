@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import { UserContext } from "../hooks/userContext";
 import { BottomPictures } from "./BottomPictures";
@@ -99,6 +99,16 @@ export const HomePage = () => {
   );
 };
 
+///animations
+const fadeIn = keyframes`
+from {
+  opacity: 0;
+}
+to{
+  opacity: 1;
+}
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -114,6 +124,8 @@ const SignInForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  opacity: 0;
+  animation: ${fadeIn} 1.5s ease-in forwards;
 `;
 const InputWrapper = styled.div`
   display: flex;

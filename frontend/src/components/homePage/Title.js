@@ -27,14 +27,15 @@ const Container = styled.div`
 const StyledP = styled.p`
   font-family: var(--font-logo);
   font-size: 100px;
-  /* &.canada {   
-    animation : ${fadeIn}, 300ms; 
+  opacity: 0;
+  &.canada {   
+    animation : ${fadeIn} 1s ease-in forwards; 
   }
   }
-  &.roadtip{
-    animation: ${fadeIn}, 600ms;
+  &.roadtrip{
+    animation: ${fadeIn} 1s 300ms ease-in forwards;
   }
   &.planner{
-    animation: ${fadeIn}, 900ms;
-  } */
+    animation: ${fadeIn} 1s 600ms ease-in forwards;
+  }
 `;

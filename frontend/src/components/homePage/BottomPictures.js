@@ -1,7 +1,7 @@
 import lake from "../../assets/lakeLouise.jpeg";
 import rocherPerce from "../../assets/rocher-perce-gaspesie-.jpg";
 import beach from "../../assets/sandbanks.jpg";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const BottomPictures = () => {
   return (
@@ -12,6 +12,21 @@ export const BottomPictures = () => {
     </Container>
   );
 };
+
+///animation
+const PopUp1 = keyframes`
+from {bottom: -256px; opacity: 0;}
+to{bottom: 0px; opacity: 1;}
+`;
+const PopUp2 = keyframes`
+from {bottom: -220px; opacity: 0;}
+to{bottom: 0px; opacity: 1;}
+`;
+const PopUp3 = keyframes`
+from {bottom: -175px; opacity: 0;}
+to{bottom: 0px; opacity: 1;}
+`;
+
 const Container = styled.div`
   z-index: -5;
   display: inline-block;
@@ -22,17 +37,20 @@ const Container = styled.div`
 const StyledImg = styled.img`
   /* display: inline-block; */
   position: relative;
-  /* opacity: 0.6; */
+  /* opacity: 1; */
 
   &.lake {
     width: 461px;
+    animation: ${PopUp1} 300ms ease-in;
   }
   &.rock {
     width: 390px;
     z-index: 10;
+    animation: ${PopUp2} 600ms ease-in;
   }
   &.beach {
     width: 290px;
     /* right: 175px; */
+    animation: ${PopUp3} 1s;
   }
 `;

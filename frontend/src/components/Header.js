@@ -67,6 +67,7 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 50px;
+  z-index: 100;
 `;
 const LeftSide = styled.div`
   display: flex;
