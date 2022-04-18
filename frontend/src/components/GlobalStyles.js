@@ -84,6 +84,7 @@ export default createGlobalStyle`
 
       &:hover {
           color: var(--color-text-hover);
+          transform: scale(1.1);
       }
 
   }
@@ -94,6 +95,7 @@ export default createGlobalStyle`
       cursor: pointer;
       border-radius: 5px;
       transition: 0.1s ease-in-out;
+      font-family:var(--font-body);
     
       &:hover {
         transform: scale(1.05);

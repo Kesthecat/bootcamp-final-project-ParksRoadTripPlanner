@@ -36,44 +36,52 @@ export const Park = () => {
       });
   }, []);
 
+  const handleFavorite = () => {
+    window.alert("Feature coming soon!");
+  };
+
   // console.log(park);
 
   if (parkLoad === "idle") return <Loading />;
 
   return (
     <>
-      <h1>{park.name}</h1>
+      <Styledh1>{park.name}</Styledh1>
       <InfoContainer>
         <Intro>{park.introduction}</Intro>
         <MiddleContainer>
-          <InnerContainer>
+          <InnerContainer className="contacts">
+            <StyledP>Address: </StyledP>
+            {/* <p>{park.address}</p> */}
+            <StyledP>Official website: </StyledP>
             <a href={park.website} target="_blank">
               {park.website}
             </a>
           </InnerContainer>
           <InnerContainer>
-            <p>
+            <StyledP>
               Camping: <span>{park.camping.toUpperCase()}</span>
-            </p>
-            <p>
+            </StyledP>
+            <StyledP>
               Swimming: <span>{park.swimming.toUpperCase()}</span>
-            </p>
-            <p>
+            </StyledP>
+            <StyledP>
               Hiking: <span>{park.hiking.toUpperCase()}</span>
-            </p>
-            <p>
+            </StyledP>
+            <StyledP>
               Pet Friendly: <span>{park.dog.toUpperCase()}</span>
-            </p>
+            </StyledP>
           </InnerContainer>
-          <BtnContainer disabled={true}>
+          <BtnContainer onClick={() => handleFavorite()}>
             Add to favorite
             <StyledBtn>
-              <GiHeartPlus />
+              <GiHeartPlus style={{ transform: "scale(2)" }} />
             </StyledBtn>
           </BtnContainer>
         </MiddleContainer>
       </InfoContainer>
       <ReviewsContainer>
+        <h3 style={{ borderBottom: "1px solid var(--color-main)" }}>Reviews</h3>
         <ReviewForm
           parkId={id}
           setNewReview={setNewReview}
@@ -89,38 +97,60 @@ export const Park = () => {
   );
 };
 
+const Styledh1 = styled.h1`
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-main);
+  padding-bottom: 10px;
+`;
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 `;
 const Intro = styled.p`
-  border: 2px dotted orange;
-  margin: 25px 0;
-  /* need to set
-  width
-  height */
+  border: 2px dotted var(--color-secondary);
+  margin: 25px;
+  padding: 15px;
+  height: fit-content;
+`;
+const StyledP = styled.p`
+  margin: 5px 0;
 `;
 const MiddleContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 25px 0;
+  margin: 10px 25px;
 `;
 const InnerContainer = styled.div`
-  border: 2px solid blue;
-  /* need to set
-  width
-  height */
+  border: 2px dotted var(--color-secondary);
+  width: fit-content;
+  height: fit-content;
+  padding: 15px;
+
+  &.contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;
 const BtnContainer = styled.div`
-  border: 2px solid skyblue;
-  /* need to set
-  width
-  height */
+  /* border: 2px solid skyblue; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
 `;
-const StyledBtn = styled.button``;
+const StyledBtn = styled.button`
+  height: 50px;
+  width: 65px;
+  padding-top: 6px;
+`;
 const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid brown;
+  gap: 10px;
+  /* border: 2px solid brown; */
+  margin: 25px;
 `;

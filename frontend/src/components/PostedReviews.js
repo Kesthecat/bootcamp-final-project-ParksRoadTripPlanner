@@ -41,24 +41,26 @@ export const PostedReviews = ({ newReview }) => {
       {newReview && (
         <SingleReviewWrapper>
           <PostInfo>
-            <p>{newReview.user}</p>
-            <p>{newReview.time}</p>
+            <p style={{ fontWeight: "bolder" }}>{newReview.user}</p>
+            <p style={{ fontSizeSize: "15px" }}>{newReview.time}</p>
           </PostInfo>
           <p>{newReview.review}</p>
         </SingleReviewWrapper>
       )}
-      {reviewsStatus === "idle" && <div>No reviews yet.</div>}
-      {postedReviews === "none" && <div>No reviews yet.</div>}
-      {reviewsStatus === "error" && <div>Cannot load reviews.</div>}
+      {reviewsStatus === "idle" && <p>No reviews yet.</p>}
+      {postedReviews === "none" && <p>No reviews yet.</p>}
+      {reviewsStatus === "error" && <p>Cannot load reviews.</p>}
       {postedReviews !== "none" &&
         postedReviews.map((review) => {
           return (
             <SingleReviewWrapper key={review._id}>
               <PostInfo>
-                <p>{review.user}</p>
-                <p>{review.time}</p>
+                <p style={{ fontWeight: "bolder" }}>{review.user}</p>
+                <p style={{ fontSizeSize: "15px" }}>{review.time}</p>
               </PostInfo>
-              <p>{review.review}</p>
+              <div style={{ overflowWrap: "break-word" }}>
+                <p style={{ fontWeight: "100" }}>{review.review}</p>
+              </div>
             </SingleReviewWrapper>
           );
         })}
@@ -69,11 +71,23 @@ export const PostedReviews = ({ newReview }) => {
 const ReviewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px dotted blueviolet;
+  align-items: center;
+  gap: 10px;
+  border-top: 2px solid var(--color-secondary);
+  margin-top: 15px;
+  margin-left: 5px;
 `;
 const SingleReviewWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  border: 2px solid blueviolet;
+  justify-content: center;
+  gap: 15px;
+  border-top: 2px solid var(--color-tertiary);
+  margin-top: 10px;
+  width: 1000px;
 `;
-const PostInfo = styled.div``;
+const PostInfo = styled.div`
+  display: flex;
+  gap: 30px;
+  margin-top: 10px;
+`;
