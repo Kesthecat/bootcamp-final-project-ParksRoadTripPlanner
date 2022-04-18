@@ -6,16 +6,6 @@ import styled, { keyframes } from "styled-components";
 import { Loading } from "../Loading";
 import avatar from "../../assets/000019.jpg";
 
-///animation
-const rotate = keyframes`
-from {
-  transform: rotateY(0);
-}
-to{
-  transform: rotateY(360);
-}
-`;
-
 ////component////////////////////////
 export const User = () => {
   const { id } = useParams();
@@ -77,8 +67,14 @@ export const User = () => {
 
   return (
     <Container>
-      <Container className="avatar" onClick={() => setClicked(true)}>
-        <Avatar src={avatar} alt="user's avatar" />
+      <Container className="avatar">
+        <Avatar
+          src={avatar}
+          alt="user's avatar"
+          className={clicked ? "spin" : "noSpin"}
+          onClick={() => setClicked(true)}
+          onAnimationEnd={() => setClicked(false)}
+        />
       </Container>
       <InfoContainer>
         <Container className="leftRight">
@@ -118,6 +114,16 @@ export const User = () => {
   );
 };
 
+///animation
+const rotate = keyframes`
+from {
+  transform: rotateY(0deg);
+}
+to{
+  transform: rotateY(360deg);
+}
+`;
+
 const Container = styled.div`
   /* border: 2px solid red; */
   display: flex;
@@ -139,7 +145,9 @@ const Avatar = styled.img`
   border: 20px solid var(--color-secondary);
   margin-bottom: -100px;
   z-index: 10;
-  animation: ${rotate} 2000ms linear infinite;
+  &.spin {
+    animation: ${rotate} 1s;
+  }
 `;
 const InfoContainer = styled.div`
   /* border: 2px dotted dodgerblue; */

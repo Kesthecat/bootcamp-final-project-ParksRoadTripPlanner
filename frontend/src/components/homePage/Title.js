@@ -28,14 +28,13 @@ const StyledP = styled.p`
   font-family: var(--font-logo);
   font-size: 100px;
   opacity: 0;
-  &.canada {   
-    animation : ${fadeIn} 1s ease-in forwards; 
+  &.canada {
+    animation: ${fadeIn} 1s ease-in forwards;
   }
-  }
-  &.roadtrip{
+  &.roadtrip {
     animation: ${fadeIn} 1s 300ms ease-in forwards;
   }
-  &.planner{
+  &.planner {
     animation: ${fadeIn} 1s 600ms ease-in forwards;
   }
 `;
