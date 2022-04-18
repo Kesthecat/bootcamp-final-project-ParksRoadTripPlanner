@@ -5,7 +5,6 @@ import { intervalToDuration } from "date-fns";
 
 import { GMAPContext } from "../hooks/GMAPContext";
 import { FlagContext } from "../hooks/Flags";
-import { RouteMetrics } from "./RouteMetrics";
 
 export const Waypoints = () => {
   // console.log(waypoints);
@@ -41,9 +40,6 @@ export const Waypoints = () => {
               </WaypointWrapper>
             );
           })}
-          <MetricsContainer>
-            <RouteMetrics />
-          </MetricsContainer>
         </>
       ) : (
         <StyledP>No stops added.</StyledP>
@@ -54,18 +50,12 @@ export const Waypoints = () => {
 
 const WayPointsContainer = styled.div`
   border: 2px solid var(--color-secondary);
-  margin-top: 15px;
   padding: 15px;
 `;
 const WaypointWrapper = styled.div`
   margin: 15px;
   display: flex;
   justify-content: space-between;
-`;
-const MetricsContainer = styled.div`
-  margin-top: 25px;
-  padding-top: 10px;
-  border-top: 2px solid var(--color-tertiary);
 `;
 const StyledH3 = styled.h3`
   margin-bottom: 10px;

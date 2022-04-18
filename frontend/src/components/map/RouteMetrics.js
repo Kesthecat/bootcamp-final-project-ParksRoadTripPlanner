@@ -23,23 +23,30 @@ export const RouteMetrics = () => {
   //   console.log("distance", distance);
   //   console.log("duration", duration);
 
-  return (
-    routeInfo.length > 0 && (
-      <Container>
-        <p>
-          <StyledSpan>Total Distance: </StyledSpan>
-          {distance} km
-        </p>
-        <p>
-          <StyledSpan>Driving duration: </StyledSpan>
-        </p>
-        <Duration>
-          {duration.days !== 0 && <p>{duration.days} days(s)</p>}
-          {duration.hours !== 0 && <p>{duration.hours} hour(s)</p>}
-          {duration.minutes !== 0 && <p>{duration.minutes} minutes</p>}
-        </Duration>
-      </Container>
-    )
+  return routeInfo.length > 0 ? (
+    <Container>
+      <p>
+        <StyledSpan>Total Distance: </StyledSpan>
+        {distance} km
+      </p>
+      <p>
+        <StyledSpan>Driving duration: </StyledSpan>
+      </p>
+      <Duration>
+        {duration.days !== 0 && <p>{duration.days} days(s)</p>}
+        {duration.hours !== 0 && <p>{duration.hours} hour(s)</p>}
+        {duration.minutes !== 0 && <p>{duration.minutes} minutes</p>}
+      </Duration>
+    </Container>
+  ) : (
+    <Container>
+      <p>
+        <StyledSpan>Total Distance: </StyledSpan>0 km
+      </p>
+      <p>
+        <StyledSpan>Driving duration: </StyledSpan> 0 minute
+      </p>
+    </Container>
   );
 };
 
@@ -49,6 +56,7 @@ const Container = styled.div`
   gap: 5px;
   padding-left: 10px;
   height: 75px;
+  margin-top: 25px;
 `;
 const StyledSpan = styled.span`
   font-weight: bold;

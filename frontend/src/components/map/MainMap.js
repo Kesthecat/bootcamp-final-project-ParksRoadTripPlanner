@@ -14,6 +14,7 @@ import { UserContext } from "../hooks/userContext";
 import { CreateTrip } from "./CreateTrip";
 import { FlagContext } from "../hooks/Flags";
 import { NavLink } from "react-router-dom";
+import { RouteMetrics } from "./RouteMetrics";
 
 ///////////////////////////////////////////////////////////////
 
@@ -48,7 +49,12 @@ export const MainMap = () => {
         <SearchContainer>
           <StyledH2>Enter you point of departure and destination: </StyledH2>
           <DepartureDestination hasClear={hasClear} setHasClear={setHasClear} />
+          <BreakLine />
           <Waypoints />
+          <BreakLine />
+          <h4>Route information</h4>
+          <RouteMetrics />
+          <BreakLine />
           <CreateTrip setHasClear={setHasClear} />
         </SearchContainer>
       ) : (
@@ -127,6 +133,9 @@ const SearchContainer = styled.div`
   &.notSigned {
     padding-top: 150px;
   }
+`;
+const BreakLine = styled.div`
+  border: 2px solid var(--color-tertiary);
 `;
 const StyledNavLink = styled(NavLink)`
   font-family: var(--font-heading);

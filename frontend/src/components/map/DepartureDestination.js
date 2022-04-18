@@ -11,7 +11,6 @@ export const DepartureDestination = ({ hasClear, setHasClear }) => {
     setRoute,
     setDepartureMarker,
     setDestinationMarker,
-    waypoints,
   } = useContext(GMAPContext);
 
   const handleClick = () => {
@@ -40,7 +39,6 @@ export const DepartureDestination = ({ hasClear, setHasClear }) => {
           setHasClear={setHasClear}
         />
       </PointContainer>
-      {waypoints.length <= 0 && <RouteMetrics />}
       <StyledBtn onClick={() => handleClick()}>Render Route</StyledBtn>
     </>
   );

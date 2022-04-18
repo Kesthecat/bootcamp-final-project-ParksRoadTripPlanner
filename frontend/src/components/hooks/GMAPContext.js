@@ -30,7 +30,10 @@ export const GMAPProvider = ({ children }) => {
     //   maps,
     // });
     if (polyline) polyline.setMap(null);
-    if (!map || !maps || !departure || !destination) return;
+    if (!map || !maps || !departure || !destination) {
+      polyline && polyline.setMap(null);
+      return;
+    }
 
     const directionsService = new maps.DirectionsService();
     const directionsDisplay = new maps.DirectionsRenderer();
