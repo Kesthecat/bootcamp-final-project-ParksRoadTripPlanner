@@ -15,6 +15,7 @@ import { CreateTrip } from "./CreateTrip";
 import { FlagContext } from "../hooks/Flags";
 import { NavLink } from "react-router-dom";
 import { RouteMetrics } from "./RouteMetrics";
+import { DepartDestiMarker } from "./DepartDestiMarker";
 
 ///////////////////////////////////////////////////////////////
 
@@ -68,7 +69,7 @@ export const MainMap = () => {
       <MapContainer>
         <GoogleMapReact
           bootstrapURLKeys={bootstrapURLKeys}
-          defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
+          defaultCenter={{ lat: 52.87927, lng: -91.47617 }}
           defaultZoom={4}
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
@@ -89,15 +90,13 @@ export const MainMap = () => {
             );
           })}
           {!!departure && (
-            <MdLocationPin
-              size={40}
+            <DepartDestiMarker
               lat={departure.coordinates.lat}
               lng={departure.coordinates.lng}
             />
           )}
           {!!destination && (
-            <MdLocationPin
-              size={40}
+            <DepartDestiMarker
               lat={destination.coordinates.lat}
               lng={destination.coordinates.lng}
             />

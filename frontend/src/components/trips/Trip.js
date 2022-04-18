@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { useParams, NavLink, useHistory } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
-import { MdLocationPin } from "react-icons/md";
 import { intervalToDuration } from "date-fns";
 
 import { bootstrapURLKeys } from "../map/GoogleMapKey";
@@ -10,6 +9,7 @@ import { GMAPContext } from "../hooks/GMAPContext";
 import { Loading } from "../Loading";
 import { LocationMarker } from "../map/LocationMarker";
 import { FlagContext } from "../hooks/Flags";
+import { DepartDestiMarker } from "../map/DepartDestiMarker";
 
 export const Trip = () => {
   const { id } = useParams();
@@ -170,15 +170,13 @@ export const Trip = () => {
             onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
           >
             {!!departure && (
-              <MdLocationPin
-                size={40}
+              <DepartDestiMarker
                 lat={departure.coordinates.lat}
                 lng={departure.coordinates.lng}
               />
             )}
             {!!destination && (
-              <MdLocationPin
-                size={40}
+              <DepartDestiMarker
                 lat={destination.coordinates.lat}
                 lng={destination.coordinates.lng}
               />

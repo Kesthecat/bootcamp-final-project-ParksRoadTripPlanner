@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
 import { AiOutlineMinus } from "react-icons/ai";
 import { useContext } from "react";
@@ -67,7 +66,8 @@ const Container = styled.div`
   display: flex;
 `;
 const TreeMarker = styled(GiPineTree)`
-  color: rgb(255, 64, 0);
+  /* color: rgb(255, 64, 0); */
+  color: var(--color-marker);
   transform: scale(3);
   z-index: -5;
 `;
