@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import styled from "styled-components";
 import { GMAPContext } from "../hooks/GMAPContext";
+import { RouteMetrics } from "./RouteMetrics";
 import { SearchBox } from "./SearchBox";
 
 export const DepartureDestination = ({ hasClear, setHasClear }) => {
@@ -10,6 +11,7 @@ export const DepartureDestination = ({ hasClear, setHasClear }) => {
     setRoute,
     setDepartureMarker,
     setDestinationMarker,
+    waypoints,
   } = useContext(GMAPContext);
 
   const handleClick = () => {
@@ -18,10 +20,12 @@ export const DepartureDestination = ({ hasClear, setHasClear }) => {
     setDestinationMarker();
   };
 
+  // console.log("waypoints", waypoints);
+
   return (
     <>
       <PointContainer>
-        <p>Departure: </p>
+        <StyledP>Departure: </StyledP>
         <SearchBox
           settingPoint={setDeparture}
           hasClear={hasClear}
@@ -29,19 +33,30 @@ export const DepartureDestination = ({ hasClear, setHasClear }) => {
         />
       </PointContainer>
       <PointContainer>
-        <p>Destination: </p>
+        <StyledP>Destination: </StyledP>
         <SearchBox
           settingPoint={setDestination}
           hasClear={hasClear}
           setHasClear={setHasClear}
         />
       </PointContainer>
+      {waypoints.length <= 0 && <RouteMetrics />}
       <StyledBtn onClick={() => handleClick()}>Render Route</StyledBtn>
     </>
   );
 };
 const PointContainer = styled.div`
   display: flex;
-  border: 2px dotted purple;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 2px dotted purple; */
 `;
-const StyledBtn = styled.button``;
+const StyledP = styled.p`
+  margin-right: 10px;
+`;
+const StyledBtn = styled.button`
+  width: 155px;
+  height: 30px;
+  font-size: 22px;
+  /* margin-top: 10px; */
+`;

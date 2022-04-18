@@ -4,7 +4,6 @@ import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
 import { MdLocationPin } from "react-icons/md";
 import { intervalToDuration } from "date-fns";
-import moment from "moment";
 
 import { bootstrapURLKeys } from "../map/GoogleMapKey";
 import { GMAPContext } from "../hooks/GMAPContext";
@@ -98,18 +97,14 @@ export const Trip = () => {
         <InfoContainer>
           <Wrapper className="trip">
             <InfoWrapper className="departDesti">
-              <StyledP>
+              <p>
                 <StyledSpan>Departure: </StyledSpan>
                 {trip.departure.name}
-              </StyledP>
+              </p>
             </InfoWrapper>
             <InfoWrapper className="stopInfo">
-              <DistanceDuration>
-                Driving Distance: {legsInfo[0].distance.text}
-              </DistanceDuration>
-              <DistanceDuration>
-                Driving Time: {legsInfo[0].duration.text}
-              </DistanceDuration>
+              <p>Driving Distance: {legsInfo[0].distance.text}</p>
+              <p>Driving Time: {legsInfo[0].duration.text}</p>
             </InfoWrapper>
             <Wrapper className="waypoints">
               {hasStops &&
@@ -123,47 +118,39 @@ export const Trip = () => {
                         }}
                       >
                         <StyledSpan>Stop {i + 1}: </StyledSpan>
-                        <ParkLink to={`/parks/${waypoint._id}`}>
+                        <NavLink to={`/parks/${waypoint._id}`}>
                           {waypoint.name}
-                        </ParkLink>
+                        </NavLink>
                       </InfoWrapper>
                       <InfoWrapper className="stopInfo">
-                        <DistanceDuration>
-                          Driving Distance: {legsInfo[i + 1].distance.text}
-                        </DistanceDuration>
-                        <DistanceDuration>
-                          Driving Time: {legsInfo[i + 1].duration.text}
-                        </DistanceDuration>
+                        <p>Driving Distance: {legsInfo[i + 1].distance.text}</p>
+                        <p>Driving Time: {legsInfo[i + 1].duration.text}</p>
                       </InfoWrapper>
                     </Wrapper>
                   );
                 })}
             </Wrapper>
             <InfoWrapper className="departDesti">
-              <StyledP>
+              <p>
                 <StyledSpan>Destination: </StyledSpan>
                 {trip.destination.name}
-              </StyledP>
+              </p>
             </InfoWrapper>
           </Wrapper>
           <Wrapper className="driving">
-            <StyledP>
+            <p>
               <StyledSpan>Total Distance: </StyledSpan>
               {sumDistance} km
-            </StyledP>
+            </p>
             <InfoWrapper className="drivingTime">
-              <StyledP>
+              <p>
                 <StyledSpan>Driving duration: </StyledSpan>
-              </StyledP>
+              </p>
               <DurationWrapper>
-                {durationObj.days !== 0 && (
-                  <StyledP>{durationObj.days} days(s)</StyledP>
-                )}
-                {durationObj.hours !== 0 && (
-                  <StyledP>{durationObj.hours} hour(s)</StyledP>
-                )}
+                {durationObj.days !== 0 && <p>{durationObj.days} days(s)</p>}
+                {durationObj.hours !== 0 && <p>{durationObj.hours} hour(s)</p>}
                 {durationObj.minutes !== 0 && (
-                  <StyledP>{durationObj.minutes} minutes</StyledP>
+                  <p>{durationObj.minutes} minutes</p>
                 )}
               </DurationWrapper>
             </InfoWrapper>
@@ -175,38 +162,38 @@ export const Trip = () => {
           </Wrapper>
         </InfoContainer>
         <MapContainer>
-          {/* <GoogleMapReact
-          bootstrapURLKeys={bootstrapURLKeys}
-          defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
-          defaultZoom={4}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-        >
-          {!!departure && (
-            <MdLocationPin
-            size={40}
-            lat={departure.coordinates.lat}
-            lng={departure.coordinates.lng}
-            />
+          <GoogleMapReact
+            bootstrapURLKeys={bootstrapURLKeys}
+            defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
+            defaultZoom={4}
+            yesIWantToUseGoogleMapApiInternals
+            onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+          >
+            {!!departure && (
+              <MdLocationPin
+                size={40}
+                lat={departure.coordinates.lat}
+                lng={departure.coordinates.lng}
+              />
             )}
             {!!destination && (
               <MdLocationPin
-              size={40}
-              lat={destination.coordinates.lat}
-              lng={destination.coordinates.lng}
+                size={40}
+                lat={destination.coordinates.lat}
+                lng={destination.coordinates.lng}
               />
-              )}
-              {waypoints.map((waypoint, i) => {
-                return (
-              <LocationMarker
-              key={i}
-              lat={waypoint.coordinates.lat}
-                lng={waypoint.coordinates.lng}
-                park={waypoint}
+            )}
+            {waypoints.map((waypoint, i) => {
+              return (
+                <LocationMarker
+                  key={i}
+                  lat={waypoint.coordinates.lat}
+                  lng={waypoint.coordinates.lng}
+                  park={waypoint}
                 />
-            );
-          })}
-        </GoogleMapReact> */}
+              );
+            })}
+          </GoogleMapReact>
         </MapContainer>
       </Container>
     </>
@@ -271,9 +258,6 @@ const InfoWrapper = styled.div`
     padding: 0;
   }
 `;
-const DistanceDuration = styled.p``;
-const StyledP = styled.p``;
-const ParkLink = styled(NavLink)``;
 const StyledBtn = styled.button`
   height: 45px;
   font-size: 20px;

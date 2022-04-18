@@ -43,7 +43,7 @@ export const GMAPProvider = ({ children }) => {
         // optimizeWaypoints: true,
       },
       (response, status) => {
-        console.log({ response, status, response });
+        // console.log({ response, status, response });
         if (status === "OK") {
           setRouteInfo(response.routes[0].legs);
           directionsDisplay.setDirections(response);

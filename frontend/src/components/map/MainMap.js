@@ -7,13 +7,13 @@ import { MdLocationPin } from "react-icons/md";
 import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
 import { Loading } from "../Loading";
-import { PageWrapper } from "../PageWrapper";
 import { DepartureDestination } from "./DepartureDestination";
 import { Waypoints } from "./Waypoints";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { UserContext } from "../hooks/userContext";
 import { CreateTrip } from "./CreateTrip";
 import { FlagContext } from "../hooks/Flags";
+import { NavLink } from "react-router-dom";
 
 ///////////////////////////////////////////////////////////////
 
@@ -23,6 +23,7 @@ export const MainMap = () => {
     useContext(GMAPContext);
   const { username } = useContext(UserContext);
   const { setNotTripPage } = useContext(FlagContext);
+
   const [activeModalId, setActiveModalId] = useState(null);
   const [pinnedModalId, setPinnedModalId] = useState(null);
   const [hasClear, setHasClear] = useState(false);
@@ -42,17 +43,20 @@ export const MainMap = () => {
   //////////////////////////////////////
   // console.log({ activeModalId });
   return (
-    <PageWrapper>
+    <Container>
       {username ? (
         <SearchContainer>
-          <p>Enter you point of departure and destination: </p>
+          <StyledH2>Enter you point of departure and destination: </StyledH2>
           <DepartureDestination hasClear={hasClear} setHasClear={setHasClear} />
           <Waypoints />
           <CreateTrip setHasClear={setHasClear} />
         </SearchContainer>
       ) : (
-        <SearchContainer>
-          <p>Sign In or Sign Up to use the trip planning feature.</p>
+        <SearchContainer className="notSigned">
+          <StyledH2 className="notSigned">
+            <StyledNavLink to={"/"}>Sign In</StyledNavLink> to use the trip
+            planning features.
+          </StyledH2>
         </SearchContainer>
       )}
       <MapContainer>
@@ -94,18 +98,47 @@ export const MainMap = () => {
           )}
         </GoogleMapReact>
       </MapContainer>
-    </PageWrapper>
+    </Container>
   );
 };
 
-const SearchContainer = styled.div`
-  height: 900px;
-  width: 400px;
-  border: 2px solid yellowgreen;
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
+const StyledH2 = styled.h2`
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-main);
+  padding-bottom: 10px;
+  text-align: center;
 
+  &.notSigned {
+    background-color: var(--color-main);
+    padding: 15px 0;
+  }
+`;
+const SearchContainer = styled.div`
+  /* height: 900px; */
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* border: 2px solid yellowgreen; */
+  &.notSigned {
+    padding-top: 150px;
+  }
+`;
+const StyledNavLink = styled(NavLink)`
+  font-family: var(--font-heading);
+  font-size: 35px;
+  color: var(--color-text-hover);
+  transition: 200ms;
+  &.hover {
+    transform: scale(1.1);
+  }
+`;
 const MapContainer = styled.div`
   height: 900px;
-  width: 1300px;
-  /* border: 3px solid red; */
+  width: 855px;
+  /* border: 3px solid brown; */
 `;

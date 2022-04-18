@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { AiOutlineMinus } from "react-icons/ai";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import { intervalToDuration } from "date-fns";
+
 import { GMAPContext } from "../hooks/GMAPContext";
 import { FlagContext } from "../hooks/Flags";
+import { RouteMetrics } from "./RouteMetrics";
 
 export const Waypoints = () => {
   // console.log(waypoints);
 
-  const { waypoints, setWaypoints, routeInfo } = useContext(GMAPContext);
+  const { waypoints, setWaypoints } = useContext(GMAPContext);
   const { setAddedWaypoint } = useContext(FlagContext);
 
   const handleRemove = (id) => {
@@ -19,39 +22,59 @@ export const Waypoints = () => {
 
   return (
     <WayPointsContainer>
-      <StyledP>Your Stops:</StyledP>
-      <StyledP>List of waypoints added from pins on map.</StyledP>
+      <StyledH3>Add/Remove stops by using the pins on the map.</StyledH3>
       {waypoints.length !== 0 ? (
         <>
           {waypoints.map((stop, i) => {
             // console.log("routeInfo", routeInfo);
             return (
               <WaypointWrapper key={stop.name + i}>
-                <StyledP>
-                  Waypoint {i + 1}: {stop.name}
-                </StyledP>
+                <div>
+                  <StyledP style={{ fontWeight: "bold", marginBottom: "5px" }}>
+                    Waypoint {i + 1}:
+                  </StyledP>
+                  <StyledP>{stop.name}</StyledP>
+                </div>
                 <StyledBtn onClick={() => handleRemove(stop._id)}>
                   <RemoveIcon />
                 </StyledBtn>
               </WaypointWrapper>
             );
           })}
-          <StyledP>Total Distance: </StyledP>
-          <StyledP>Total Travel Time: </StyledP>
+          <MetricsContainer>
+            <RouteMetrics />
+          </MetricsContainer>
         </>
       ) : (
-        <StyledP>No waypoints added.</StyledP>
+        <StyledP>No stops added.</StyledP>
       )}
     </WayPointsContainer>
   );
 };
 
 const WayPointsContainer = styled.div`
-  border: 2px solid orange;
+  border: 2px solid var(--color-secondary);
+  margin-top: 15px;
+  padding: 15px;
 `;
 const WaypointWrapper = styled.div`
+  margin: 15px;
   display: flex;
+  justify-content: space-between;
+`;
+const MetricsContainer = styled.div`
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 2px solid var(--color-tertiary);
+`;
+const StyledH3 = styled.h3`
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--color-main);
 `;
 const StyledP = styled.p``;
-const StyledBtn = styled.button``;
+const StyledBtn = styled.button`
+  height: 20px;
+  padding-top: 4px;
+`;
 const RemoveIcon = styled(AiOutlineMinus)``;

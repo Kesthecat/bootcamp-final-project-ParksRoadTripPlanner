@@ -7,12 +7,12 @@ import { ParksListProvider } from "./components/hooks/ParksContext";
 import { UserProvider } from "./components/hooks/userContext";
 
 ReactDOM.render(
-  <UserProvider>
-    <FlagsProvider>
-      <ParksListProvider>
+  <ParksListProvider>
+    <UserProvider>
+      <FlagsProvider>
         <App />
-      </ParksListProvider>
-    </FlagsProvider>
-  </UserProvider>,
+      </FlagsProvider>
+    </UserProvider>
+  </ParksListProvider>,
   document.getElementById("root")
 );

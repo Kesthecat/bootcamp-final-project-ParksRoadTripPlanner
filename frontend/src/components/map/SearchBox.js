@@ -51,4 +51,10 @@ export const SearchBox = ({ settingPoint, hasClear, setHasClear }) => {
   );
 };
 
-const StyledInput = styled.input``;
+const StyledInput = styled.input`
+  height: 30px;
+  width: 250px;
+  font-size: 20px;
+  padding-left: 5px;
+  border-radius: 5px;
+`;

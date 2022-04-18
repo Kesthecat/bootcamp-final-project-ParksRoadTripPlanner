@@ -98,7 +98,7 @@ export const CreateTrip = ({ setHasClear }) => {
   return (
     <>
       <FormWrapper onSubmit={(e) => handleSave(e)}>
-        <StyledP>Save your trip</StyledP>
+        <Styledh3>Save your trip</Styledh3>
         <StyledP>Trip Name: </StyledP>
         <StyledInput
           type="text"
@@ -107,25 +107,42 @@ export const CreateTrip = ({ setHasClear }) => {
           value={tripName}
           onChange={(e) => setTripName(e.target.value)}
         />
-        <BtnContainer>
-          {/* <StyledBtn
+
+        {/* <StyledBtn
             type="button"
             disabled={isWaiting}
             onClick={(e) => handleClear(e)}
           >
             Clear trip
           </StyledBtn> */}
-          <StyledBtn type="submit" disabled={isWaiting}>
-            Save trip
-          </StyledBtn>
-        </BtnContainer>
+        <StyledBtn type="submit" disabled={isWaiting}>
+          Save trip
+        </StyledBtn>
       </FormWrapper>
       {isWaiting && <p>Loading</p>}
     </>
   );
 };
-const FormWrapper = styled.form``;
-const StyledP = styled.p``;
-const StyledInput = styled.input``;
-const BtnContainer = styled.div``;
-const StyledBtn = styled.button``;
+const FormWrapper = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+const Styledh3 = styled.h3`
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--color-main);
+`;
+const StyledP = styled.p`
+  margin: 10px 0;
+`;
+const StyledInput = styled.input`
+  height: 30px;
+  font-size: 20px;
+  padding-left: 5px;
+  width: 350px;
+`;
+const StyledBtn = styled.button`
+  width: 105px;
+  height: 30px;
+  font-size: 22px;
+  margin-top: 15px;
+`;

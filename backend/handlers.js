@@ -9,11 +9,11 @@ const options = {
   useUnifiedTopology: true,
 };
 
-const client = new MongoClient(MONGO_URI, options);
-const db = client.db("planner");
-
 const client2 = new MongoClient(MONGO_URI, options);
 const db2 = client2.db("planner");
+
+const client = new MongoClient(MONGO_URI, options);
+const db = client.db("planner");
 
 //POST user for login/////////////////////////////////
 const getUserByUsername = async (req, res) => {
@@ -80,9 +80,9 @@ const getUser = async (req, res) => {
 //GET parksList and origin list///////////////////////
 const parksList = async (req, res) => {
   try {
-    await client.connect();
-    const parksResult = await db.collection("parks").find().toArray();
-    const originResult = await db.collection("parksOrigin").findOne({});
+    await client2.connect();
+    const parksResult = await db2.collection("parks").find().toArray();
+    const originResult = await db2.collection("parksOrigin").findOne({});
 
     if (!parksResult) {
       res
@@ -123,8 +123,8 @@ const parkByName = async (req, res) => {
   }
 
   try {
-    await client2.connect();
-    const result = await db2.collection("parks").findOne({ _id: ObjectId(id) });
+    await client.connect();
+    const result = await db.collection("parks").findOne({ _id: ObjectId(id) });
     // console.log("result", result);
     if (!result) {
       res
