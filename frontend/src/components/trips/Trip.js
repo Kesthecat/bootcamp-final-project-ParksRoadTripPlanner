@@ -10,6 +10,7 @@ import { Loading } from "../Loading";
 import { LocationMarker } from "../map/LocationMarker";
 import { FlagContext } from "../hooks/Flags";
 import { DepartDestiMarker } from "../map/DepartDestiMarker";
+import { UserContext } from "../hooks/userContext";
 
 export const Trip = () => {
   const { id } = useParams();
@@ -31,6 +32,8 @@ export const Trip = () => {
     nukeMap,
   } = useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
+  const { userId } = useContext(UserContext);
+  // console.log(userId);
 
   let history = useHistory();
 
@@ -38,6 +41,28 @@ export const Trip = () => {
     // console.log({ map, maps });
     setMaps(maps);
     setMap(map);
+  };
+
+  const handleDelete = (id) => {
+    fetch(`/trip/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // setDelStatus("res");
+        if (data.message !== "success") {
+          history.push("/Error");
+          return;
+        }
+        history.push(`/user/${userId}`);
+      })
+      .catch((error) => {
+        history.push("/Error");
+      });
   };
 
   useEffect(() => {
@@ -76,7 +101,6 @@ export const Trip = () => {
 
   const sumDistance =
     legsInfo.reduce((acc, cur) => acc + cur.distance.value, 0) / 100;
-  // console.log("distance", sumDistance);
 
   const durationSumSec = legsInfo.reduce(
     (acc, cur) => acc + cur.duration.value,
@@ -86,9 +110,6 @@ export const Trip = () => {
     start: 0,
     end: durationSumSec * 1000,
   });
-  // console.log("durationObj", durationObj);
-
-  // console.log({ departure, legsInfo });
 
   return (
     <>
@@ -156,9 +177,9 @@ export const Trip = () => {
             </InfoWrapper>
           </Wrapper>
           <Wrapper className="buttons">
-            <StyledBtn>Edit</StyledBtn>
-            <StyledBtn>Delete</StyledBtn>
-            <StyledBtn>Share</StyledBtn>
+            <StyledBtn disabled={true}>Edit</StyledBtn>
+            <StyledBtn onClick={() => handleDelete(trip._id)}>Delete</StyledBtn>
+            <StyledBtn disabled={true}>Share</StyledBtn>
           </Wrapper>
         </InfoContainer>
         <MapContainer>
@@ -260,6 +281,8 @@ const StyledBtn = styled.button`
   height: 45px;
   font-size: 20px;
   padding: 10px;
+  background-color: ${(props) =>
+    props.disabled ? "var(--color-tertiary)" : "var(--color-main)"};
 `;
 const MapContainer = styled.div`
   height: 600px;

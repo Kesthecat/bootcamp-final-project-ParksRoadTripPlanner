@@ -60,6 +60,9 @@ export const User = () => {
           return;
         }
         setUserTrips(userTrips.filter((trip) => trip._id !== id));
+      })
+      .catch((error) => {
+        history.push("/Error");
       });
   };
 
