@@ -18,7 +18,7 @@ export const PostedReviews = ({ newReview }) => {
           setReviewsStatus("idle");
           history.push("/Error");
         } else if (data.data === null) {
-          setPostedReviews("none");
+          // setPostedReviews("none");
           setReviewsStatus("loaded");
         } else {
           const reviewlist = data.data;
@@ -31,13 +31,18 @@ export const PostedReviews = ({ newReview }) => {
         // console.log("loadReviewError", error.message);
         history.push("/Error");
       });
-  }, []);
+  }, [newReview]);
+
+  // if (newReview) {
+  //   setPostedReviews([...postedReviews, newReview]);
+  //   return;
+  // }
 
   if (reviewsStatus === "loading") return <p>Loading ...</p>;
 
   return (
     <ReviewsWrapper>
-      {newReview && (
+      {/* {newReview && (
         <SingleReviewWrapper>
           <PostInfo>
             <p style={{ fontWeight: "bolder" }}>{newReview.user}</p>
@@ -45,11 +50,11 @@ export const PostedReviews = ({ newReview }) => {
           </PostInfo>
           <p>{newReview.review}</p>
         </SingleReviewWrapper>
-      )}
+      )} */}
       {reviewsStatus === "idle" && <p>No reviews yet.</p>}
-      {postedReviews === "none" && <p>No reviews yet.</p>}
+      {postedReviews.length === 0 && !newReview && <p>No reviews yet.</p>}
       {reviewsStatus === "error" && <p>Cannot load reviews.</p>}
-      {postedReviews !== "none" &&
+      {postedReviews.length > 0 &&
         postedReviews.map((review) => {
           return (
             <SingleReviewWrapper key={review._id}>

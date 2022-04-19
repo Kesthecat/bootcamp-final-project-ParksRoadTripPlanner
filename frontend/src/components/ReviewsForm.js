@@ -18,7 +18,7 @@ export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
     setNumWords(150 - e.target.value.length);
     //why is there a 2 words delay?
     numWords < 0 ? setOverLimit(true) : setOverLimit(false);
-    console.log(overLimit);
+    // console.log(overLimit);
   };
 
   const handleSubmit = (e) => {
