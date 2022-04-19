@@ -18,4 +18,6 @@ const Marker = styled(MdLocationPin)`
   color: rgb(36, 47, 64);
   transform: scale(5);
   z-index: -5;
+  margin-top: -25px;
+  margin-left: -3px;
 `;
