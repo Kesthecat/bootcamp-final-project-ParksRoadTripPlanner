@@ -62,6 +62,7 @@ export const User = () => {
         setUserTrips(userTrips.filter((trip) => trip._id !== id));
       })
       .catch((error) => {
+        console.log(error.message);
         history.push("/Error");
       });
   };
@@ -148,6 +149,10 @@ const Avatar = styled.img`
   border: 20px solid var(--color-secondary);
   margin-bottom: -100px;
   z-index: 10;
+  &:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
   &.spin {
     animation: ${rotate} 1s;
   }

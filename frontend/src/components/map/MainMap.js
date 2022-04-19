@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import GoogleMapReact from "google-map-react";
 import { bootstrapURLKeys } from "./GoogleMapKey";
 import { useContext, useEffect, useState } from "react";
@@ -107,6 +107,12 @@ export const MainMap = () => {
   );
 };
 
+const flashing = keyframes`
+0%{opacity: 1}
+50%{opacity:0.5}
+100%{opacity: 1}
+`;
+
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
@@ -140,10 +146,7 @@ const StyledNavLink = styled(NavLink)`
   font-family: var(--font-heading);
   font-size: 35px;
   color: var(--color-text-hover);
-  transition: 200ms;
-  &.hover {
-    transform: scale(1.1);
-  }
+  animation: ${flashing} 2s ease-in-out infinite;
 `;
 const MapContainer = styled.div`
   height: 900px;
