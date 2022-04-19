@@ -1,11 +1,10 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { useContext } from "react";
 import { UserContext } from "./hooks/userContext";
 import avatar from "../assets/000019.jpg";
-import { useState } from "react";
 
 export const Header = () => {
   const { username, setUsername, userId } = useContext(UserContext);
@@ -53,12 +52,6 @@ export const Header = () => {
     </Container>
   );
 };
-
-//animations
-// const antiClockWiseSpin = keyframes`
-// from {transform: rotate(360)}
-// to{transform: rotate(0)}
-// `;
 
 const Container = styled.div`
   height: 100px;

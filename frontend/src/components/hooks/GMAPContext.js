@@ -57,9 +57,7 @@ export const GMAPProvider = ({ children }) => {
           // console.log({ routePolyline });
           routePolyline.setMap(map);
           setPolyline(routePolyline);
-          if (waypoints.length > 0) {
-            setInitialBound();
-          } else if (departure.name !== destination.name) {
+          if (departure.name !== destination.name) {
             setInitialBound();
           }
         } else {
@@ -75,29 +73,63 @@ export const GMAPProvider = ({ children }) => {
     const destinationLat = destination.coordinates.lat;
     const destinationLng = destination.coordinates.lng;
 
-    //figuring out which pins is which corner reference
+    //figuring out the 4 corners of the bounding box
     const swLat = departureLat > destinationLat ? destinationLat : departureLat;
     const neLat = departureLat > destinationLat ? departureLat : destinationLat;
     const swLng = departureLng > destinationLng ? destinationLng : departureLng;
     const neLng = departureLng > destinationLng ? departureLng : destinationLng;
 
-    // Define the two corners of the bounding box
-    // const sw = new GLatLng(swLat, swLng);
-    // const ne = new GLatLng(neLat, neLng);
-
     // // Create a bounding box
-    // const bounds = new GlatLngBounds(sw, ne);
     const bounds = new maps.LatLngBounds(
       new maps.LatLng(swLat, swLng),
       new maps.LatLng(neLat, neLng)
     );
 
     // Center map in the center of the bounding box
-    // and calculate the appropriate zoom level
     map.fitBounds(bounds);
-
-    // console.log("bounds", map.getBounds());
   };
+
+  // const setWaypointsBound = () => {
+
+  //   //figuring out the 4 corners of the bounding box
+  //   const mostSWLat = waypoints.reduce((acc, cur) => {
+  //     if (acc.coordinates.lat > cur.coordinates.lat) { //says cannot read undefined, reading lat..
+  //       acc = cur;
+  //     }
+  //     return acc.coordinates.lat;
+  //   }, waypoints[0]);
+
+  //   const mostNELat = waypoints.reduce((acc, cur) => {
+  //     if (acc.coordinates.lat < cur.coordinates.lat) {
+  //       acc = cur;
+  //     }
+  //     return acc.coordinates.lat;
+  //   }, waypoints[0]);
+
+  //   const mostSWLng = waypoints.reduce((acc, cur) => {
+  //     if (acc.coordinates.lng > cur.coordinates.lng) {
+  //       acc = cur;
+  //     }
+  //     return acc.coordinates.lng;
+  //   }, waypoints[0]);
+
+  //   const mostNELng = waypoints.reduce((acc, cur) => {
+  //     if (acc.coordinates.lng < cur.coordinates.lng) {
+  //       acc = cur;
+  //     }
+  //     return acc.coordinates.lng;
+  //   }, waypoints[0]);
+
+  //   console.log("swLat", mostSWLat);
+  //   // // Create a bounding box
+  //   const bounds = new maps.LatLngBounds(
+  //     new maps.LatLng(mostSWLat, mostSWLng),
+  //     new maps.LatLng(mostNELat, mostNELng)
+  //   );
+
+  //   // Center map in the center of the bounding box
+  //   map.fitBounds(bounds);
+  // };
 
   const nukeMap = () => {
     // console.log("nuke");
@@ -131,7 +163,6 @@ export const GMAPProvider = ({ children }) => {
         routeInfo,
         setRouteInfo,
         setPolyline,
-        setInitialBound,
       }}
     >
       {children}

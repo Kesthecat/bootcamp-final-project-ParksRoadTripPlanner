@@ -7,7 +7,7 @@ export const PageWrapper = ({ children }) => {
 const Wrapper = styled.div`
   width: 100%;
   max-width: 1280px;
-  min-height: 100vh;
+  min-height: calc(100vh - 160px);
   margin: 0 20px;
   /* border: 3px solid red; */
 `;

@@ -13,6 +13,8 @@ import GlobalStyles from "./GlobalStyles";
 import { PageWrapper } from "./PageWrapper";
 import styled from "styled-components";
 import { HomePage } from "./homePage/HomePage";
+import { Footer } from "./Footer";
+import { About } from "./About";
 
 export const App = () => {
   return (
@@ -36,6 +38,9 @@ export const App = () => {
             <Route exact path="/parks">
               <ParksList />
             </Route>
+            <Route exact path="/About">
+              <About />
+            </Route>
             <Route exact path="/trip/:id">
               <GMAPProvider>
                 <Trip />
@@ -56,6 +61,7 @@ export const App = () => {
           </Switch>
         </PageWrapper>
       </MainContiner>
+      <Footer />
     </BrowserRouter>
   );
 };
@@ -64,4 +70,5 @@ const MainContiner = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 20px;
+  /* min-height: calc(100vh - 160px); */
 `;

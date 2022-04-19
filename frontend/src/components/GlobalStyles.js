@@ -106,7 +106,7 @@ h3, h4, h5 {
     font-family: var(--font-heading);
 }
 
-p, span, a {
+p, span, a , li{
     font-family: var(--font-body);
 }
 
@@ -128,7 +128,7 @@ h4 {
     font-size: 22px;
 }
 
-p, a {
+p, a, li{
     font-size: 20px;
 }
 
