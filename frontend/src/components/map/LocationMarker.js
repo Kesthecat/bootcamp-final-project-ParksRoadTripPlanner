@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { GiPineTree, GiHeartPlus, GiHealthNormal } from "react-icons/gi";
 import { AiOutlineMinus } from "react-icons/ai";
 import { useContext } from "react";
-import Dialog from "@material-ui/core/Dialog";
 
 import { GMAPContext } from "../hooks/GMAPContext";
 import { FlagContext } from "../hooks/Flags";
@@ -35,7 +34,7 @@ export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
           <TreeMarker />
         </Marker>
         {isShown && (
-          <Dialogue>
+          <Modal>
             <ParkName>{park.name}</ParkName>
             <ExitBtn onClick={() => setIsPinned(false)}>x</ExitBtn>
             {notTripPage && (
@@ -54,7 +53,7 @@ export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
                 </StyledBtn>
               </BtnContainer>
             )}
-          </Dialogue>
+          </Modal>
         )}
       </Container>
     </>
@@ -92,14 +91,15 @@ const BtnContainer = styled.div`
 const StyledBtn = styled.button`
   background-color: rgba(245, 203, 92);
 `;
-const Dialogue = styled.div`
+const Modal = styled.div`
   position: absolute;
   top: -80px;
   left: 10px;
-  border: 1px solid pink;
   width: 300px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  border: 1px solid pink;
   background-color: rgba(207, 219, 213);
-  height: 70px;
   display: flex;
   flex-direction: column;
   z-index: 1000;
