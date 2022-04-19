@@ -11,10 +11,12 @@ export const DepartureDestination = ({ hasClear, setHasClear }) => {
     setRoute,
     setDepartureMarker,
     setDestinationMarker,
+    setInitialBound,
   } = useContext(GMAPContext);
 
   const handleClick = () => {
     setRoute();
+    // setInitialBound();
     setDepartureMarker();
     setDestinationMarker();
   };

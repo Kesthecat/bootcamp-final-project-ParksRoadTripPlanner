@@ -82,6 +82,7 @@ export const MainMap = () => {
                 lng={park.coordinates.lng}
                 park={park}
                 setIsShown={(bool) => setActiveModalId(bool ? park._id : null)}
+                // setIsShown={park._id.length > 0 ? true : null}
                 isShown={
                   park._id === activeModalId || park._id === pinnedModalId
                 }

@@ -30,6 +30,7 @@ export const Trip = () => {
     destination,
     setDestinationMarker,
     nukeMap,
+    setInitialBound,
   } = useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
   const { userId } = useContext(UserContext);

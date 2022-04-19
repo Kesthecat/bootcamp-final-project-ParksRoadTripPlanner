@@ -48,6 +48,7 @@ export const GMAPProvider = ({ children }) => {
       (response, status) => {
         // console.log({ response, status, response });
         if (status === "OK") {
+          // console.log(response.routes[0].legs[0].end_location.lat());
           setRouteInfo(response.routes[0].legs);
           directionsDisplay.setDirections(response);
           const routePolyline = new maps.Polyline({
@@ -56,6 +57,11 @@ export const GMAPProvider = ({ children }) => {
           // console.log({ routePolyline });
           routePolyline.setMap(map);
           setPolyline(routePolyline);
+          if (waypoints.length > 0) {
+            setInitialBound();
+          } else if (departure.name !== destination.name) {
+            setInitialBound();
+          }
         } else {
           window.alert("Directions request failed due to " + status);
         }
@@ -63,23 +69,35 @@ export const GMAPProvider = ({ children }) => {
     );
   };
 
-  // const setDepartureMarker = () => {
-  //   if (!map || !maps || !departure) return;
-  //   let marker = new maps.Marker({
-  //     position: departure.coordinates,
-  //     map,
-  //   });
-  //   return marker;
-  // };
+  const setInitialBound = () => {
+    const departureLat = departure.coordinates.lat;
+    const departureLng = departure.coordinates.lng;
+    const destinationLat = destination.coordinates.lat;
+    const destinationLng = destination.coordinates.lng;
 
-  // const setDestinationMarker = () => {
-  //   if (!map || !maps || !departure) return;
-  //   let marker = new maps.Marker({
-  //     position: destination.coordinates,
-  //     map,
-  //   });
-  //   return marker;
-  // };
+    //figuring out which pins is which corner reference
+    const swLat = departureLat > destinationLat ? destinationLat : departureLat;
+    const neLat = departureLat > destinationLat ? departureLat : destinationLat;
+    const swLng = departureLng > destinationLng ? destinationLng : departureLng;
+    const neLng = departureLng > destinationLng ? departureLng : destinationLng;
+
+    // Define the two corners of the bounding box
+    // const sw = new GLatLng(swLat, swLng);
+    // const ne = new GLatLng(neLat, neLng);
+
+    // // Create a bounding box
+    // const bounds = new GlatLngBounds(sw, ne);
+    const bounds = new maps.LatLngBounds(
+      new maps.LatLng(swLat, swLng),
+      new maps.LatLng(neLat, neLng)
+    );
+
+    // Center map in the center of the bounding box
+    // and calculate the appropriate zoom level
+    map.fitBounds(bounds);
+
+    // console.log("bounds", map.getBounds());
+  };
 
   const nukeMap = () => {
     // console.log("nuke");
@@ -113,6 +131,7 @@ export const GMAPProvider = ({ children }) => {
         routeInfo,
         setRouteInfo,
         setPolyline,
+        setInitialBound,
       }}
     >
       {children}

@@ -9,6 +9,9 @@ const options = {
   useUnifiedTopology: true,
 };
 
+const client3 = new MongoClient(MONGO_URI, options);
+const db3 = client3.db("planner");
+
 const client2 = new MongoClient(MONGO_URI, options);
 const db2 = client2.db("planner");
 
@@ -50,29 +53,30 @@ const getUserByUsername = async (req, res) => {
 //GET user by id//////////////////////
 const getUser = async (req, res) => {
   const { id } = req.params;
-
+  // console.log("id", id);
   //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectID.isValid(id)) {
-    res
-      .status(404)
-      .json({ status: 404, data: id, message: "id not in right format." });
-    return;
-  }
+  // if (!ObjectID.isValid(id)) {
+  //   res
+  //     .status(404)
+  //     .json({ status: 404, data: id, message: "id not in right format." });
+  //   return;
+  // }
 
   try {
-    await client.connect();
-    const result = await db.collection("users").findOne({ _id: ObjectId(id) });
+    await client3.connect();
+    const result = await db3.collection("users").findOne({ _id: ObjectId(id) });
     if (!result) {
       res
         .status(404)
-        .json({ status: 404, data: id, message: `Cannot find park.` });
+        .json({ status: 404, data: id, message: `Cannot find user.` });
       return;
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
+    console.log(error);
     res
       .status(500)
-      .json({ status: 500, data: req.body, message: "Internal server error." });
+      .json({ status: 500, data: req.body, message: error.message });
   }
   client.close();
 };
@@ -115,12 +119,12 @@ const parkByName = async (req, res) => {
   const { id } = req.params;
 
   //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectID.isValid(id)) {
-    res
-      .status(404)
-      .json({ status: 404, data: id, message: "id not in right format." });
-    return;
-  }
+  // if (!ObjectID.isValid(id)) {
+  //   res
+  //     .status(404)
+  //     .json({ status: 404, data: id, message: "id not in right format." });
+  //   return;
+  // }
 
   try {
     await client.connect();
@@ -146,12 +150,12 @@ const parkByName = async (req, res) => {
 const getUserTrips = async (req, res) => {
   const { user } = req.params;
 
-  if (!ObjectID.isValid(user)) {
-    res
-      .status(404)
-      .json({ status: 404, data: id, message: "id not in right format." });
-    return;
-  }
+  // if (!ObjectID.isValid(user)) {
+  //   res
+  //     .status(404)
+  //     .json({ status: 404, data: id, message: "id not in right format." });
+  //   return;
+  // }
 
   try {
     await client.connect();
@@ -179,12 +183,12 @@ const getUserTrips = async (req, res) => {
 const getTripById = async (req, res) => {
   const { id } = req.params;
 
-  if (!ObjectID.isValid(id)) {
-    res
-      .status(404)
-      .json({ status: 404, data: id, message: "id not in right format." });
-    return;
-  }
+  // if (!ObjectID.isValid(id)) {
+  //   res
+  //     .status(404)
+  //     .json({ status: 404, data: id, message: "id not in right format." });
+  //   return;
+  // }
 
   try {
     await client.connect();
@@ -232,12 +236,12 @@ const postNewTrip = async (req, res) => {
   }
 
   //validating whether userId is a string of 12 bytes or a string of 24 hex characters or an integer
-  if (!ObjectID.isValid(userId)) {
-    res
-      .status(404)
-      .json({ status: 404, data: id, message: "id not in right format." });
-    return;
-  }
+  // if (!ObjectID.isValid(userId)) {
+  //   res
+  //     .status(404)
+  //     .json({ status: 404, data: id, message: "id not in right format." });
+  //   return;
+  // }
 
   try {
     //make sure the user exist in database
@@ -299,11 +303,11 @@ const postParkReview = async (req, res) => {
 const getParkReviews = async (req, res) => {
   const { id } = req.params;
 
-  if (!ObjectID.isValid(id)) {
-    return res
-      .status(404)
-      .json({ status: 404, data: id, message: "id not in right format." });
-  }
+  // if (!ObjectID.isValid(id)) {
+  //   return res
+  //     .status(404)
+  //     .json({ status: 404, data: id, message: "id not in right format." });
+  // }
 
   try {
     await client.connect();
@@ -338,13 +342,13 @@ const getParkReviews = async (req, res) => {
 const deleteTripById = async (req, res) => {
   const { id } = req.params;
 
-  if (!ObjectID.isValid(id)) {
-    return res.status(404).json({
-      status: 404,
-      data: id,
-      message: "Trip id not in right format. Please contact customer services.",
-    });
-  }
+  // if (!ObjectID.isValid(id)) {
+  //   return res.status(404).json({
+  //     status: 404,
+  //     data: id,
+  //     message: "Trip id not in right format. Please contact customer services.",
+  //   });
+  // }
 
   try {
     await client.connect();

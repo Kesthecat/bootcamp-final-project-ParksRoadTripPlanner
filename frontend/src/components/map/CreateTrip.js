@@ -20,7 +20,7 @@ export const CreateTrip = ({ setHasClear }) => {
   const { userId } = useContext(UserContext);
 
   const [isWaiting, setIsWaiting] = useState(false);
-  const [tripName, setTripName] = useState(null);
+  const [tripName, setTripName] = useState("");
 
   let history = useHistory();
 
