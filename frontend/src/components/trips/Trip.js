@@ -17,6 +17,8 @@ export const Trip = () => {
   const [trip, setTrip] = useState(null);
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
+  const [activeModalId, setActiveModalId] = useState(null);
+  const [pinnedModalId, setPinnedModalId] = useState(null);
 
   const {
     setMap,
@@ -210,6 +212,16 @@ export const Trip = () => {
                   lat={waypoint.coordinates.lat}
                   lng={waypoint.coordinates.lng}
                   park={waypoint}
+                  setIsShown={(bool) =>
+                    setActiveModalId(bool ? waypoint._id : null)
+                  }
+                  isShown={
+                    waypoint._id === activeModalId ||
+                    waypoint._id === pinnedModalId
+                  }
+                  setIsPinned={(bool) =>
+                    setPinnedModalId(bool ? waypoint._id : null)
+                  }
                 />
               );
             })}

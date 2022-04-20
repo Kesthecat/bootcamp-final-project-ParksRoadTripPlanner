@@ -21,14 +21,6 @@ export const GMAPProvider = ({ children }) => {
   });
 
   const setRoute = () => {
-    // console.log({
-    //   waypoints,
-    //   departure,
-    //   destination,
-    //   waypointsCoord,
-    //   map,
-    //   maps,
-    // });
     if (polyline) polyline.setMap(null);
     if (!map || !maps || !departure || !destination) {
       polyline && polyline.setMap(null);
@@ -58,7 +50,7 @@ export const GMAPProvider = ({ children }) => {
           routePolyline.setMap(map);
           setPolyline(routePolyline);
           if (departure.name !== destination.name) {
-            setInitialBound();
+            setBound();
           }
         } else {
           window.alert("Directions request failed due to " + status);
@@ -67,72 +59,54 @@ export const GMAPProvider = ({ children }) => {
     );
   };
 
-  const setInitialBound = () => {
-    const departureLat = departure.coordinates.lat;
-    const departureLng = departure.coordinates.lng;
-    const destinationLat = destination.coordinates.lat;
-    const destinationLng = destination.coordinates.lng;
+  const setBound = () => {
+    //departure, destination, waypoints
+    const allCoord = [
+      departure.coordinates,
+      destination.coordinates,
+      ...waypoints.map((point) => point.coordinates),
+    ];
+    const mostSWLat = allCoord.reduce((acc, cur) => {
+      console.log({ acc, cur });
+      if (acc > cur.lat) {
+        //says cannot read undefined, reading lat..
+        return cur.lat;
+      }
+      return acc;
+    }, allCoord[0].lat);
 
-    //figuring out the 4 corners of the bounding box
-    const swLat = departureLat > destinationLat ? destinationLat : departureLat;
-    const neLat = departureLat > destinationLat ? departureLat : destinationLat;
-    const swLng = departureLng > destinationLng ? destinationLng : departureLng;
-    const neLng = departureLng > destinationLng ? departureLng : destinationLng;
+    const mostNELat = allCoord.reduce((acc, cur) => {
+      if (acc < cur.lat) {
+        return cur.lat;
+      }
+      return acc;
+    }, allCoord[0].lat);
+
+    const mostSWLng = allCoord.reduce((acc, cur) => {
+      if (acc > cur.lng) {
+        return cur.lng;
+      }
+      return acc;
+    }, allCoord[0].lng);
+
+    const mostNELng = allCoord.reduce((acc, cur) => {
+      if (acc < cur.lng) {
+        return cur.lng;
+      }
+      return acc;
+    }, allCoord[0].lng);
 
     // // Create a bounding box
     const bounds = new maps.LatLngBounds(
-      new maps.LatLng(swLat, swLng),
-      new maps.LatLng(neLat, neLng)
+      new maps.LatLng(mostSWLat, mostSWLng),
+      new maps.LatLng(mostNELat, mostNELng)
     );
 
     // Center map in the center of the bounding box
     map.fitBounds(bounds);
   };
 
-  // const setWaypointsBound = () => {
-
-  //   //figuring out the 4 corners of the bounding box
-  //   const mostSWLat = waypoints.reduce((acc, cur) => {
-  //     if (acc.coordinates.lat > cur.coordinates.lat) { //says cannot read undefined, reading lat..
-  //       acc = cur;
-  //     }
-  //     return acc.coordinates.lat;
-  //   }, waypoints[0]);
-
-  //   const mostNELat = waypoints.reduce((acc, cur) => {
-  //     if (acc.coordinates.lat < cur.coordinates.lat) {
-  //       acc = cur;
-  //     }
-  //     return acc.coordinates.lat;
-  //   }, waypoints[0]);
-
-  //   const mostSWLng = waypoints.reduce((acc, cur) => {
-  //     if (acc.coordinates.lng > cur.coordinates.lng) {
-  //       acc = cur;
-  //     }
-  //     return acc.coordinates.lng;
-  //   }, waypoints[0]);
-
-  //   const mostNELng = waypoints.reduce((acc, cur) => {
-  //     if (acc.coordinates.lng < cur.coordinates.lng) {
-  //       acc = cur;
-  //     }
-  //     return acc.coordinates.lng;
-  //   }, waypoints[0]);
-
-  //   console.log("swLat", mostSWLat);
-  //   // // Create a bounding box
-  //   const bounds = new maps.LatLngBounds(
-  //     new maps.LatLng(mostSWLat, mostSWLng),
-  //     new maps.LatLng(mostNELat, mostNELng)
-  //   );
-
-  //   // Center map in the center of the bounding box
-  //   map.fitBounds(bounds);
-  // };
-
   const nukeMap = () => {
-    // console.log("nuke");
     polyline?.setMap(null);
     setDeparture(null);
     setDestination(null);
@@ -140,7 +114,6 @@ export const GMAPProvider = ({ children }) => {
     setRouteInfo([]);
   };
   useEffect(() => {
-    // console.log("setRoute");
     setRoute();
   }, [waypoints, map, maps]);
 
