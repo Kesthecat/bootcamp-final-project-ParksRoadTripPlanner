@@ -13,12 +13,10 @@ export const PostedReviews = ({ newReview }) => {
     fetch(`/reviews/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log("reviews", data);
         if (data.message !== "success") {
           setReviewsStatus("idle");
           history.push("/Error");
         } else if (data.data === null) {
-          // setPostedReviews("none");
           setReviewsStatus("loaded");
         } else {
           const reviewlist = data.data;
@@ -33,24 +31,10 @@ export const PostedReviews = ({ newReview }) => {
       });
   }, [newReview]);
 
-  // if (newReview) {
-  //   setPostedReviews([...postedReviews, newReview]);
-  //   return;
-  // }
-
   if (reviewsStatus === "loading") return <p>Loading ...</p>;
 
   return (
     <ReviewsWrapper>
-      {/* {newReview && (
-        <SingleReviewWrapper>
-          <PostInfo>
-            <p style={{ fontWeight: "bolder" }}>{newReview.user}</p>
-            <p style={{ fontSizeSize: "15px" }}>{newReview.time}</p>
-          </PostInfo>
-          <p>{newReview.review}</p>
-        </SingleReviewWrapper>
-      )} */}
       {reviewsStatus === "idle" && <p>No reviews yet.</p>}
       {postedReviews.length === 0 && !newReview && <p>No reviews yet.</p>}
       {reviewsStatus === "error" && <p>Cannot load reviews.</p>}
@@ -75,7 +59,6 @@ export const PostedReviews = ({ newReview }) => {
 const ReviewsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 10px;
   border-top: 2px solid var(--color-secondary);
   margin-top: 15px;

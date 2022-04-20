@@ -8,7 +8,7 @@ export const About = () => {
         <InnerContainer>
           <StyledP>
             Version 1.1 of this website was created in the context of my
-            Concordia Full-Stack Web Developper Bootcamp as final project.
+            Concordia Full-Stack Web Developper Bootcamp final project.
             Completion date: April 19th, 2022
           </StyledP>
         </InnerContainer>
@@ -46,6 +46,12 @@ export const About = () => {
               date-fns from
               <StyledA href="https://date-fns.org/" target="_blank">
                 https://date-fns.org/
+              </StyledA>
+            </StyledLi>
+            <StyledLi>
+              moment.js from
+              <StyledA href="https://momentjs.com/" target="_blank">
+                https://momentjs.com/
               </StyledA>
             </StyledLi>
           </StyledUl>

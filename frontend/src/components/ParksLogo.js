@@ -79,33 +79,22 @@ const Container = styled.div`
 const StyledImg = styled.img`
   display: inline-block;
   position: relative;
-  /* opacity: 0.5; */
   width: 100px;
 
-  /* &.alberta {
-    left: 15px;
-  /* } */
-  &.bc {
-    width: 130px; 
-    /* top: -55px; */
-    /* right: -23px;  */
+  &.alberta {
   }
-  
+  &.bc {
+    width: 130px;
+  }
   &.canada {
-    /* top: 62px; */
-    /* right: -80px; */ 
     width: 50px;
   }
-  /*  *
   &.manitoba {
-    /* width: 250px; */
-  /* } */
-
+  }
   &.newB {
     width: 130px;
   }
   &.nova {
-    /* width: 300px; */
   }
   &.ontario {
     width: 50px;
@@ -117,5 +106,5 @@ const StyledImg = styled.img`
     width: 90px;
   }
   &.sask {
-  } */
+  }
 `;

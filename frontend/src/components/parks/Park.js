@@ -34,15 +34,12 @@ export const Park = () => {
       .catch((error) => {
         // console.log(error.message);
         history.push("/Error");
-        // window.alert(error.message);
       });
   }, []);
 
   const handleFavorite = () => {
     window.alert("Feature coming soon!");
   };
-
-  // console.log(park);
 
   if (parkLoad === "idle") return <Loading />;
 
@@ -53,7 +50,7 @@ export const Park = () => {
         <Intro>{park.introduction}</Intro>
         <MiddleContainer>
           <InnerContainer className="contacts">
-            <StyledP>Address: </StyledP>
+            {/* <StyledP>Address: </StyledP> */}
             {/* <p>{park.address}</p> */}
             <StyledP>Official website: </StyledP>
             <a href={park.website} target="_blank">
@@ -119,7 +116,6 @@ const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   border: 2px dotted var(--color-secondary);
-  /* border: 2px solid red; */
 `;
 const Intro = styled.p`
   margin: 25px;
@@ -133,10 +129,8 @@ const MiddleContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 10px 25px;
-  /* border: 2px solid green; */
 `;
 const InnerContainer = styled.div`
-  /* border: 2px dotted var(--color-secondary); */
   width: fit-content;
   height: fit-content;
   padding: 15px;
@@ -148,7 +142,6 @@ const InnerContainer = styled.div`
   }
 `;
 const BtnContainer = styled.div`
-  /* border: 2px solid skyblue; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,6 +159,5 @@ const ReviewsContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* border: 2px solid brown; */
   margin: 35px 25px;
 `;
