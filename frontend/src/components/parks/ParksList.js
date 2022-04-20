@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 import { ParksListContext } from "../hooks/ParksContext";
@@ -9,16 +9,13 @@ import { Logo } from "../ParksLogo";
 export const ParksList = () => {
   const { origins, parksList } = useContext(ParksListContext);
 
-  // console.log("origin", origins);
-  // console.log("parks", parksList);
-
   if (origins === [] || parksList === []) return <Loading />;
 
   return (
     <>
       <StyledH1>Canada and Provincial Parks</StyledH1>
       <Logo />
-      {/* <ChoicesContainer>
+      {/* <ChoicesContainer> trying to have clickables to bring to the right section on page but hash link not working for me....
         {origins.map((origin) => {
           return (
             <Link
@@ -79,9 +76,8 @@ export const ParksList = () => {
   );
 };
 
-const Container = styled.div`
-  /* border: 2px solid gray; */
-`;
+///a little chaotic style-components.... i think less is needed...
+const Container = styled.div``;
 const StyledH1 = styled.h1`
   margin-bottom: 15px;
   border-bottom: 1px solid var(--color-main);
@@ -90,17 +86,13 @@ const StyledH1 = styled.h1`
 // const ChoicesContainer = styled.div`
 //   border: 2px solid palevioletred;
 // `;
-const ListContainer = styled.div`
-  /* border: 2px dotted purple; */
-`;
+const ListContainer = styled.div``;
 const Origin = styled.h2`
-  /* border: 2px solid gray; */
   padding-left: 15px;
   background-color: var(--color-secondary);
   padding: 15px;
 `;
 const LabelsContainer = styled.div`
-  /* border: 1px solid blue; */
   display: flex;
   justify-content: space-between;
   padding: 10px 15px;
@@ -120,7 +112,6 @@ const RightSide = styled.div`
   }
 
   &.park {
-    /* color: red; */
     justify-content: space-evenly;
     width: 385px;
     gap: 85px;

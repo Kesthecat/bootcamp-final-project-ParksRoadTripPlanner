@@ -1,9 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { useRef } from "react";
 import styled from "styled-components";
 import { GMAPContext } from "../hooks/GMAPContext";
 
-export const SearchBox = ({ settingPoint, hasClear, setHasClear }) => {
+export const SearchBox = ({ settingPoint }) => {
   const { maps } = useContext(GMAPContext);
   const inputRef = useRef(null);
   // const [temp, setTemp] = useState("");

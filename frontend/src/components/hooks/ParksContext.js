@@ -16,7 +16,6 @@ export const ParksListProvider = ({ children }) => {
           window.alert("Something went wrong, please try again.");
           return;
         }
-        // console.log("data", data.data.origin.parksOrigin);
         setParksList(data.data?.parks || []);
         setOrigins(data.data?.origin.parksOrigin || []);
       })

@@ -26,13 +26,11 @@ const dropInThird = keyframes`
 from {top: -425px; opacity: 0;}
 to{top: -80px; opacity: 1;}
 `;
-
 const Container = styled.div`
   display: inline-block;
   margin: 0 5%;
   margin-bottom: 25px;
 `;
-
 const StyledImg = styled.img`
   display: inline-block;
   position: relative;

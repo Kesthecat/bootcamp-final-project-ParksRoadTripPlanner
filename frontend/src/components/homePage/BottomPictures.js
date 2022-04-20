@@ -35,9 +35,7 @@ const Container = styled.div`
 `;
 
 const StyledImg = styled.img`
-  /* display: inline-block; */
   position: relative;
-  /* opacity: 1; */
 
   &.lake {
     width: 461px;
@@ -50,7 +48,6 @@ const StyledImg = styled.img`
   }
   &.beach {
     width: 290px;
-    /* right: 175px; */
     animation: ${PopUp3} 1s;
   }
 `;

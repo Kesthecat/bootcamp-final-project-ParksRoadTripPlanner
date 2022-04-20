@@ -40,16 +40,14 @@ export const GMAPProvider = ({ children }) => {
       (response, status) => {
         // console.log({ response, status, response });
         if (status === "OK") {
-          // console.log(response.routes[0].legs[0].end_location.lat());
           setRouteInfo(response.routes[0].legs);
           directionsDisplay.setDirections(response);
           const routePolyline = new maps.Polyline({
             path: response.routes[0].overview_path,
           });
-          // console.log({ routePolyline });
           routePolyline.setMap(map);
           setPolyline(routePolyline);
-          if (departure.name !== destination.name) {
+          if (departure.name !== destination.name || waypoints.length > 0) {
             setBound();
           }
         } else {
@@ -60,16 +58,16 @@ export const GMAPProvider = ({ children }) => {
   };
 
   const setBound = () => {
-    //departure, destination, waypoints
+    //pluck all the coordinates out of departure, destination, waypoints
     const allCoord = [
       departure.coordinates,
       destination.coordinates,
       ...waypoints.map((point) => point.coordinates),
     ];
+
+    //set the 4 most far points of the bouding box according to those coordinates
     const mostSWLat = allCoord.reduce((acc, cur) => {
-      console.log({ acc, cur });
       if (acc > cur.lat) {
-        //says cannot read undefined, reading lat..
         return cur.lat;
       }
       return acc;
@@ -96,7 +94,7 @@ export const GMAPProvider = ({ children }) => {
       return acc;
     }, allCoord[0].lng);
 
-    // // Create a bounding box
+    // // Create a bounding box according to sw and ne coordinates using Google Maps API
     const bounds = new maps.LatLngBounds(
       new maps.LatLng(mostSWLat, mostSWLng),
       new maps.LatLng(mostNELat, mostNELng)
@@ -106,6 +104,7 @@ export const GMAPProvider = ({ children }) => {
     map.fitBounds(bounds);
   };
 
+  //reset all maps data
   const nukeMap = () => {
     polyline?.setMap(null);
     setDeparture(null);
@@ -113,6 +112,8 @@ export const GMAPProvider = ({ children }) => {
     setWaypoints([]);
     setRouteInfo([]);
   };
+
+  //render route when adding/removing waypoints
   useEffect(() => {
     setRoute();
   }, [waypoints, map, maps]);
@@ -130,8 +131,6 @@ export const GMAPProvider = ({ children }) => {
         destination,
         setDestination,
         setRoute,
-        // setDepartureMarker,
-        // setDestinationMarker,
         nukeMap,
         routeInfo,
         setRouteInfo,

@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { GiConsoleController } from "react-icons/gi";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 import { Loading } from "../Loading";
 import avatar from "../../assets/000019.jpg";
 
-////component////////////////////////
 export const User = () => {
   const { id } = useParams();
   const [userInfo, setUserInfo] = useState(null);
@@ -27,7 +25,6 @@ export const User = () => {
           return;
         }
         setUserInfo(data.data);
-        // console.log("userInfo", data.data);
         fetch(`/trips/user/${id}`)
           .then((res) => res.json())
           .then((data) => {
@@ -37,14 +34,11 @@ export const User = () => {
           });
       })
       .catch((error) => {
-        // window.alert(error.message);
         history.push("/Error");
       });
   }, []);
 
   const handleDelete = (id) => {
-    // setDelStatus("loading");
-
     fetch(`/trip/${id}`, {
       method: "DELETE",
       headers: {
@@ -54,7 +48,6 @@ export const User = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setDelStatus("res");
         if (data.message !== "success") {
           setDelMsg(data.message);
           return;
@@ -129,7 +122,6 @@ to{
 `;
 
 const Container = styled.div`
-  /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
   &.avatar {
@@ -159,29 +151,24 @@ const Avatar = styled.img`
   }
 `;
 const InfoContainer = styled.div`
-  /* border: 2px dotted dodgerblue; */
   background-color: var(--color-secondary);
 `;
 const TopLeft = styled.div`
-  /* border: 2px dotted green; */
   display: flex;
   flex-direction: column;
   gap: 10px;
 `;
 const TopRight = styled.div`
-  /* border: 2px dotted turquoise; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 `;
 const BottomContainer = styled.div`
   background-color: var(--color-tertiary);
-  /* border: 2px dotted black; */
   margin: 30px;
   padding-top: 15px;
 `;
 const TripsContainer = styled.div`
-  /* border: 2px solid black; */
   margin: 25px 15px;
   display: flex;
   flex-direction: column;
@@ -189,7 +176,6 @@ const TripsContainer = styled.div`
   padding: 25px;
 `;
 const TripWrapper = styled.div`
-  /* border: 2px solid rebeccapurple; */
   display: flex;
   align-items: center;
 `;

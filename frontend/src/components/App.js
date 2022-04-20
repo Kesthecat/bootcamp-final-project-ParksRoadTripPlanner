@@ -1,5 +1,7 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import styled from "styled-components";
 
+import GlobalStyles from "./GlobalStyles";
 import { MainMap } from "./map/MainMap";
 import { ParksList } from "./parks/ParksList";
 import { ErrorPage } from "./Error";
@@ -9,9 +11,7 @@ import { TripsSuggestions } from "./trips/TripsSuggestions";
 import { User } from "./user/User";
 import { Trip } from "./trips/Trip";
 import { GMAPProvider } from "./hooks/GMAPContext";
-import GlobalStyles from "./GlobalStyles";
 import { PageWrapper } from "./PageWrapper";
-import styled from "styled-components";
 import { HomePage } from "./homePage/HomePage";
 import { Footer } from "./Footer";
 import { About } from "./About";
@@ -70,5 +70,4 @@ const MainContiner = styled.div`
   display: flex;
   justify-content: space-around;
   padding: 20px;
-  /* min-height: calc(100vh - 160px); */
 `;

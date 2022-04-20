@@ -2,7 +2,6 @@ import styled, { keyframes } from "styled-components";
 import GoogleMapReact from "google-map-react";
 import { bootstrapURLKeys } from "./GoogleMapKey";
 import { useContext, useEffect, useState } from "react";
-import { MdLocationPin } from "react-icons/md";
 
 import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
@@ -28,7 +27,6 @@ export const MainMap = () => {
 
   const [activeModalId, setActiveModalId] = useState(null);
   const [pinnedModalId, setPinnedModalId] = useState(null);
-  const [hasClear, setHasClear] = useState(false);
 
   const handleApiLoaded = (map, maps) => {
     setMaps(maps);
@@ -43,20 +41,19 @@ export const MainMap = () => {
   ////////////////////////////////////
   if (parksList === []) return <Loading />;
   //////////////////////////////////////
-  // console.log({ activeModalId });
   return (
     <Container>
       {username ? (
         <SearchContainer>
           <StyledH2>Enter you point of departure and destination: </StyledH2>
-          <DepartureDestination hasClear={hasClear} setHasClear={setHasClear} />
+          <DepartureDestination />
           <BreakLine />
           <Waypoints />
           <BreakLine />
           <h4>Route information</h4>
           <RouteMetrics />
           <BreakLine />
-          <CreateTrip setHasClear={setHasClear} />
+          <CreateTrip />
         </SearchContainer>
       ) : (
         <SearchContainer className="notSigned">
@@ -82,7 +79,6 @@ export const MainMap = () => {
                 lng={park.coordinates.lng}
                 park={park}
                 setIsShown={(bool) => setActiveModalId(bool ? park._id : null)}
-                // setIsShown={park._id.length > 0 ? true : null}
                 isShown={
                   park._id === activeModalId || park._id === pinnedModalId
                 }
@@ -108,6 +104,7 @@ export const MainMap = () => {
   );
 };
 
+//animation
 const flashing = keyframes`
 0%{opacity: 1}
 50%{opacity:0.5}
@@ -130,12 +127,10 @@ const StyledH2 = styled.h2`
   }
 `;
 const SearchContainer = styled.div`
-  /* height: 900px; */
   width: 400px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  /* border: 2px solid yellowgreen; */
   &.notSigned {
     padding-top: 150px;
   }
@@ -152,5 +147,4 @@ const StyledNavLink = styled(NavLink)`
 const MapContainer = styled.div`
   height: 900px;
   width: 855px;
-  /* border: 3px solid brown; */
 `;

@@ -11,17 +11,17 @@ export const RouteMetrics = () => {
   let duration = 0;
 
   if (routeInfo.length > 0) {
+    //get sum of distance
     distance =
       routeInfo.reduce((acc, cur) => acc + cur.distance.value, 0) / 100;
+
+    // get total driving time
     const durationObj = routeInfo.reduce(
       (acc, cur) => acc + cur.duration.value,
       0
     );
     duration = intervalToDuration({ start: 0, end: durationObj * 1000 });
   }
-
-  //   console.log("distance", distance);
-  //   console.log("duration", duration);
 
   return routeInfo.length > 0 ? (
     <Container>

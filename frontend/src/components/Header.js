@@ -3,15 +3,14 @@ import { NavLink } from "react-router-dom";
 import { GiChecklist, GiLightBulb } from "react-icons/gi";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { useContext } from "react";
+
 import { UserContext } from "./hooks/userContext";
 import avatar from "../assets/000019.jpg";
 
 export const Header = () => {
   const { username, setUsername, userId } = useContext(UserContext);
-  // const [isClicked, setIsCliked] = useState(false);
 
   const handleSignOut = () => {
-    // setIsCliked(true);
     setUsername(null);
     localStorage.clear();
   };
@@ -95,13 +94,6 @@ const RightSide = styled.div`
 `;
 const StyledH3 = styled.h3`
   margin-left: 10px;
-
-  /* &.signin {
-  }
-
-  &.signout {
-    animation: 500ms;
-  } */
 `;
 const Avatar = styled.img`
   height: 40px;

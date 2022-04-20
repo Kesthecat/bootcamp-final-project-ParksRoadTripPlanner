@@ -27,21 +27,16 @@ export const Trip = () => {
     setDestination,
     setWaypoints,
     waypoints,
-    setDepartureMarker,
     departure,
     destination,
-    setDestinationMarker,
     nukeMap,
-    setInitialBound,
   } = useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
   const { userId } = useContext(UserContext);
-  // console.log(userId);
 
   let history = useHistory();
 
   const handleApiLoaded = (map, maps) => {
-    // console.log({ map, maps });
     setMaps(maps);
     setMap(map);
   };
@@ -56,7 +51,6 @@ export const Trip = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setDelStatus("res");
         if (data.message !== "success") {
           history.push("/Error");
           return;
@@ -74,8 +68,7 @@ export const Trip = () => {
     fetch(`/trip/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log("data", { data });
-        // console.log("routeMetrics", data.data.routeMetrics);
+        // console.log("data", data );
         if (data.message !== "success") {
           setNotTripPage(true);
           history.push("/Error");
@@ -91,11 +84,12 @@ export const Trip = () => {
         setTrip(data.data);
       })
       .catch((error) => {
-        console.error("error", error);
+        // console.error("error", error);
         history.push("/Error");
       });
   }, []);
 
+  //reset all state in GMAP context if hit return to mainMap after deleting a trip so the map there is also empty
   useEffect(() => {
     return () => nukeMap();
   }, []);
@@ -273,7 +267,6 @@ const InfoWrapper = styled.div`
   flex-direction: column;
   gap: 10px;
   margin: 5px 0;
-  /* border: 2px solid purple; */
   padding: 10px;
 
   &.departDesti {
@@ -301,7 +294,6 @@ const MapContainer = styled.div`
   height: 600px;
   width: 820px;
   margin-top: 15px;
-  /* border: 2px solid blue; */
 `;
 const DurationWrapper = styled.div`
   padding-top: 5px;

@@ -1,28 +1,27 @@
-// const { ObjectID } = require("bson");
 const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 const { MONGO_URI } = process.env;
-const ObjectID = require("mongodb").ObjectID;
 
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 };
 
-const client5 = new MongoClient(MONGO_URI, options);
-const db5 = client5.db("planner");
-
-const client4 = new MongoClient(MONGO_URI, options);
-const db4 = client4.db("planner");
-
-const client3 = new MongoClient(MONGO_URI, options);
-const db3 = client3.db("planner");
+//had to create several clients in order to not loose connection since several fetch is always happening in the sametime.
+const client = new MongoClient(MONGO_URI, options);
+const db = client.db("planner");
 
 const client2 = new MongoClient(MONGO_URI, options);
 const db2 = client2.db("planner");
 
-const client = new MongoClient(MONGO_URI, options);
-const db = client.db("planner");
+const client3 = new MongoClient(MONGO_URI, options);
+const db3 = client3.db("planner");
+
+const client4 = new MongoClient(MONGO_URI, options);
+const db4 = client4.db("planner");
+
+const client5 = new MongoClient(MONGO_URI, options);
+const db5 = client5.db("planner");
 
 //POST user for login/////////////////////////////////
 const getUserByUsername = async (req, res) => {
@@ -31,7 +30,6 @@ const getUserByUsername = async (req, res) => {
   try {
     await client.connect();
     const result = await db.collection("users").findOne({ username: username });
-    // console.log(result);
     //validation
     if (!result) {
       res
@@ -48,7 +46,6 @@ const getUserByUsername = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (err) {
-    // console.log(err.message);
     res
       .status(500)
       .json({ status: 500, data: req.body, message: "Internal server error." });
@@ -59,14 +56,6 @@ const getUserByUsername = async (req, res) => {
 //GET user by id//////////////////////
 const getUser = async (req, res) => {
   const { id } = req.params;
-  // console.log("id", id);
-  //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  // if (!ObjectID.isValid(id)) {
-  //   res
-  //     .status(404)
-  //     .json({ status: 404, data: id, message: "id not in right format." });
-  //   return;
-  // }
 
   try {
     await client3.connect();
@@ -79,7 +68,6 @@ const getUser = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    console.log(error);
     res
       .status(500)
       .json({ status: 500, data: req.body, message: error.message });
@@ -112,7 +100,6 @@ const parksList = async (req, res) => {
       .status(200)
       .json({ status: 200, data: listParksOrigins, message: "success" });
   } catch (error) {
-    // console.error(error);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -124,18 +111,9 @@ const parksList = async (req, res) => {
 const parkByName = async (req, res) => {
   const { id } = req.params;
 
-  //validating whether id is a string of 12 bytes or a string of 24 hex characters or an integer
-  // if (!ObjectID.isValid(id)) {
-  //   res
-  //     .status(404)
-  //     .json({ status: 404, data: id, message: "id not in right format." });
-  //   return;
-  // }
-
   try {
     await client.connect();
     const result = await db.collection("parks").findOne({ _id: ObjectId(id) });
-    // console.log("result", result);
     if (!result) {
       res
         .status(404)
@@ -144,7 +122,6 @@ const parkByName = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    // console.error(error);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -155,13 +132,6 @@ const parkByName = async (req, res) => {
 //GET user's trips//////////////////////////////////////////
 const getUserTrips = async (req, res) => {
   const { user } = req.params;
-
-  // if (!ObjectID.isValid(user)) {
-  //   res
-  //     .status(404)
-  //     .json({ status: 404, data: id, message: "id not in right format." });
-  //   return;
-  // }
 
   try {
     await client4.connect();
@@ -189,13 +159,6 @@ const getUserTrips = async (req, res) => {
 const getTripById = async (req, res) => {
   const { id } = req.params;
 
-  // if (!ObjectID.isValid(id)) {
-  //   res
-  //     .status(404)
-  //     .json({ status: 404, data: id, message: "id not in right format." });
-  //   return;
-  // }
-
   try {
     await client5.connect();
     const result = await db5.collection("trips").findOne({ _id: ObjectId(id) });
@@ -207,7 +170,6 @@ const getTripById = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    // console.error(error);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -217,15 +179,8 @@ const getTripById = async (req, res) => {
 
 //POST trip//////////////////////////////////////////////
 const postNewTrip = async (req, res) => {
-  const {
-    departure,
-    destination,
-    waypoints,
-    tripName,
-    userId,
-    time,
-    routeMetrics,
-  } = req.body;
+  const { departure, destination, waypoints, tripName, userId, time } =
+    req.body;
 
   //validating no missing inputs
   if (
@@ -240,14 +195,6 @@ const postNewTrip = async (req, res) => {
       .status(400)
       .json({ status: 400, data: req.body, mesage: "Missing info" });
   }
-
-  //validating whether userId is a string of 12 bytes or a string of 24 hex characters or an integer
-  // if (!ObjectID.isValid(userId)) {
-  //   res
-  //     .status(404)
-  //     .json({ status: 404, data: id, message: "id not in right format." });
-  //   return;
-  // }
 
   try {
     //make sure the user exist in database
@@ -269,7 +216,6 @@ const postNewTrip = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: req.body, message: "success" });
   } catch (error) {
-    console.error(error.message);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -297,7 +243,6 @@ const postParkReview = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: req.body, message: "success" });
   } catch (error) {
-    console.log(error.message);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -309,19 +254,12 @@ const postParkReview = async (req, res) => {
 const getParkReviews = async (req, res) => {
   const { id } = req.params;
 
-  // if (!ObjectID.isValid(id)) {
-  //   return res
-  //     .status(404)
-  //     .json({ status: 404, data: id, message: "id not in right format." });
-  // }
-
   try {
     await client.connect();
     const result = await db
       .collection("reviews")
       .find({ parkId: id })
       .toArray();
-    // console.log("result", result);
     if (!result) {
       return res.status(404).json({
         status: 404,
@@ -336,7 +274,6 @@ const getParkReviews = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: result, message: "success" });
   } catch (error) {
-    console.log("errorMsg", error.message);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });
@@ -347,14 +284,6 @@ const getParkReviews = async (req, res) => {
 //DELLETE trip ////////////////////////////
 const deleteTripById = async (req, res) => {
   const { id } = req.params;
-
-  // if (!ObjectID.isValid(id)) {
-  //   return res.status(404).json({
-  //     status: 404,
-  //     data: id,
-  //     message: "Trip id not in right format. Please contact customer services.",
-  //   });
-  // }
 
   try {
     await client.connect();
@@ -381,7 +310,6 @@ const deleteTripById = async (req, res) => {
     }
     res.status(200).json({ status: 200, data: null, message: "success" });
   } catch (error) {
-    console.log("errorMsg", error.message);
     res
       .status(500)
       .json({ status: 500, data: null, message: "Internal server error" });

@@ -13,7 +13,6 @@ export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
   const handleAddWaypoint = () => {
     const stops = [...waypoints].concat(park);
     setWaypoints(stops);
-    // console.log("stops", stops);
   };
 
   const handleRemoveWaypoint = (id) => {
@@ -61,13 +60,11 @@ export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
 };
 
 const Container = styled.div`
-  /* border: 5px solid black; */
   position: absolute;
   transform: translate(0, -100%);
   display: flex;
 `;
 const TreeMarker = styled(GiPineTree)`
-  /* color: rgb(255, 64, 0); */
   color: var(--color-marker);
   transform: scale(3);
   z-index: -5;

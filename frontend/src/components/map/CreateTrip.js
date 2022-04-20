@@ -6,17 +6,9 @@ import { UserContext } from "../hooks/userContext";
 import moment from "moment";
 import { useHistory } from "react-router-dom";
 
-export const CreateTrip = ({ setHasClear }) => {
-  const {
-    departure,
-    setDeparture,
-    destination,
-    setDestination,
-    waypoints,
-    setWaypoints,
-    routeInfo,
-    setPolyline,
-  } = useContext(GMAPContext);
+export const CreateTrip = () => {
+  const { departure, destination, waypoints, routeInfo } =
+    useContext(GMAPContext);
   const { userId } = useContext(UserContext);
 
   const [isWaiting, setIsWaiting] = useState(false);
@@ -35,6 +27,7 @@ export const CreateTrip = ({ setHasClear }) => {
     });
   }
 
+  //Stretch goal to have a button to clear all data on trip planning but not all clearing is working right now
   // const handleClear = (e) => {
   //   e.preventDefault();
   //   // window.location.reload();
@@ -79,18 +72,18 @@ export const CreateTrip = ({ setHasClear }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("error", data.message);
+        // console.log("error", data.message);
+        // console.log(data.data);
         if (data.message !== "success") {
           setIsWaiting(false);
           history.push("/Error");
           return;
         }
-        // console.log(data.data);
         setIsWaiting(false);
         history.push(`/trip/${data.data._id}`);
       })
       .catch((error) => {
-        console.log("error", error);
+        // console.log("error", error);
         history.push("/Error");
       });
   };
