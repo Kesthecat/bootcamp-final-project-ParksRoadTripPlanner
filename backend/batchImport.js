@@ -25,7 +25,7 @@ const batchImport = async () => {
   try {
     await client.connect();
     const db = client.db("planner");
-    const result = await db.collection("parksOrigin").insertOne(origin);
+    const result = await db.collection("parks").insertMany(ontario);
     console.log("done");
   } catch (err) {
     console.log("There was an error: ", err.message);
