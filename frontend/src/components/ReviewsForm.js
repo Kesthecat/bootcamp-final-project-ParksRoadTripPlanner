@@ -4,27 +4,25 @@ import moment from "moment";
 import { useContext } from "react";
 import { UserContext } from "./hooks/userContext";
 import { useHistory } from "react-router-dom";
+const CHAR_LIMIT = 150;
 
 export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
   const { username } = useContext(UserContext);
   const [review, setReview] = useState(null);
-  const [numWords, setNumWords] = useState(150);
   const [overLimit, setOverLimit] = useState(false);
   const [isWaiting, setIsWaiting] = useState(false);
   let history = useHistory();
 
   const handleChangeReview = (e) => {
     setReview(e.target.value);
-    setNumWords(150 - e.target.value.length);
-    //why is there a 2 words delay?
-    numWords < 0 ? setOverLimit(true) : setOverLimit(false);
-    // console.log(overLimit);
+    e.target.value.length > CHAR_LIMIT
+      ? setOverLimit(true)
+      : setOverLimit(false);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsWaiting(true);
-    setNumWords(150);
 
     fetch("/review", {
       method: "POST",
@@ -42,7 +40,6 @@ export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.message !== "success") {
-          // window.alert(data.message);
           setIsWaiting(false);
           history.push("/Error");
         } else {
@@ -54,7 +51,6 @@ export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
       })
       .catch((error) => {
         // console.log("error", error);
-        // window.alert(error.message);
         history.push("/Error");
       });
   };
@@ -76,7 +72,7 @@ export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
             value={review}
             onChange={(e) => handleChangeReview(e)}
           />
-          <StyledP>{numWords}</StyledP>
+          <StyledP>{CHAR_LIMIT - (review?.length || 0)}</StyledP>
           {isWaiting ? (
             <SubmitBtn type="submit" disabled={true}>
               LOADING
