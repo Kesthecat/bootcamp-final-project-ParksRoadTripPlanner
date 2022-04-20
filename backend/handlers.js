@@ -9,6 +9,12 @@ const options = {
   useUnifiedTopology: true,
 };
 
+const client5 = new MongoClient(MONGO_URI, options);
+const db5 = client5.db("planner");
+
+const client4 = new MongoClient(MONGO_URI, options);
+const db4 = client4.db("planner");
+
 const client3 = new MongoClient(MONGO_URI, options);
 const db3 = client3.db("planner");
 
@@ -158,8 +164,8 @@ const getUserTrips = async (req, res) => {
   // }
 
   try {
-    await client.connect();
-    const result = await db
+    await client4.connect();
+    const result = await db4
       .collection("trips")
       .find({ userId: user })
       .toArray();
@@ -191,8 +197,8 @@ const getTripById = async (req, res) => {
   // }
 
   try {
-    await client.connect();
-    const result = await db.collection("trips").findOne({ _id: ObjectId(id) });
+    await client5.connect();
+    const result = await db5.collection("trips").findOne({ _id: ObjectId(id) });
     if (!result) {
       res
         .status(404)
