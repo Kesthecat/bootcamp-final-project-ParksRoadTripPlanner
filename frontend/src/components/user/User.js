@@ -4,6 +4,8 @@ import styled, { keyframes } from "styled-components";
 
 import { Loading } from "../Loading";
 import avatar from "../../assets/000019.jpg";
+import { useContext } from "react";
+import { FlagContext } from "../hooks/Flags";
 
 export const User = () => {
   const { id } = useParams();
@@ -12,6 +14,7 @@ export const User = () => {
   const [isWaiting, setIsWaiting] = useState(true);
   const [delMsg, setDelMsg] = useState(null);
   const [clicked, setClicked] = useState(false);
+  const { deletedTripName, setDeletedTripName } = useContext(FlagContext);
 
   let history = useHistory();
 
@@ -38,8 +41,9 @@ export const User = () => {
       });
   }, []);
 
-  const handleDelete = (id) => {
-    fetch(`/trip/${id}`, {
+  const handleDelete = (trip) => {
+    setDeletedTripName(trip.name);
+    fetch(`/trip/${trip._id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -62,6 +66,7 @@ export const User = () => {
 
   if (isWaiting) return <Loading />;
 
+  console.log("deletedTripName", deletedTripName);
   return (
     <Container>
       <Container className="avatar">
@@ -96,12 +101,17 @@ export const User = () => {
                       <StyledNavLink to={`/trip/${trip._id}`}>
                         {trip.tripName}
                       </StyledNavLink>
-                      <StyledBtn onClick={() => handleDelete(trip._id)}>
+                      <StyledBtn onClick={() => handleDelete(trip)}>
                         x
                       </StyledBtn>
                     </TripWrapper>
                   );
                 })}
+              {deletedTripName !== null && (
+                <StyledP>
+                  {deletedTripName} trip was successfully deleted.
+                </StyledP>
+              )}
               {delMsg && <StyledP>{delMsg}</StyledP>}
             </>
           </TripsContainer>

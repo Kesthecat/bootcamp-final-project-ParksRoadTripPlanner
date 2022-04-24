@@ -1,66 +1,25 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams, NavLink, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
-import { intervalToDuration } from "date-fns";
 
-import { bootstrapURLKeys } from "../map/GoogleMapKey";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { Loading } from "../Loading";
-import { LocationMarker } from "../map/LocationMarker";
 import { FlagContext } from "../hooks/Flags";
-import { DepartDestiMarker } from "../map/DepartDestiMarker";
-import { UserContext } from "../hooks/userContext";
+import { TripInfo } from "./TripInfo";
+import { TripMap } from "./TripMap";
 
 export const Trip = () => {
   const { id } = useParams();
   const [trip, setTrip] = useState(null);
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
-  const [activeModalId, setActiveModalId] = useState(null);
-  const [pinnedModalId, setPinnedModalId] = useState(null);
 
-  const {
-    setMap,
-    setMaps,
-    setDeparture,
-    setDestination,
-    setWaypoints,
-    waypoints,
-    departure,
-    destination,
-    nukeMap,
-  } = useContext(GMAPContext);
+  const { setDeparture, setDestination, setWaypoints, nukeMap } =
+    useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
-  const { userId } = useContext(UserContext);
 
   let history = useHistory();
-
-  const handleApiLoaded = (map, maps) => {
-    setMaps(maps);
-    setMap(map);
-  };
-
-  const handleDelete = (id) => {
-    fetch(`/trip/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message !== "success") {
-          history.push("/Error");
-          return;
-        }
-        history.push(`/user/${userId}`);
-      })
-      .catch((error) => {
-        history.push("/Error");
-      });
-  };
 
   useEffect(() => {
     setNotTripPage(false);
@@ -70,10 +29,10 @@ export const Trip = () => {
       .then((data) => {
         // console.log("data", data );
         if (data.message !== "success") {
-          setNotTripPage(true);
           history.push("/Error");
           return;
         }
+        setNotTripPage(false);
         setDestination(data.data.destination);
         setDeparture(data.data.departure);
         setLegsInfo(data.data.routeMetrics);
@@ -96,131 +55,12 @@ export const Trip = () => {
 
   if (!trip) return <Loading />;
 
-  const sumDistance =
-    legsInfo.reduce((acc, cur) => acc + cur.distance.value, 0) / 100;
-
-  const durationSumSec = legsInfo.reduce(
-    (acc, cur) => acc + cur.duration.value,
-    0
-  );
-  const durationObj = intervalToDuration({
-    start: 0,
-    end: durationSumSec * 1000,
-  });
-
   return (
     <>
       <TripName>{trip.tripName}</TripName>
       <Container>
-        <InfoContainer>
-          <Wrapper className="trip">
-            <InfoWrapper className="departDesti">
-              <p>
-                <StyledSpan>Departure: </StyledSpan>
-                {trip.departure.name}
-              </p>
-            </InfoWrapper>
-            <InfoWrapper className="stopInfo">
-              <p>Driving Distance: {legsInfo[0].distance.text}</p>
-              <p>Driving Time: {legsInfo[0].duration.text}</p>
-            </InfoWrapper>
-            <Wrapper className="waypoints">
-              {hasStops &&
-                waypoints.map((waypoint, i) => {
-                  return (
-                    <Wrapper key={waypoint._id}>
-                      <InfoWrapper
-                        style={{
-                          width: "350px",
-                          backgroundColor: "var(--color-secondary)",
-                        }}
-                      >
-                        <StyledSpan>Stop {i + 1}: </StyledSpan>
-                        <NavLink to={`/parks/${waypoint._id}`}>
-                          {waypoint.name}
-                        </NavLink>
-                      </InfoWrapper>
-                      <InfoWrapper className="stopInfo">
-                        <p>Driving Distance: {legsInfo[i + 1].distance.text}</p>
-                        <p>Driving Time: {legsInfo[i + 1].duration.text}</p>
-                      </InfoWrapper>
-                    </Wrapper>
-                  );
-                })}
-            </Wrapper>
-            <InfoWrapper className="departDesti">
-              <p>
-                <StyledSpan>Destination: </StyledSpan>
-                {trip.destination.name}
-              </p>
-            </InfoWrapper>
-          </Wrapper>
-          <Wrapper className="driving">
-            <p>
-              <StyledSpan>Total Distance: </StyledSpan>
-              {sumDistance} km
-            </p>
-            <InfoWrapper className="drivingTime">
-              <p>
-                <StyledSpan>Driving duration: </StyledSpan>
-              </p>
-              <DurationWrapper>
-                {durationObj.days !== 0 && <p>{durationObj.days} days(s)</p>}
-                {durationObj.hours !== 0 && <p>{durationObj.hours} hour(s)</p>}
-                {durationObj.minutes !== 0 && (
-                  <p>{durationObj.minutes} minutes</p>
-                )}
-              </DurationWrapper>
-            </InfoWrapper>
-          </Wrapper>
-          <Wrapper className="buttons">
-            <StyledBtn disabled={true}>Edit</StyledBtn>
-            <StyledBtn onClick={() => handleDelete(trip._id)}>Delete</StyledBtn>
-            <StyledBtn disabled={true}>Share</StyledBtn>
-          </Wrapper>
-        </InfoContainer>
-        <MapContainer>
-          <GoogleMapReact
-            bootstrapURLKeys={bootstrapURLKeys}
-            defaultCenter={{ lat: 51.90994, lng: -100.50986 }}
-            defaultZoom={4}
-            yesIWantToUseGoogleMapApiInternals
-            onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-          >
-            {!!departure && (
-              <DepartDestiMarker
-                lat={departure.coordinates.lat}
-                lng={departure.coordinates.lng}
-              />
-            )}
-            {!!destination && (
-              <DepartDestiMarker
-                lat={destination.coordinates.lat}
-                lng={destination.coordinates.lng}
-              />
-            )}
-            {waypoints.map((waypoint, i) => {
-              return (
-                <LocationMarker
-                  key={i}
-                  lat={waypoint.coordinates.lat}
-                  lng={waypoint.coordinates.lng}
-                  park={waypoint}
-                  setIsShown={(bool) =>
-                    setActiveModalId(bool ? waypoint._id : null)
-                  }
-                  isShown={
-                    waypoint._id === activeModalId ||
-                    waypoint._id === pinnedModalId
-                  }
-                  setIsPinned={(bool) =>
-                    setPinnedModalId(bool ? waypoint._id : null)
-                  }
-                />
-              );
-            })}
-          </GoogleMapReact>
-        </MapContainer>
+        <TripInfo legsInfo={legsInfo} trip={trip} hasStops={hasStops} />
+        <TripMap />
       </Container>
     </>
   );
@@ -233,70 +73,4 @@ const TripName = styled.h1`
 `;
 const Container = styled.div`
   display: flex;
-`;
-const StyledSpan = styled.span`
-  font-weight: bold;
-`;
-const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 15px 25px;
-`;
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  &.trip {
-    padding: 15px;
-    background-color: var(--color-main);
-  }
-  &.driving {
-    width: fit-content;
-    padding: 15px;
-    margin-left: 50px;
-  }
-  &.buttons {
-    flex-direction: row;
-    justify-content: space-between;
-    border-top: 2px solid var(--color-secondary);
-    padding-top: 15px;
-  }
-`;
-const InfoWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 5px 0;
-  padding: 10px;
-
-  &.departDesti {
-    width: 350px;
-    background-color: var(--color-secondary);
-  }
-  &.stopInfo {
-    margin-left: 50px;
-    font-size: 20px;
-    background-color: var(--color-tertiary);
-  }
-  &.drivingTime {
-    gap: 0px;
-    padding: 0;
-  }
-`;
-const StyledBtn = styled.button`
-  height: 45px;
-  font-size: 20px;
-  padding: 10px;
-  background-color: ${(props) =>
-    props.disabled ? "var(--color-tertiary)" : "var(--color-main)"};
-`;
-const MapContainer = styled.div`
-  height: 600px;
-  width: 820px;
-  margin-top: 15px;
-`;
-const DurationWrapper = styled.div`
-  padding-top: 5px;
-  padding-left: 162px;
-  margin-top: -24px;
 `;
