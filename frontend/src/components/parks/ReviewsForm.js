@@ -2,11 +2,11 @@ import { useState } from "react";
 import styled from "styled-components";
 import moment from "moment";
 import { useContext } from "react";
-import { UserContext } from "./hooks/userContext";
+import { UserContext } from "../hooks/userContext";
 import { useHistory } from "react-router-dom";
 const CHAR_LIMIT = 150;
 
-export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
+export const ReviewForm = ({ parkId, setNewReview }) => {
   const { username } = useContext(UserContext);
   const [review, setReview] = useState(null);
   const [overLimit, setOverLimit] = useState(false);
@@ -43,7 +43,6 @@ export const ReviewForm = ({ parkId, setHasNewReview, setNewReview }) => {
           setIsWaiting(false);
           history.push("/Error");
         } else {
-          setHasNewReview(true);
           setNewReview(data.data);
           setIsWaiting(false);
           setReview("");
