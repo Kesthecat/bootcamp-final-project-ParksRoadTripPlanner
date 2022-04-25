@@ -1,9 +1,6 @@
 import styled, { keyframes } from "styled-components";
-import GoogleMapReact from "google-map-react";
-import { bootstrapURLKeys } from "./GoogleMapKey";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 
-import { LocationMarker } from "./LocationMarker";
 import { ParksListContext } from "../hooks/ParksContext";
 import { Loading } from "../Loading";
 import { DepartureDestination } from "./DepartureDestination";
@@ -11,28 +8,16 @@ import { Waypoints } from "./Waypoints";
 import { GMAPContext } from "../hooks/GMAPContext";
 import { UserContext } from "../hooks/userContext";
 import { CreateTrip } from "./CreateTrip";
-import { FlagContext } from "../hooks/Flags";
 import { NavLink } from "react-router-dom";
 import { RouteMetrics } from "./RouteMetrics";
-import { DepartDestiMarker } from "./DepartDestiMarker";
+import { MainGMAP } from "./MainGMAP";
 
 ///////////////////////////////////////////////////////////////
 
 export const MainMap = () => {
   const { parksList } = useContext(ParksListContext);
-  const { setMaps, setMap, nukeMap, departure, destination } =
-    useContext(GMAPContext);
+  const { nukeMap } = useContext(GMAPContext);
   const { username } = useContext(UserContext);
-  const { setNotTripPage } = useContext(FlagContext);
-
-  const [activeModalId, setActiveModalId] = useState(null);
-  const [pinnedModalId, setPinnedModalId] = useState(null);
-
-  const handleApiLoaded = (map, maps) => {
-    setMaps(maps);
-    setMap(map);
-    setNotTripPage(true);
-  };
 
   useEffect(() => {
     return () => nukeMap();
@@ -63,43 +48,7 @@ export const MainMap = () => {
           </StyledH2>
         </SearchContainer>
       )}
-      <MapContainer>
-        <GoogleMapReact
-          bootstrapURLKeys={bootstrapURLKeys}
-          defaultCenter={{ lat: 52.87927, lng: -91.47617 }}
-          defaultZoom={4}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
-        >
-          {parksList.map((park, i) => {
-            return (
-              <LocationMarker
-                key={park._id + i}
-                lat={park.coordinates.lat}
-                lng={park.coordinates.lng}
-                park={park}
-                setIsShown={(bool) => setActiveModalId(bool ? park._id : null)}
-                isShown={
-                  park._id === activeModalId || park._id === pinnedModalId
-                }
-                setIsPinned={(bool) => setPinnedModalId(bool ? park._id : null)}
-              />
-            );
-          })}
-          {!!departure && (
-            <DepartDestiMarker
-              lat={departure.coordinates.lat}
-              lng={departure.coordinates.lng}
-            />
-          )}
-          {!!destination && (
-            <DepartDestiMarker
-              lat={destination.coordinates.lat}
-              lng={destination.coordinates.lng}
-            />
-          )}
-        </GoogleMapReact>
-      </MapContainer>
+      <MainGMAP />
     </Container>
   );
 };
@@ -143,8 +92,4 @@ const StyledNavLink = styled(NavLink)`
   font-size: 35px;
   color: var(--color-text-hover);
   animation: ${flashing} 2s ease-in-out infinite;
-`;
-const MapContainer = styled.div`
-  height: 900px;
-  width: 855px;
 `;

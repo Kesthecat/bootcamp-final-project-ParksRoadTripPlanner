@@ -9,8 +9,10 @@ export const About = () => {
           <StyledP>
             Version 1.1 of this website was created in the context of my
             Concordia Full-Stack Web Developper Bootcamp final project.
-            Completion date: April 19th, 2022
+            Technologies used: React, JavaScript, CSS, Node.js, Express, and
+            MongoDB. Completion date: April 19th, 2022
           </StyledP>
+          <StyledP>Version 1.2: clearing up codes after the BootCamp.</StyledP>
         </InnerContainer>
         <InnerContainer>
           <Styledh4>Library and APIs used:</Styledh4>

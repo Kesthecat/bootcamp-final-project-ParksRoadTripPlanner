@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import GoogleMapReact from "google-map-react";
 import styled from "styled-components";
 
 import { GMAPContext } from "../hooks/GMAPContext";
@@ -11,6 +10,8 @@ import { TripMap } from "./TripMap";
 
 export const Trip = () => {
   const { id } = useParams();
+  let history = useHistory();
+
   const [trip, setTrip] = useState(null);
   const [hasStops, setHasStops] = useState(false);
   const [legsInfo, setLegsInfo] = useState([]);
@@ -19,15 +20,12 @@ export const Trip = () => {
     useContext(GMAPContext);
   const { setNotTripPage } = useContext(FlagContext);
 
-  let history = useHistory();
-
   useEffect(() => {
     setNotTripPage(false);
 
     fetch(`/trip/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        // console.log("data", data );
         if (data.message !== "success") {
           history.push("/Error");
           return;

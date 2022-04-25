@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 import { Loading } from "../Loading";
 import avatar from "../../assets/000019.jpg";
-import { useContext } from "react";
-import { FlagContext } from "../hooks/Flags";
 
 export const User = () => {
   const { id } = useParams();
@@ -14,7 +12,6 @@ export const User = () => {
   const [isWaiting, setIsWaiting] = useState(true);
   const [delMsg, setDelMsg] = useState(null);
   const [clicked, setClicked] = useState(false);
-  const { deletedTripName, setDeletedTripName } = useContext(FlagContext);
 
   let history = useHistory();
 
@@ -42,7 +39,6 @@ export const User = () => {
   }, []);
 
   const handleDelete = (trip) => {
-    setDeletedTripName(trip.name);
     fetch(`/trip/${trip._id}`, {
       method: "DELETE",
       headers: {
@@ -56,6 +52,7 @@ export const User = () => {
           setDelMsg(data.message);
           return;
         }
+        window.alert("Trip was successfully deleted.");
         setUserTrips(userTrips.filter((trip) => trip._id !== id));
       })
       .catch((error) => {
@@ -66,7 +63,6 @@ export const User = () => {
 
   if (isWaiting) return <Loading />;
 
-  console.log("deletedTripName", deletedTripName);
   return (
     <Container>
       <Container className="avatar">
@@ -86,14 +82,16 @@ export const User = () => {
             <StyledP>Location: Montreal</StyledP>
           </TopLeft>
           <TopRight>
-            <StyledP style={{ opacity: "0.5" }}>Manage Profile</StyledP>
+            <StyledBtn className="manage" disabled={true}>
+              Manage Profile
+            </StyledBtn>
           </TopRight>
         </Container>
         <BottomContainer>
           <Styledh2 className="trips">My Trips</Styledh2>
           <TripsContainer>
             <>
-              {userTrips.length < 0 && <StyledP>No saved trip.</StyledP>}
+              {userTrips.length === 0 && <StyledP>No saved trip.</StyledP>}
               {userTrips.length > 0 &&
                 userTrips.map((trip) => {
                   return (
@@ -107,11 +105,6 @@ export const User = () => {
                     </TripWrapper>
                   );
                 })}
-              {deletedTripName !== null && (
-                <StyledP>
-                  {deletedTripName} trip was successfully deleted.
-                </StyledP>
-              )}
               {delMsg && <StyledP>{delMsg}</StyledP>}
             </>
           </TripsContainer>
@@ -201,5 +194,13 @@ const StyledBtn = styled.button`
   margin-left: 35px;
   height: 30px;
   width: 30px;
+  &.manage {
+    background-color: none;
+    opacity: 0.5;
+    font-size: 20px;
+    width: fit-content;
+    padding: 10px;
+    height: 40px;
+  }
 `;
 const StyledNavLink = styled(NavLink)``;

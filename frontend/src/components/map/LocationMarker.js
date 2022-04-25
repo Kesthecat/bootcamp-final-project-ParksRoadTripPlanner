@@ -7,7 +7,8 @@ import { GMAPContext } from "../hooks/GMAPContext";
 import { FlagContext } from "../hooks/Flags";
 
 export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
-  const { waypoints, setWaypoints } = useContext(GMAPContext);
+  const { waypoints, setWaypoints, departure, destination } =
+    useContext(GMAPContext);
   const { notTripPage } = useContext(FlagContext);
 
   const handleAddWaypoint = () => {
@@ -43,11 +44,14 @@ export const LocationMarker = ({ park, isShown, setIsShown, setIsPinned }) => {
                     <AiOutlineMinus />
                   </StyledBtn>
                 ) : (
-                  <StyledBtn onClick={() => handleAddWaypoint()}>
+                  <StyledBtn
+                    onClick={() => handleAddWaypoint()}
+                    disabled={!departure || !destination}
+                  >
                     <GiHealthNormal />
                   </StyledBtn>
                 )}
-                <StyledBtn>
+                <StyledBtn disabled={true}>
                   <GiHeartPlus />
                 </StyledBtn>
               </BtnContainer>
@@ -86,7 +90,8 @@ const BtnContainer = styled.div`
   gap: 10px;
 `;
 const StyledBtn = styled.button`
-  background-color: rgba(245, 203, 92);
+  background-color: ${(props) =>
+    props.disabled ? "var(--color-tertiary)" : "var(--color-main)"};
 `;
 const Modal = styled.div`
   position: absolute;

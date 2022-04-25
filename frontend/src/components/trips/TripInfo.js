@@ -5,16 +5,13 @@ import { intervalToDuration } from "date-fns";
 
 import { UserContext } from "../hooks/userContext";
 import { StopsMetrics } from "./StopsMetrics";
-import { FlagContext } from "../hooks/Flags";
 
 export const TripInfo = ({ legsInfo, trip, hasStops }) => {
   const { userId } = useContext(UserContext);
-  const { setDeletedTripName } = useContext(FlagContext);
 
   let history = useHistory();
 
   const handleDelete = (id) => {
-    setDeletedTripName(trip.name);
     fetch(`/trip/${id}`, {
       method: "DELETE",
       headers: {
@@ -28,6 +25,7 @@ export const TripInfo = ({ legsInfo, trip, hasStops }) => {
           history.push("/Error");
           return;
         }
+        window.alert("Trip was successfully deleted.");
         history.push(`/user/${userId}`);
       })
       .catch((error) => {

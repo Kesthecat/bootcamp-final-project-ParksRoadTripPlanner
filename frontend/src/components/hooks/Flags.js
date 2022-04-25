@@ -6,7 +6,6 @@ export const FlagContext = createContext();
 export const FlagsProvider = ({ children }) => {
   const [notTripPage, setNotTripPage] = useState(true);
   const [addedWaypoint, setAddedWaypoint] = useState(false);
-  const [deletedTripName, setDeletedTripName] = useState(null);
 
   return (
     <FlagContext.Provider
@@ -15,8 +14,6 @@ export const FlagsProvider = ({ children }) => {
         setNotTripPage,
         addedWaypoint,
         setAddedWaypoint,
-        deletedTripName,
-        setDeletedTripName,
       }}
     >
       {children}
