@@ -17,6 +17,7 @@ const ontario = require("./data/Ontario.json");
 const pei = require("./data/PEI.json");
 const saskatchewan = require("./data/Saskatchewan.json");
 const sepaq = require("./data/Sepaq.json");
+const nb = require("./data/NB.json");
 // const users = require("./data/users.json");
 const origin = require("./data/parksOrigin.json");
 
@@ -25,7 +26,7 @@ const batchImport = async () => {
   try {
     await client.connect();
     const db = client.db("planner");
-    const result = await db.collection("parks").insertMany(ontario);
+    const result = await db.collection("parks").insertMany(pei);
     console.log("done");
   } catch (err) {
     console.log("There was an error: ", err.message);

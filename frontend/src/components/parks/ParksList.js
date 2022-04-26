@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { ParksListContext } from "../hooks/ParksContext";
 import { Loading } from "../Loading";
 import { Logo } from "../ParksLogo";
+import { ToTopBtn } from "./ToTopBtn";
 
 export const ParksList = () => {
   const { origins, parksList } = useContext(ParksListContext);
@@ -13,25 +14,16 @@ export const ParksList = () => {
 
   return (
     <>
-      <StyledH1>Canada and Provincial Parks</StyledH1>
+      <TopContainer>
+        <ToTopBtn />
+      </TopContainer>
+      <StyledH1 id="top">Canada and Provincial Parks</StyledH1>
       <Logo />
-      {/* <ChoicesContainer> trying to have clickables to bring to the right section on page but hash link not working for me....
-        {origins.map((origin) => {
-          return (
-            <Link
-              to={{ hash: `#${origin}`, pathname: "/parks" }}
-              key={`link-${origin}`}
-            >
-              {origin}
-            </Link>
-          );
-        })}
-      </ChoicesContainer> */}
       <Container>
         {origins.map((origin) => {
           return (
             <ListContainer key={origin}>
-              <Origin id={origin}>{origin}</Origin>
+              <Origin id={origin.replaceAll(" ", "")}>{origin}</Origin>
               <LabelsContainer>
                 <LeftSide>
                   <Data>Park Name</Data>
@@ -76,16 +68,17 @@ export const ParksList = () => {
   );
 };
 
-///a little chaotic style-components.... i think less is needed...
+const TopContainer = styled.div`
+  position: fixed;
+  top: 83vh;
+  left: 85vw;
+`;
 const Container = styled.div``;
 const StyledH1 = styled.h1`
   margin-bottom: 15px;
   border-bottom: 1px solid var(--color-main);
   padding-bottom: 10px;
 `;
-// const ChoicesContainer = styled.div`
-//   border: 2px solid palevioletred;
-// `;
 const ListContainer = styled.div``;
 const Origin = styled.h2`
   padding-left: 15px;

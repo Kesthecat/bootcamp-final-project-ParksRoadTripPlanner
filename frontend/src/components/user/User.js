@@ -53,7 +53,7 @@ export const User = () => {
           return;
         }
         window.alert("Trip was successfully deleted.");
-        setUserTrips(userTrips.filter((trip) => trip._id !== id));
+        setUserTrips(userTrips.filter((userTrip) => userTrip._id !== trip._id));
       })
       .catch((error) => {
         // console.log(error.message);

@@ -1,4 +1,6 @@
+import { HashLink } from "react-router-hash-link";
 import styled from "styled-components";
+
 import alberta from "../assets/AL-logo.png";
 import BC from "../assets/BC-logo.jpg";
 import canada from "../assets/Canada-logo.jpg";
@@ -15,51 +17,73 @@ export const Logo = () => {
   return (
     <Container>
       <Container className="row">
-        <StyledImg
-          src={alberta}
-          alt="Alberta parks' logo"
-          className="alberta"
-        />
-        <StyledImg
-          src={BC}
-          alt="Bristish Columbia parks' logo"
-          className="bc"
-        />
-        <StyledImg src={canada} alt="Canada Parks' logo" className="canada" />
-        <StyledImg
-          src={manitoba}
-          alt="Manitoba parks' logo"
-          className="manitoba"
-        />
-        <StyledImg
-          src={newB}
-          alt="New Brunswick parks' logo"
-          className="newB"
-        />
-        <StyledImg
-          src={newLand}
-          alt="Newfoundland and Labrador parks' logo"
-          className="newLand"
-        />
+        <HashLink smooth to="/parks/#CanadaParks">
+          <StyledImg src={canada} alt="Canada Parks' logo" className="canada" />
+        </HashLink>
+        <HashLink smooth to="/parks/#Alberta">
+          <StyledImg
+            src={alberta}
+            alt="Alberta parks' logo"
+            className="alberta"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#BritishColumbia">
+          <StyledImg
+            src={BC}
+            alt="Bristish Columbia parks' logo"
+            className="bc"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#Manitoba">
+          <StyledImg
+            src={manitoba}
+            alt="Manitoba parks' logo"
+            className="manitoba"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#NewBrunswick">
+          <StyledImg
+            src={newB}
+            alt="New Brunswick parks' logo"
+            className="newB"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#NewfoundlandandLabrador">
+          <StyledImg
+            src={newLand}
+            alt="Newfoundland and Labrador parks' logo"
+            className="newLand"
+          />
+        </HashLink>
       </Container>
       <Container className="row">
-        <StyledImg
-          src={novaScotia}
-          alt="Nova Scotia parks' logo"
-          className="nova"
-        />
-        <StyledImg
-          src={ontario}
-          alt="Ontatio parks' logo"
-          className="ontario"
-        />
-        <StyledImg
-          src={pei}
-          alt="Prince Edward Island parks' logo"
-          className="pei"
-        />
-        <StyledImg src={sepaq} alt="Sepaq logo" className="sepaq" />
-        <StyledImg src={sask} alt="Saskatchewan" className="sask" />
+        <HashLink smooth to="/parks/#NovaScotia">
+          <StyledImg
+            src={novaScotia}
+            alt="Nova Scotia parks' logo"
+            className="nova"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#Ontario">
+          <StyledImg
+            src={ontario}
+            alt="Ontatio parks' logo"
+            className="ontario"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#PrinceEdwardIsland">
+          <StyledImg
+            src={pei}
+            alt="Prince Edward Island parks' logo"
+            className="pei"
+          />
+        </HashLink>
+        <HashLink smooth to="/parks/#Sepaq">
+          <StyledImg src={sepaq} alt="Sepaq logo" className="sepaq" />
+        </HashLink>
+        <HashLink smooth to="/parks/#Saskatchewas">
+          <StyledImg src={sask} alt="Saskatchewan" className="sask" />
+        </HashLink>
       </Container>
     </Container>
   );

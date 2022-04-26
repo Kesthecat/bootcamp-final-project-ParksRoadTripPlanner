@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Sugarloaf Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/sugarloaf-provincial-park-2020167",
+    "coordinates": { "lat": 48.05724890881464, "lng": -66.70216088551223 },
+    "hiking": "yes",
+    "swimming": "no",
+    "dog": "yes",
+    "introduction": "Situated in New Brunswick’s Appalachian Mountain region, Sugarloaf Provincial Park is the perfect destination for a family-friendly getaway or wilderness adventure."
+  },
+  {
+    "name": "Mount Carleton Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/mount-carleton-provincial-park-2020156",
+    "coordinates": { "lat": 47.43043134691277, "lng": -66.94713530349016 },
+    "hiking": "yes",
+    "swimming": "no",
+    "dog": "yes",
+    "introduction": "A challenging mix of Acadian woods and mountain peaks, Mount Carleton has more than 17,000 ha (42,000 acres) of pristine wilderness waiting for today’s explorer. Our habitat is home to more wild animal species than any other part of the province. At least 100 different types of birds and 30 species of mammals live here. A botanist’s eye will also discover a number of rare plants, including Alpine blueberry and Bigelow’s sedge on the slopes of Mount Carleton itself."
+  },
+  {
+    "name": "Mactaquac Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/mactaquac-provincial-park-2020167",
+    "coordinates": { "lat": 45.95570716340251, "lng": -66.89809359989859 },
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Mactaquac Provincial Park is a broad woodland and recreation complex along the scenic Saint John River in New Brunswick. You’ll find a variety of outdoor activities throughout the year in this riverside playground. Discover the beauty of this 525-ha (1,300-acre) masterpiece along one of the many walking trails (one of which is wheelchair accessible), and enjoy interpretive walks through our pristine beaver pond nature reserve. Or take the fun to new heights with TreeGO Mactaquac Aerial Adventure."
+  },
+  {
+    "name": "The Anchorage Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/the-anchorage-provincial-park-2020167",
+    "coordinates": { "lat": 44.66073676830818, "lng": -66.80643487103515 },
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "The Anchorage Provincial Park on Grand Manan Island, a prosperous and charming island in the Bay of Fundy, has been waiting for you. Discover natural attractions, exciting adventures and breathtaking scenery. With picturesque hiking and cycling trails, you will be able to learn about the geology of the island and the wildlife that resides there. Keep an eye out for the interpretive displays, birdwatching blinds, salmon cages and breaching whales in the nearby ocean. Explore our Red Point Trail boardwalk, which is fully accessible to wheelchairs, or any of our unique \"Grand Mananesque\" Long Pond, Great Pond or Bagley trails."
+  },
+  {
+    "name": "Herring Cove Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/herring-cove-provincial-park-2020156",
+    "coordinates": { "lat": 44.87726281616091, "lng": -66.92810159938846 },
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Herring Cove Provincial Park is a nature-lover’s island paradise located on Campobello Island on New Brunswick’s Bay of Fundy."
+  },
+  {
+    "name": "République Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/republique-provincial-park-2020167",
+    "coordinates": { "lat": 47.44091787975126, "lng": -68.3960134619433 },
+    "hiking": "yes",
+    "swimming": "no",
+    "dog": "yes",
+    "introduction": "République Provincial Park is a recreational park located on the shores of the Madawaska River. This 44-ha (108-acre) park offers over 150 campsites, 100 of which have electricity. You can even stay in one of our rustic shelters or Ch-A-Lets."
+  },
+  {
+    "name": "Parlee Beach Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/parlee-beach-provincial-park-2020155",
+    "coordinates": { "lat": 46.240008881174305, "lng": -64.50960195024979 },
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "One of North America’s finest beaches, Parlee boasts the warmest salt water in Canada and has been awarded the Blue Flag international eco-certification. Visit the charming Boutique Beausoleil or enjoy the Euston Park Patio while tasting its local food and microbrew on tap."
+  },
+  {
+    "name": "New River Beach Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/new-river-beach-provincial-park-2020167",
+    "coordinates": { "lat": 45.136758346594355, "lng": -66.52961546509981 },
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "New River Beach Provincial Park is the perfect spot to camp, admire breathtaking coastal islands and kayak the Bay of Fundy. The beaches and coastal trails at New River Beach abound with spectacular evidence of the natural formation of the bay’s high tides. Wade in the tidal pools, search for crabs, periwinkles, whelks and starfish. Enjoy the unsupervised saltwater beach, nature’s panorama of offshore islands, fishing boats and wildlife. Gulls, Eider ducks and cormorants… large, lustrous-black seabirds nest offshore and along the two circuits of hiking trails."
+  },
+  {
+    "name": "Murray Beach Provincial Park",
+    "camping": "yes",
+    "parkOrigin": "New Brunswick",
+    "website": "https://www.parcsnbparks.info/en/parks/murray-beach-provincial-park-2020167",
+    "coordinates": { "lat": 46.17930793900298, "lng": -63.97981770106555 },
+    "hiking": "yes",
+    "swimming": "yes",
+    "dog": "yes",
+    "introduction": "Murray Beach is an ideal spot to relax during your tour of the southeastern portion of New Brunswick's Acadian Coastal Drive. You'll want to take in the breathtaking views of sunrises and sunsets over the mighty Northumberland Strait, enjoy stunning vistas of the world-famous Confederation Bridge and visit the nearby Cape Jourimain Nature Centre. Birdwatchers will fall in love with the avian bounty to be found in this area."
+  }
+]
