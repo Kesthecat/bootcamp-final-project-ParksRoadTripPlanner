@@ -56,6 +56,15 @@ export const About = () => {
                 https://momentjs.com/
               </StyledA>
             </StyledLi>
+            <StyledLi>
+              react-router-hash-link from
+              <StyledA
+                href="https://www.npmjs.com/package/react-router-hash-link"
+                target="_blank"
+              >
+                https://www.npmjs.com/package/react-router-hash-link
+              </StyledA>
+            </StyledLi>
           </StyledUl>
         </InnerContainer>
       </Container>
