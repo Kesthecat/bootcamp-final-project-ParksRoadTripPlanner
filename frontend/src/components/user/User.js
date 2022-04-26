@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
