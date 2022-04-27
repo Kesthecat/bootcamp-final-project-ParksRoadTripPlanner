@@ -5,7 +5,8 @@ Final project for my Full-Stack Web Development Bootcamp completed in 2 weeks ti
 <h2>Pain points with current products</h2>
 I love road trip but there is currently no product that allows an user to visually plan a road trip from start to zero without using another website. Right now, one can use Google Maps to generate the route from departure point to destination point then use the "Parks" filter to see parks along the route. However, there is no distinction between a community park vs National parks vs pronvicial parks, and barely any National/provincial parks are displayed. 
 
-<p>There is also another product called [RoadTrippers](https://roadtrippers.com/) that allow user to plan a road trip along a rendered route and it provides lots of waypoints. Unfortunately, there are almost no Canadian data. </p>
+<p>&nbsp;</p>
+There is also another product called RoadTrippers (https://roadtrippers.com/) that allow user to plan a road trip along a rendered route and it provides lots of waypoints. Unfortunately, there are almost no Canadian data. 
 
 ![Existing Products](gif/whyMadeThis.gif)
 
@@ -26,7 +27,8 @@ Username and password are validated during sign in. The user is redirected after
 <h3>Trip Planning and Park Reviews</h3>
 User can now create a trip. The add button is still disabled as long as there are not departure and destination point. Route Rendering is also not possible. Waypoints are added directly from the park modal but removing the waypoint can be done with the button from the modal or on the waypoint lists. The route updates as waypoints changes which also modifies the driving metrics. A name is required to save the trip. 
 
-<p>A signed in user can also leave a review of maximun 150 characters on a specific park. If there are already existing reviews, the newest review will be shown first. </p>
+<p>&nbsp;</p>
+A signed in user can also leave a review of maximun 150 characters on a specific park. If there are already existing reviews, the newest review will be shown first.
 
 ![Trip creation and Review Leaving](gif/signedInFeatures.gif)
 
@@ -40,13 +42,8 @@ The only current function is the trip delete button. Other features are stretch 
 
 ![User page](gif/UserPageDeletingTrip.gif)
 
-<h3>Other Features</h3>As I have to create a web app from scratch, I had to manage both the backend and the frontend. Here are some hurdles I encountered. 
-
-1. Data Gathering
-As there is not public API for Canada and provincial parks available, I had to manually scrap all the required data which allowed me to format them in a way that is easy to use but I did not have the time to gather data for ALL parks in Canada. Parks that are not accessible by driving are also omitted as to goal is to plan a road trip and it also avoid the problem of road that were not renderable. Data were saved in google sheet and the extension Export Sheet Data was used to export into JSON files then batch imported to MongoDB through a batch import fonction in my backend. 
-
-2. Google Map API
-There are lots of opportunities to increase the quantity of functions: adding trips to the "Trip suggestions page", adding a filter to display parks according to provinces, activities, camping availability, etc., managing user's information, signing up, etc. 
+<h3>Other Features</h3>
+There are plenty other possible features to enhance the product such as completing the current disabled features, adding filters for park display, adding pictures for UI purpose, adding private campgrounds data and other activities data... There are plenty possibilities to increase the functionality of the product. 
 
 ![Other features](gif/OtherFeatures.gif)
 
@@ -66,17 +63,15 @@ Google Map documentation was very extensive and there example are in JavaScript 
 <p>-React</p>
 <p>-Node</p>
 <p>-Express</p>
-<p>-[Google Map API](https://developers.google.com/maps)</p>
-<p>-[Google-Map_React](https://www.npmjs.com/package/google-map-react)</p>
-<p>-[react-router-hash-link](https://www.npmjs.com/package/react-router-hash-link)</p>
-<p>-[React-Icon](https://react-icons.github.io/react-icons)</p>
-<p>-[date-fns](https://date-fns.org/)</p>
-<p>-[moment.js](https://momentjs.com/)</p>
+<p>-Google Map API (https://developers.google.com/maps)</p>
+<p>-Google-Map_React (https://www.npmjs.com/package/google-map-react)</p>
+<p>-react-router-hash-link https://www.npmjs.com/package/react-router-hash-link)</p>
+<p>-React-Icon https://react-icons.github.io/react-icons)</p>
+<p>-date-fns (https://date-fns.org/)</p>
+<p>-moment.js (https://momentjs.com/)</p>
 
 <h2>Author</h2>
 I was an occupational therapist for 8 years before deciding to do a career switch into tech by completing the Web Development Full-Stack Concordia Bootcamp. I went from 0 coding knowledge to creating a whole web app in 2 weeks after 12 intense weeks of learning. I plan on advincing my programming skills with learning TypeScript and SQL on the short term. I'm currently looking for my first opportunity to work as a frontend developer.  
-<p>[Profile](GitHub)</p>
-<p>[Email](mailto: twgwong@gmail.com)</p>
 
 <h2>Contribution</h2>
 Specials thanks to the intructors at Concordia Bootcamp for their help as well as my husband who provided after class hour assistance.
