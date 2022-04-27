@@ -43,7 +43,7 @@ The only current function is the trip delete button. Other features are stretch 
 ![User page](gif/UserPageDeletingTrip.gif)
 
 <h3>Other Features</h3>
-There are plenty other possible features to enhance the product such as completing the current disabled features, adding filters for park display, adding pictures for UI purpose, adding private campgrounds data and other activities data... There are plenty possibilities to increase the functionality of the product. 
+There are plenty other possible features to enhance the product such as completing the current disabled features, adding filters for park display, adding pictures for UI purpose, adding private campgrounds data and other activities data, replacing Google Map API with a free tier map service so that I can deploy the web app without worrying about fees...There are plenty possibilities to increase the functionality of the product. 
 
 ![Other features](gif/OtherFeatures.gif)
 
