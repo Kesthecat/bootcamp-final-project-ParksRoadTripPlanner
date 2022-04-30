@@ -81,7 +81,7 @@ export const Logo = () => {
         <HashLink smooth to="/parks/#Sepaq">
           <StyledImg src={sepaq} alt="Sepaq logo" className="sepaq" />
         </HashLink>
-        <HashLink smooth to="/parks/#Saskatchewas">
+        <HashLink smooth to="/parks/#Saskatchewan">
           <StyledImg src={sask} alt="Saskatchewan" className="sask" />
         </HashLink>
       </Container>
