@@ -1,31 +1,26 @@
 <h1> Canada Road Trip Planner</h1>
-Final project for my Full-Stack Web Development Bootcamp completed in 2 weeks timeframe to showcase my newly learned HTML, CSS, React, Node.js, Express, HTTP methods and MongoDB skills. 
+This is my full-stack Web Development course Final project to showcase my newly learned HTML, CSS, React, Node.js, Express, HTTP methods and MongoDB skills. 
 
 
-<h2>Pain points with current products</h2>
-I love road trip but there is currently no product that allows an user to visually plan a road trip from start to zero without using another website. Right now, one can use Google Maps to generate the route from departure point to destination point then use the "Parks" filter to see parks along the route. However, there is no distinction between a community park vs National parks vs pronvicial parks, and barely any National/provincial parks are displayed. 
+<h2>Problems with current products</h2>
+I love doing road trip visiting National and provincial parks but there is currently no product that allows an user to visually plan a road trip from start to finish without using another website. One can use Google Maps to generate the route from departure point to destination point then use the "Parks" filter to see parks along the route. However, there is no distinction between a community park vs National parks vs pronvicial parks, and barely any National/provincial parks are displayed. 
 
 <p>&nbsp;</p>
-There is also another product called RoadTrippers (https://roadtrippers.com/) that allow user to plan a road trip along a rendered route and it provides lots of waypoints. Unfortunately, there are almost no Canadian data. 
+There is also another product called RoadTrippers (https://roadtrippers.com/) that allows user to plan a road trip along a rendered route and it provides lots of waypoints. Unfortunately, there are almost no Canadian data. 
 
 ![Existing Products](gif/whyMadeThis.gif)
 
 
 <h2>Solution: Canada Road Trip Planner</h2>
-My product includes Canada level and provincial level parks across Canada and allow user to render a route from an entered departure point and destination point with Google Map, adds waypoints from parks markers on the map which will render the new route accordingly then save this trip. This provides an overall visual planning process as well as a visual result. User can then manage their trip on the user page. 
+My product includes federal and provincial parks across Canada and allows user to render a route from an entered departure point and destination point, to add waypoints from park markers on the map which will render the new route accordingly and save the trip. This provides an overall visual planning process as well as a visual result. User can then manage their trips on the user page. 
 
 <h3>Features before Sign In</h3>
-Before signing in, the list of parks as well as the visual placement of the paks on the map are available but any other features are only available upon signed in. The waypoint adding button is disabled and it is not possible to leave a review on 
+Before signing in, the list of parks as well as the visual placement of the paks on the map are available but any other features are only available upon signed in. It is not possible to add a park as waypoint as the button is disabled and it is not possible to leave a review on a specific park. 
 
 ![Not signed in features](gif/NotSignedIn.gif)
 
-<h3>Sign In process</h3>
-Username and password are validated during sign in. The user is redirected after the sign in process and can then make a trip. 
-
-![Sign In](gif/signInProcedure.gif)
-
 <h3>Trip Planning and Park Reviews</h3>
-User can now create a trip. The add button is still disabled as long as there are not departure and destination point. Route Rendering is also not possible. Waypoints are added directly from the park modal but removing the waypoint can be done with the button from the modal or on the waypoint lists. The route updates as waypoints changes which also modifies the driving metrics. A name is required to save the trip. 
+A singed in user can create a trip. The add button is still disabled as long as there are not departure and destination point. Route Rendering is also not possible. Removing the waypoint can be done with the button from the modal or on the waypoint lists. The route updates as waypoints changes which also modifies the driving metrics. 
 
 <p>&nbsp;</p>
 A signed in user can also leave a review of maximun 150 characters on a specific park. If there are already existing reviews, the newest review will be shown first.
@@ -33,12 +28,12 @@ A signed in user can also leave a review of maximun 150 characters on a specific
 ![Trip creation and Review Leaving](gif/signedInFeatures.gif)
 
 <h3>Viewing a saved trip</h3>
-The user is redirected to the trip details page once a trip is successfully saved. A trip can also be access from the user's page. The trip page provides driving metrics between stops as well as the total driving metrics, the route displayed on Google Map and the park waypoints are clickable links that bring the user to the park page. Only the Delete button works at this point. 
+The user is redirected to the trip details page once a trip is successfully saved. A trip can also be access from the user's page. The trip page provides driving metrics between stops as well as the total driving metrics, the route displayed on Google Map and the park waypoints are clickable links that bring the user to the park page. 
 
 ![Trip page](gif/TripInfoAndDeleting.gif)
 
 <h3>User page</h3>
-The only current function is the trip delete button. Other features are stretch goals for now. 
+User's saved trips can be deleted from this page. 
 
 ![User page](gif/UserPageDeletingTrip.gif)
 
