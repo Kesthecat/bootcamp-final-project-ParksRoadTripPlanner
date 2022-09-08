@@ -66,7 +66,7 @@ Google Map documentation was very extensive and there example are in JavaScript 
 <p>-moment.js (https://momentjs.com/)</p>
 
 <h2>Author</h2>
-I was an occupational therapist for 8 years before deciding to do a career switch into tech by completing the Web Development Full-Stack Concordia Bootcamp. I went from 0 coding knowledge to creating a whole web app in 2 weeks after 12 intense weeks of learning. I plan on advincing my programming skills with learning TypeScript and SQL on the short term. I'm currently looking for my first opportunity to work as a frontend developer. Due to my background in therapy that was focused on enabling people to accomplish their desired taks in an independent and safe manner, it is a second nature for me to ensure that all products provide great usability with minimal to no pain points. 
+I'm a full stack web developer with a background in occupational therapist. I went from 0 coding knowledge to creating a whole web app in 2 weeks after 12 intense weeks of learning with Concordia Bootcamps. I plan on advincing my programming skills with learning TypeScript and SQL on the short term. I'm currently looking for my first opportunity to work as a frontend developer. Due to my background in therapy that was focused on enabling people to accomplish their desired taks in an independent and safe manner, it is a second nature for me to ensure that all products provide great usability with minimal to no pain points. 
 
 <h2>Contribution</h2>
 Specials thanks to the intructors at Concordia Bootcamp for their help as well as my husband who provided after class hour assistance.
